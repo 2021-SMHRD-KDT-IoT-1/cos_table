@@ -1,0 +1,2 @@
+rootProject.name = "3rd_cos_table"
+include ':app'
