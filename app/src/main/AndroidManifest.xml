@@ -9,12 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table">
-        <activity android:name=".MainActivity">
+        <activity android:name=".cos_intro_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".cos_login" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 
