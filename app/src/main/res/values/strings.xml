@@ -3,4 +3,15 @@
 
     <!--membership.xml-->
     <string name=""
+
+    <!-- cos_intro_activity.xml -->
+    <string name="btn_go_login">로그인</string>
+    <string name="btn_go_join">회원가입</string>
+
+    <!-- cos_login.xml -->
+    <string name="edt_login_id">ID 입력</string>
+    <string name="edt_login_pw">PW 입력</string>
+    <string name="btn_login">로그인</string>
+
+
 </resources>
