@@ -16,6 +16,8 @@ public class MembershipActivity extends AppCompatActivity {
     TextView tv_skintype,tv_ck_mytype,tv_ck_sensitive,tv_Q1,tv_Q2;
     Button btn_dry,btn_normal,btn_oily,btn_combi,btn_mem_join;
 
+
+
     boolean isClicked=false;
     //boolean isClicked=false;
 
@@ -37,6 +39,19 @@ public class MembershipActivity extends AppCompatActivity {
         btn_oily=findViewById(R.id.btn_oily);
         btn_combi=findViewById(R.id.btn_combi);
         btn_mem_join=findViewById(R.id.btn_mem_join);
+
+
+        //피부타입 체크리스트로 이동하는거
+        //////////////////////////////////////////////////////////////
+        tv_skintype = (TextView) findViewById((R.id.tv_skintype));
+        tv_skintype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_skintest);    //피부타입 체크리스트로 보내주는 메소드
+            }
+        });
+        //////////////////////////////////////////////////////////////
+
 
 //        // 내피부타입
 //        tv_ck_mytype.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +113,10 @@ public class MembershipActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+
+
+
+
 
     }
 }
