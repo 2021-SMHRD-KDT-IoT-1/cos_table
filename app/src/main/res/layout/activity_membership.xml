@@ -7,67 +7,70 @@
     tools:context=".MembershipActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edt_mem_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        android:text="@string/edt_mem_id"
+        app:layout_constraintBottom_toTopOf="@+id/edt_mem_pw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/edt_mem_pwck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="@string/edt_mem_pwck"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/edt_mem_pw"
+        app:layout_constraintStart_toStartOf="@+id/edt_mem_pw"
+        app:layout_constraintTop_toBottomOf="@+id/edt_mem_pw" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/edt_mem_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:text="@string/edt_mem_pw"
+        app:layout_constraintBottom_toTopOf="@+id/edt_mem_pwck"
+        app:layout_constraintEnd_toEndOf="@+id/edt_mem_id"
+        app:layout_constraintStart_toStartOf="@+id/edt_mem_id"
+        app:layout_constraintTop_toBottomOf="@+id/edt_mem_id" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_skintype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginEnd="312dp"
         android:layout_marginRight="312dp"
-        android:text="TextView"
+        android:text="@string/tv_skintype"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_ck_mytype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:text="TextView"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/tv_ck_mytype"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_combi" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_ck_sensitive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -75,62 +78,21 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="304dp"
         android:layout_marginRight="304dp"
-        android:text="TextView"
+        android:text="@string/tv_ck_sensitive"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_mem_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/btn_mem_join"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="7dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_Q2"
+        app:layout_constraintStart_toStartOf="@+id/tv_Q2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Q2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -140,27 +102,27 @@
         app:layout_constraintGuide_percent="0.35" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_Q1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/tv_Q1"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Q2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ck_sensitive"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_Q2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/tv_Q2"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_mem_join"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Q1"
+        app:layout_constraintStart_toStartOf="@+id/tv_Q1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Q1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -168,5 +130,49 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.55" />
+
+    <Button
+        android:id="@+id/btn_dry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_dry"
+        app:layout_constraintEnd_toStartOf="@+id/btn_normal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_skintype" />
+
+    <Button
+        android:id="@+id/btn_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_dry"
+        app:layout_constraintEnd_toStartOf="@+id/btn_oily"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_dry"
+        app:layout_constraintTop_toTopOf="@+id/btn_dry" />
+
+    <Button
+        android:id="@+id/btn_oily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_oily"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_normal"
+        app:layout_constraintEnd_toStartOf="@+id/btn_combi"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_normal"
+        app:layout_constraintTop_toTopOf="@+id/btn_normal" />
+
+    <Button
+        android:id="@+id/btn_combi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_combi"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_oily"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_oily"
+        app:layout_constraintTop_toTopOf="@+id/btn_oily" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

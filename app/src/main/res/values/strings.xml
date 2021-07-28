@@ -2,7 +2,25 @@
     <string name="app_name">3rd_cos_table</string>
 
     <!--membership.xml-->
-    <string name=""
+    <string name="edt_mem_id">ID</string>
+    <string name="edt_mem_pw">PW</string>
+    <string name="edt_mem_pwck">PW 확인</string>
+    <string name="tv_skintype">피부타입</string>
+    <string name="btn_dry">건성</string>
+    <string name="btn_normal">중성</string>
+    <string name="btn_oily">지성</string>
+    <string name="btn_combi">복합성</string>
+    <string name="tv_ck_mytype">내 피부타입이 궁금하다면 ? </string>
+    <string name="tv_ck_sensitive">민감성체크</string>
+    <string name="tv_Q1"> 질문 1</string>
+    <string name="tv_Q2"> 질문 2</string>
+    <string name="btn_mem_join">가입 완료</string>
+
+    <!--Skintest.xml-->
+    <string name="tv_test_skin">피부타입</string>
+    <string name="btn_test_no">NO</string>
+    <string name="btn_test_back">BACK</string>
+    <string name="btn_test_yes">YES</string>
 
     <!-- cos_intro_activity.xml -->
     <string name="btn_go_login">로그인</string>
