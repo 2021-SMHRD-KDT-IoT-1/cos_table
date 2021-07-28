@@ -16,11 +16,14 @@
     <string name="tv_Q2"> 질문 2</string>
     <string name="btn_mem_join">가입 완료</string>
 
+    <string name="tg_btn_dry">건성</string>
+
     <!--Skintest.xml-->
     <string name="tv_test_skin">피부타입</string>
     <string name="btn_test_no">NO</string>
     <string name="btn_test_back">BACK</string>
     <string name="btn_test_yes">YES</string>
+
 
     <!-- cos_intro_activity.xml -->
     <string name="btn_go_login">로그인</string>

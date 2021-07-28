@@ -16,8 +16,8 @@ public class MembershipActivity extends AppCompatActivity {
     TextView tv_skintype,tv_ck_mytype,tv_ck_sensitive,tv_Q1,tv_Q2;
     Button btn_dry,btn_normal,btn_oily,btn_combi,btn_mem_join;
 
-    boolean isClicked=false;
-    //boolean isClicked=false;
+//    boolean isClicked=false;
+//    //boolean isClicked=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +38,16 @@ public class MembershipActivity extends AppCompatActivity {
         btn_combi=findViewById(R.id.btn_combi);
         btn_mem_join=findViewById(R.id.btn_mem_join);
 
-//        // 내피부타입
-//        tv_ck_mytype.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               // Intent intent= new Intent(this,SkintestActivity.class);
-//
-//
-//            }
-//        });
-//
+        //내 피부타입이 궁금하다면? -- 버튼 클릭 시 자가진단 테스트로 이동
+        tv_ck_mytype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SkintestActivity.class);
+                startActivity(intent);
+            }
+        });
+        // -------------------------------------------------------------
+        
 //        //타입별 토글버튼 구현
 //        btn_dry.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -99,5 +99,13 @@ public class MembershipActivity extends AppCompatActivity {
 //            }
 //        });
 
+
     }
+
 }
+
+
+
+
+
+
