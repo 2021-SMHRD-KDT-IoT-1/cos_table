@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MembershipActivity extends AppCompatActivity {
     EditText edt_mem_id,edt_mem_pw,edt_mem_pwck;
     TextView tv_skintype,tv_ck_mytype,tv_ck_sensitive,tv_Q1,tv_Q2;
     Button btn_dry,btn_normal,btn_oily,btn_combi,btn_mem_join;
+    ToggleButton tg_btn_dry;
 
 
 
@@ -34,11 +36,12 @@ public class MembershipActivity extends AppCompatActivity {
         tv_ck_mytype=findViewById(R.id.tv_ck_mytype);
         tv_ck_sensitive=findViewById(R.id.tv_ck_sensitive);
 
-        btn_dry=findViewById(R.id.btn_dry);
-        btn_normal=findViewById(R.id.btn_normal);
-        btn_oily=findViewById(R.id.btn_oily);
-        btn_combi=findViewById(R.id.btn_combi);
+//        btn_dry=findViewById(R.id.btn_dry);
+//        btn_normal=findViewById(R.id.btn_normal);
+//        btn_oily=findViewById(R.id.btn_oily);
+//        btn_combi=findViewById(R.id.btn_combi);
         btn_mem_join=findViewById(R.id.btn_mem_join);
+
 
         //내 피부타입이 궁금하다면? -- 버튼 클릭 시 자가진단 테스트로 이동
         tv_ck_mytype.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +104,15 @@ public class MembershipActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+    public void onToggleClicked(View v){
+        boolean on = ((ToggleButton)v).isChecked();
+
+        if (on){
+            Toast.makeText(getApplicationContext(), "on", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "off", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

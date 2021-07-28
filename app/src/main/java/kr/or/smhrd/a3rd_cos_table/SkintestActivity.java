@@ -58,7 +58,6 @@ public class SkintestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tv_test_skin.setText("dddd");
-
             }
         });
         btn_test_no.setOnClickListener(new View.OnClickListener() {
