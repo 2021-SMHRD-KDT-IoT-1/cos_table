@@ -16,8 +16,10 @@ public class MembershipActivity extends AppCompatActivity {
     TextView tv_skintype,tv_ck_mytype,tv_ck_sensitive,tv_Q1,tv_Q2;
     Button btn_dry,btn_normal,btn_oily,btn_combi,btn_mem_join;
 
-//    boolean isClicked=false;
-//    //boolean isClicked=false;
+
+
+    boolean isClicked=false;
+    //boolean isClicked=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class MembershipActivity extends AppCompatActivity {
             }
         });
         // -------------------------------------------------------------
-        
+
 //        //타입별 토글버튼 구현
 //        btn_dry.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -98,7 +100,6 @@ public class MembershipActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-
 
     }
 
