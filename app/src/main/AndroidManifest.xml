@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table">
-        <activity android:name=".MainActivity">
+        <activity android:name=".LogoActivity"></activity>
+        <activity android:name=".SkintestActivity" />
+        <activity android:name=".MembershipActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
