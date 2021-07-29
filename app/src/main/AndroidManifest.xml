@@ -2,27 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.or.smhrd.a3rd_cos_table">
 
+    <!-- 인터넷 권한 설정, HTTP통신 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.3rd_cos_table">
+        android:theme="@style/Theme.3rd_cos_table"
+        android:usesCleartextTraffic="true">
+
         <activity android:name=".Cos_DetailActivity"></activity>
         <activity android:name=".Cos_ShootActivity" />
         <activity android:name=".CosAddActivity" />
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".LogoActivity" />
+        <activity android:name=".SkintestActivity" />
+        <activity android:name=".MembershipActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogoActivity" />
-        <activity android:name=".SkintestActivity" />
-        <activity android:name=".MembershipActivity" />
         <activity android:name=".cos_intro_activity" />
         <activity android:name=".cos_login" />
+
     </application>
 </manifest>
