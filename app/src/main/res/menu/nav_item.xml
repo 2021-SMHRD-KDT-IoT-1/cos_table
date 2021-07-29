@@ -4,14 +4,30 @@
 
     <item
         android:id="@+id/item_jung"
-        android:title="중성" />
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_true"
+        android:title="중성"
+        android:visible="true" />
     <item
-        android:id="@+id/item_ji"
-        android:title="지성" />
+        android:id="@+id/item_jisung"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_false"
+        android:title="지성"
+        android:visible="true" />
     <item
         android:id="@+id/item_gun"
-        android:title="건성" />
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_true"
+        android:title="건성"
+        android:visible="true" />
     <item
         android:id="@+id/item_bok"
-        android:title="복합성" />
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="복합성"
+        android:visible="true" />
 </menu>
