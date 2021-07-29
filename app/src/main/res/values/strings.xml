@@ -43,6 +43,7 @@
     <!--main.xml-->
     <string name="edt_main_id"></string>
     <string name="tv_mycos">나의 화장품</string>
+    <string name="btn_plus"></string>
     <string name="tv_usedate1">사용기한</string>
     <string name="tv_usedate2">사용기한</string>
     <string name="tv_usedate3">사용기한</string>

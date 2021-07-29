@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <EditText
         android:id="@+id/edt_main_id"
@@ -24,19 +25,13 @@
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:text="@string/tv_mycos"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:drawableRight="@android:drawable/btn_plus"
+
         app:layout_constraintEnd_toEndOf="@+id/edt_main_id"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_main_id"
         app:layout_constraintTop_toBottomOf="@+id/edt_main_id" />
-
-    <ImageButton
-        android:id="@+id/img_plus"
-        android:layout_width="58dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="@+id/edt_main_id"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteY="87dp" />
 
     <ImageButton
         android:id="@+id/img_mycos1"
@@ -47,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tv_mycos"
         app:layout_constraintTop_toBottomOf="@+id/tv_mycos"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <ImageButton
         android:id="@+id/img_mycos2"
@@ -58,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_mycos1"
         app:layout_constraintTop_toTopOf="@+id/img_mycos1"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <ImageButton
         android:id="@+id/img_mycos3"
@@ -69,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_mycos2"
         app:layout_constraintTop_toTopOf="@+id/img_mycos2"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <TextView
         android:id="@+id/tv_usedate1"
@@ -126,4 +121,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mycos"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mycos"
+        app:layout_constraintTop_toTopOf="@+id/tv_mycos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

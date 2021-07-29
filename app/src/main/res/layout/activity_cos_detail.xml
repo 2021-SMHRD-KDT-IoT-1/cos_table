@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.444"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <ImageView
         android:id="@+id/img_base_cos1"
@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <ImageView
         android:id="@+id/img_base_cos2"
@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_base_cos1"
         app:layout_constraintTop_toTopOf="@+id/img_base_cos1"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <ImageView
         android:id="@+id/img_base_cos3"
@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_base_cos2"
         app:layout_constraintTop_toTopOf="@+id/img_base_cos2"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/kakaologo" />
 
     <TextView
         android:id="@+id/tv_detail"

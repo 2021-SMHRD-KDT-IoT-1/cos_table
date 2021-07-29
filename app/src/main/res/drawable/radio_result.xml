@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--라디오 버튼이 True 일때의 버튼 색-->
     <item android:state_checked="true"
         android:drawable="@drawable/radio_true"/>
 
+    <!--라디오 버튼이 False 일때의 버튼 색-->
     <item android:state_checked="false"
         android:drawable="@drawable/radio_false"/>
 
