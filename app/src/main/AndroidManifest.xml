@@ -25,5 +25,4 @@
         <activity android:name=".cos_intro_activity" />
         <activity android:name=".cos_login" />
     </application>
-
 </manifest>
