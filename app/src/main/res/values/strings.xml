@@ -18,7 +18,7 @@
 
     <string name="tg_btn_dry">건성</string>
 
-    <!--Skintest.xml-->
+    <!--skintest.xml-->
     <string name="tv_test_skin">피부타입</string>
     <string name="btn_test_no">NO</string>
     <string name="btn_test_back">BACK</string>
@@ -33,6 +33,40 @@
     <string name="edt_login_id">ID 입력</string>
     <string name="edt_login_pw">PW 입력</string>
     <string name="btn_login">로그인</string>
+
+    <!--main.xml-->
+    <string name="edt_main_id"></string>
+    <string name="tv_mycos">나의 화장품</string>
+    <string name="tv_usedate1">사용기한</string>
+    <string name="tv_usedate2">사용기한</string>
+    <string name="tv_usedate3">사용기한</string>
+    <string name="tv_usedcos">화장품 이름 / 사용 기간 /상태(완료 / 중단) </string>
+
+    <!--activity_coss_add.xml-->
+    <string name="btn_add">등록</string>
+    <string name="btn_edt">수정</string>
+    <string name="btn_delete">삭제</string>
+
+    <!--cos_shoot.xml-->
+    <string name="tv_cosshoot">올바른 촬영 예시</string>
+    <string name="tv_pdqr">
+        제품 뒷면에 있는 큐알 코드를
+        카메라에 바르게 찍어주세요!!
+    </string>
+    <string name="btn_cancle">취소</string>
+    <string name="btn_shoot">촬영</string>
+
+    <!--cos_detail-->
+    <string name="tv_detail"> 제품 이름 </string>
+    <string name="tv_set">정량 설정</string>
+
+    <string name="btn_0_5">0.5 펌프</string>
+    <string name="btn_1_0">1.0 펌프</string>
+    <string name="btn_1_5">1.5 펌프</string>
+    <string name="btn_2_0">2.0 펌프</string>
+    <string name="btn_2_5">2.5 펌프</string>
+    <string name="btn_3_0">3.0 펌프</string>
+    <string name="btn_complete">등록 완료</string>
 
 
 </resources>
