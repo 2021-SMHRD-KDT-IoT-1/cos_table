@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="중성" />
+    <item android:title="지성" />
+    <item android:title="건성" />
+    <item android:title="복합성" />
+</menu>
