@@ -142,32 +142,36 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_skintype">
 
         <RadioButton
-            android:id="@+id/radioButton8"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_dry"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:button="@drawable/dry"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="#7C7878"
+            android:button="@drawable/radio_dry" />
 
         <RadioButton
-            android:id="@+id/radioButton9"
-            android:layout_width="wrap_content"
+            android:id="@+id/rd_btn_oily"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_normal"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="#7C7878"
+            android:button="@drawable/radio_normal" />
 
         <RadioButton
-            android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_normal"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_oily"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="#7C7878"
+            android:button="@drawable/radio_oily" />
 
         <RadioButton
-            android:id="@+id/radioButton11"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_multi"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_combi"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="#7C7878"
+            android:button="@drawable/radio_multi" />
 
     </RadioGroup>
 
