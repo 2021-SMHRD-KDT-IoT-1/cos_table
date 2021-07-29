@@ -103,45 +103,53 @@ public class MembershipActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String id = edt_mem_id.getText().toString();
                 String pw = edt_mem_pw.getText().toString();
+                String pwck = edt_mem_pwck.getText().toString();
                 String skintype = rd_result;
 
-                String join_url = "http://220.71.97.208:8099/AndServer/JoinService";
+                //입력 비밀번호가 같은지 체크
+                if (pw.equals(pwck)) {
 
-                StringRequest request = new StringRequest(Request.Method.POST, join_url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
+                    String join_url = "http://220.71.97.208:8099/AndServer/JoinService";
 
-                                Log.v("응답결과", response);
+                    StringRequest request = new StringRequest(Request.Method.POST, join_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
 
-                                if (response.equals("1")){
-                                    Intent intent = new Intent(getApplicationContext(), cos_login.class);
-                                    startActivity(intent);
-                                }else{
-                                    Toast.makeText(MembershipActivity.this, "회원가입 실패입니다.", Toast.LENGTH_SHORT).show();
+                                    Log.v("응답결과", response);
+
+                                    if (response.equals("1")) {
+                                        Intent intent = new Intent(getApplicationContext(), cos_login.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(MembershipActivity.this, "회원가입 실패입니다.", Toast.LENGTH_SHORT).show();
+                                    }
+
                                 }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
 
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
+                                    Log.v("오류", "요청실패");
 
-                                Log.v("오류","요청실패");
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("join_id", id);
+                            params.put("join_pw", pw);
+                            params.put("join_skintype", skintype);
 
-                            }
-                        }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("join_id",id);
-                        params.put("join_pw",pw);
-                        params.put("join_skintype",skintype);
-
-                        return params;
-                    }
-                };
-                queue.add(request);
+                            return params;
+                        }
+                    };
+                    queue.add(request);
+                //비밀번호가 같지않다면 가입실패가 되며 토스트창 띄우기
+                }else{
+                    Toast.makeText(MembershipActivity.this, "입력하신 정보를 확인하세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         //=========================================================================================================

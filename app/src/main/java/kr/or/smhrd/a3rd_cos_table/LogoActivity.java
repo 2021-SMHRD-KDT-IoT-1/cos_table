@@ -2,7 +2,9 @@ package kr.or.smhrd.a3rd_cos_table;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class LogoActivity extends AppCompatActivity {
 
@@ -10,5 +12,13 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(LogoActivity.this, cos_intro_activity.class);
+                startActivity(intent);
+            }
+        }, 3000);
     }
 }

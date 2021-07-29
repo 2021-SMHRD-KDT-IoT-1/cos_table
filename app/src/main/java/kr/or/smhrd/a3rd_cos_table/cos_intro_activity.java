@@ -23,7 +23,15 @@ public class cos_intro_activity extends AppCompatActivity {
         btn_go_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), cos_login.class);
+                Intent intent = new Intent(cos_intro_activity.this, cos_login.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_go_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(cos_intro_activity.this, MembershipActivity.class);
                 startActivity(intent);
             }
         });

@@ -13,6 +13,10 @@
         android:ems="10"
         android:hint="@string/edt_login_id"
         android:inputType="textPersonName"
+        android:background="@drawable/tv_style"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_mem_pw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +30,10 @@
         android:ems="10"
         android:hint="@string/edt_mem_pwck"
         android:inputType="textPassword"
+        android:background="@drawable/tv_style"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_pw"
         app:layout_constraintStart_toStartOf="@+id/edt_mem_pw"
@@ -38,6 +46,10 @@
         android:ems="10"
         android:hint="@string/edt_login_pw"
         android:inputType="textPassword"
+        android:background="@drawable/tv_style"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_mem_pwck"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_id"
         app:layout_constraintStart_toStartOf="@+id/edt_mem_id"
@@ -66,6 +78,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/tv_ck_mytype"
 
+        android:textColor="#59A105"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -90,9 +103,9 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_mem_join"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_Q2"
-        app:layout_constraintStart_toStartOf="@+id/tv_Q2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Q2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rd_sen_group" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -101,28 +114,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
-    <TextView
-        android:id="@+id/tv_Q1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_Q1"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_Q2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ck_sensitive"
-        app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/tv_Q2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_Q2"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_mem_join"
-        app:layout_constraintEnd_toEndOf="@+id/tv_Q1"
-        app:layout_constraintStart_toStartOf="@+id/tv_Q1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Q1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -186,6 +178,37 @@
             android:text="복합성"
             android:textColor="@color/white" />
 
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rd_sen_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
+
+        <RadioButton
+            android:id="@+id/rd_sen_Q1"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_result"
+            android:gravity="center"
+            android:text="@string/tv_Q1"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rd_sen_Q2"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_result"
+            android:gravity="center"
+            android:text="@string/tv_Q2"
+            android:textColor="@color/white"/>
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

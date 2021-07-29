@@ -12,8 +12,8 @@
     <string name="btn_combi">복합성</string>
     <string name="tv_ck_mytype">내 피부타입이 궁금하다면 ? </string>
     <string name="tv_ck_sensitive">민감성체크</string>
-    <string name="tv_Q1"> 질문 1</string>
-    <string name="tv_Q2"> 질문 2</string>
+    <string name="tv_Q1">각질과 뾰루지가 자주 발생하시나요?</string>
+    <string name="tv_Q2">피부가 가렵거나 따끔거림이 있으신가요?</string>
     <string name="btn_mem_join">가입 완료</string>
 
     <string name="tg_btn_dry">건성</string>
