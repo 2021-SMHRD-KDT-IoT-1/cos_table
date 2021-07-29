@@ -5,20 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class SkintestActivity extends AppCompatActivity {
-    TextView tv_test_skin;
+//    TextView tv_test_skin;
     Button btn_test_no,btn_test_back,btn_test_yes;
+    FrameLayout frmae;
+    BottomNavigationView navigation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skintest);
 
-        tv_test_skin=findViewById(R.id.tv_test_skin);
+//        tv_test_skin=findViewById(R.id.tv_test_skin);
         btn_test_no=findViewById(R.id.btn_test_no);
         btn_test_back=findViewById(R.id.btn_test_back);
         btn_test_yes=findViewById(R.id.btn_test_yes);
+
 
         //체크리스트부분////////////////////////////////////////////////
 
@@ -53,20 +60,20 @@ public class SkintestActivity extends AppCompatActivity {
 
 //        tv_que.setText(Q1);
 //        if (tv_que.getText().equals(Q1)) {
-
-        btn_test_yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv_test_skin.setText("dddd");
-            }
-        });
-        btn_test_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv_test_skin.setText("a");
-            }
-        });
-//        }
+//
+//        btn_test_yes.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                tv_test_skin.setText("dddd");
+//            }
+//        });
+//        btn_test_no.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                tv_test_skin.setText("a");
+//            }
+//        });
+////        }
 
 
     }
