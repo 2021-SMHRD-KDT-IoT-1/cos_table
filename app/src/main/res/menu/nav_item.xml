@@ -2,8 +2,32 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="중성" />
-    <item android:title="지성" />
-    <item android:title="건성" />
-    <item android:title="복합성" />
+    <item
+        android:id="@+id/item_jung"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_true"
+        android:title="중성"
+        android:visible="true" />
+    <item
+        android:id="@+id/item_jisung"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_false"
+        android:title="지성"
+        android:visible="true" />
+    <item
+        android:id="@+id/item_gun"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@drawable/radio_true"
+        android:title="건성"
+        android:visible="true" />
+    <item
+        android:id="@+id/item_bok"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="복합성"
+        android:visible="true" />
 </menu>

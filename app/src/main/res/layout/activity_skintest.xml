@@ -6,71 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".SkintestActivity">
 
-    <Button
-        android:id="@+id/btn_test_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_test_back"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_test_no"
-        app:layout_constraintEnd_toStartOf="@+id/btn_test_yes"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_test_no"
-        app:layout_constraintTop_toTopOf="@+id/btn_test_no"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="gone" />
-
-    <Button
-        android:id="@+id/btn_test_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="149dp"
-        android:text="@string/btn_test_no"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_test_back"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
-        tools:visibility="gone" />
-
-    <Button
-        android:id="@+id/btn_test_yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_test_yes"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_test_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_test_back"
-        app:layout_constraintTop_toTopOf="@+id/btn_test_back"
-        tools:visibility="gone" />
-
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="0dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="411dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="1dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/btn_test_no"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:menu="@menu/nav_item" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="407dp"
+        android:layout_height="546dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="1dp"
+
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="411dp"
-        android:layout_height="75dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="527dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
