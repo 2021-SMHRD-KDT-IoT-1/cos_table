@@ -13,15 +13,17 @@
         <activity android:name=".Cos_ShootActivity" />
         <activity android:name=".CosAddActivity" />
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".LogoActivity" />
+        <activity android:name=".SkintestActivity" />
+        <activity android:name=".MembershipActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogoActivity" />
-        <activity android:name=".SkintestActivity" />
-        <activity android:name=".MembershipActivity" />
         <activity android:name=".cos_intro_activity" />
         <activity android:name=".cos_login" />
     </application>

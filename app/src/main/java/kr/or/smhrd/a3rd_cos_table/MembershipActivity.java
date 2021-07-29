@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -15,13 +17,10 @@ import android.widget.ToggleButton;
 public class MembershipActivity extends AppCompatActivity {
     EditText edt_mem_id,edt_mem_pw,edt_mem_pwck;
     TextView tv_skintype,tv_ck_mytype,tv_ck_sensitive,tv_Q1,tv_Q2;
-    Button btn_dry,btn_normal,btn_oily,btn_combi,btn_mem_join;
-    ToggleButton tg_btn_dry;
-
-
-
-    boolean isClicked=false;
-    //boolean isClicked=false;
+    Button btn_mem_join;
+    RadioGroup rd_btn_group;
+    RadioButton rd_btn_dry, rd_btn_oily, rd_btn_normal, rd_btn_multi;
+    private String rd_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +35,13 @@ public class MembershipActivity extends AppCompatActivity {
         tv_ck_mytype=findViewById(R.id.tv_ck_mytype);
         tv_ck_sensitive=findViewById(R.id.tv_ck_sensitive);
 
-//        btn_dry=findViewById(R.id.btn_dry);
-//        btn_normal=findViewById(R.id.btn_normal);
-//        btn_oily=findViewById(R.id.btn_oily);
-//        btn_combi=findViewById(R.id.btn_combi);
         btn_mem_join=findViewById(R.id.btn_mem_join);
+
+        rd_btn_group=findViewById(R.id.rd_btn_group);
+        rd_btn_dry=findViewById(R.id.rd_btn_dry);
+        rd_btn_oily=findViewById(R.id.rd_btn_oily);
+        rd_btn_normal=findViewById(R.id.rd_btn_normal);
+        rd_btn_multi=findViewById(R.id.rd_btn_multi);
 
 
         //내 피부타입이 궁금하다면? -- 버튼 클릭 시 자가진단 테스트로 이동
@@ -51,70 +52,37 @@ public class MembershipActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // -------------------------------------------------------------
-
-//        //타입별 토글버튼 구현
-//        btn_dry.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(!isClicked){
-//                    btn_dry.setBackgroundColor(Color.CYAN);
-//                }else{
-//                    //btn_dry.setBackgroundColor(Color.GRAY);
-//                }
-//            }
-//        });
-//
-//        btn_normal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(isClicked==false){
-//                    isClicked=true;
-//                    btn_normal.setBackgroundColor(Color.CYAN);
-//                }else{
-//                    isClicked=false;
-//                    btn_normal.setBackgroundColor(Color.GRAY);
-//                }
-//            }
-//        });
-//
-//        btn_oily.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(isClicked==false){
-//                    isClicked=true;
-//                    btn_oily.setBackgroundColor(Color.CYAN);
-//                }else{
-//                    isClicked=false;
-//                    btn_oily.setBackgroundColor(Color.GRAY);
-//                }
-//            }
-//        });
-//
-//        btn_combi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(isClicked==false){
-//                    isClicked=true;
-//                    btn_combi.setBackgroundColor(Color.CYAN);
-//                }else{
-//                    isClicked=false;
-//                    btn_combi.setBackgroundColor(Color.GRAY);
-//                }
-//            }
-//        });
+//=========================================================================================================
+        //라디오버튼 값 넘기기위한 이벤트
+        rd_btn_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rd_btn_dry){
+                    rd_result = rd_btn_dry.getText().toString();
+                }else if (checkedId == R.id.rd_btn_oily){
+                    rd_result = rd_btn_oily.getText().toString();
+                }else if (checkedId == R.id.rd_btn_normal){
+                    rd_result = rd_btn_normal.getText().toString();
+                }else {
+                    rd_result = rd_btn_multi.getText().toString();
+                }
+            }
+        });
+//=========================================================================================================
+        //회원가입 버튼 클릭 시 피부타입이 null값이라면 토스트 메시지 출력!
+        btn_mem_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rd_result != null){
+                    Toast.makeText(MembershipActivity.this, rd_result, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MembershipActivity.this, "피부타입을 선택해주세요!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+//=========================================================================================================
 
     }
-    public void onToggleClicked(View v){
-        boolean on = ((ToggleButton)v).isChecked();
-
-        if (on){
-            Toast.makeText(getApplicationContext(), "on", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "off", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 }
 
 

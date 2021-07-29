@@ -132,6 +132,7 @@
         app:layout_constraintGuide_percent="0.55" />
 
     <RadioGroup
+        android:id="@+id/rd_btn_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -142,32 +143,48 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_skintype">
 
         <RadioButton
-            android:id="@+id/radioButton8"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_dry"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:button="@drawable/dry"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="건성"
+            android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/radioButton9"
-            android:layout_width="wrap_content"
+            android:id="@+id/rd_btn_oily"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_normal"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="지성"
+            android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_normal"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_oily"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="중성"
+            android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/radioButton11"
-            android:layout_width="match_parent"
+            android:id="@+id/rd_btn_multi"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_combi"
-            android:textSize="24sp" />
+            android:layout_margin="1dp"
+            android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="복합성"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
