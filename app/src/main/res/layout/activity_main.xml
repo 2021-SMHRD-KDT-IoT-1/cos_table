@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edt_main_id"
+        android:layout_width="358dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/edt_main_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mycos"
+        android:layout_width="363dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_mycos"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_main_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_main_id"
+        app:layout_constraintTop_toBottomOf="@+id/edt_main_id" />
+
+    <ImageButton
+        android:id="@+id/img_plus"
+        android:layout_width="58dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_main_id"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <ImageButton
+        android:id="@+id/img_mycos1"
+        android:layout_width="120dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/img_mycos2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tv_mycos"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mycos"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <ImageButton
+        android:id="@+id/img_mycos2"
+        android:layout_width="120dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_mycos1"
+        app:layout_constraintEnd_toStartOf="@+id/img_mycos3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_mycos1"
+        app:layout_constraintTop_toTopOf="@+id/img_mycos1"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <ImageButton
+        android:id="@+id/img_mycos3"
+        android:layout_width="120dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_mycos2"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mycos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_mycos2"
+        app:layout_constraintTop_toTopOf="@+id/img_mycos2"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_usedate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_usedate1"
+        app:layout_constraintEnd_toEndOf="@+id/img_mycos1"
+        app:layout_constraintStart_toStartOf="@+id/img_mycos1"
+        app:layout_constraintTop_toBottomOf="@+id/img_mycos1" />
+
+    <TextView
+        android:id="@+id/tv_usedate2"
+        android:layout_width="58dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_usedate2"
+        app:layout_constraintEnd_toEndOf="@+id/img_mycos2"
+        app:layout_constraintStart_toEndOf="@+id/img_mycos1"
+        app:layout_constraintTop_toBottomOf="@+id/img_mycos2" />
+
+    <TextView
+        android:id="@+id/tv_usedate3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_usedate3"
+        app:layout_constraintEnd_toEndOf="@+id/img_mycos3"
+        app:layout_constraintStart_toStartOf="@+id/img_mycos3"
+        app:layout_constraintTop_toBottomOf="@+id/img_mycos3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <ListView
+        android:id="@+id/ListV_cos"
+        android:layout_width="369dp"
+        android:layout_height="144dp"
+        app:layout_constraintEnd_toEndOf="@+id/img_mycos3"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="@+id/img_mycos1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_usedcos" />
+
+    <TextView
+        android:id="@+id/tv_usedcos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_usedcos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
