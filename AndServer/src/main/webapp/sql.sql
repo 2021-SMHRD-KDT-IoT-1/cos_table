@@ -52,9 +52,9 @@ CREATE TABLE u_cosmetic (
 	u_cos_id		varchar2(50)		NOT NULL,
 	id		varchar2(50)		NOT NULL,
 	cos_id		varchar2(50)		NOT NULL,
-	u_cos_date	varchar2(50)		NOT NULL,
+	u_cos_date	date		NOT NULL,
 	amount		varchar2(50)		NOT NULL,
-	u_cos_dead	varchar2(50)		NOT NULL
+	u_cos_dead	date		NOT NULL
 );
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
