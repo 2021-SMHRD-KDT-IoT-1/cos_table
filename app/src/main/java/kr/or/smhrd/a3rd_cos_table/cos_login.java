@@ -69,19 +69,7 @@ public class cos_login extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                                    }else{
-                                        Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
-                                        Log.v("오류", edt_login_id.getText().toString());
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                        startActivity(intent);
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.v("오류","요청실패");
-
+                        Log.v("오류", "오류입니다.");
                                 }
                             }){
                         @Override
