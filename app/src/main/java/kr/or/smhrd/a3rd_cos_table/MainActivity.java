@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edt_main_id;
     TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos;
+    ImageButton img_mycos1, img_mycos2, img_mycos3;
     Button btn_plus;
     ListView ListV_cos;
 
