@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Cos_ShootActivity extends AppCompatActivity {
-    TextView tv_cosshoot,tv_pdqr;
+    TextView tv_cosshoot,tv_pdqr, tv_detail,tv_company,tv_kinds;
     Button btn_cancle,btn_shoot;
     ImageView img_ex2;
     private IntentIntegrator qrScan;
@@ -33,6 +33,9 @@ public class Cos_ShootActivity extends AppCompatActivity {
         btn_shoot=findViewById(R.id.btn_shoot);
         img_ex2=findViewById(R.id.img_ex2);
 
+        tv_detail=findViewById(R.id.tv_detail);
+        tv_company=findViewById(R.id.tv_company);
+        tv_kinds=findViewById(R.id.tv_kinds);
         //qr스캔 정의
         qrScan = new IntentIntegrator(this);
 
@@ -62,7 +65,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
     //Getting the scan results
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             //qrcode 가 없으면
@@ -75,16 +78,18 @@ public class Cos_ShootActivity extends AppCompatActivity {
                 try {
                     //data를 json으로 변환
                     JSONObject obj = new JSONObject(result.getContents());
-                    textViewName.setText(obj.getString("name"));
-                    textViewAddress.setText(obj.getString("address"));
-                }catch (JSONException e) {
+                    tv_detail.setText(obj.getString("제품명"));
+                    tv_company.setText(obj.getString("제조사"));
+                    tv_kinds.setText(obj.getString("제품종류"));
+                } catch (JSONException e) {
                     e.printStackTrace();
                     //Toast.makeText(MainActivity.this, result.getContents(), Toast.LENGTH_LONG).show();
-                    textViewResult.setText(result.getContents());
+//                    textViewResult.setText(result.getContents());
                 }
             }
 
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
 }

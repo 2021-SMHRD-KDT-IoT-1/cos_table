@@ -18,7 +18,13 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Cos_IngredActivity"></activity>
         <activity android:name=".Cos_DetailActivity" />
-        <activity android:name=".Cos_ShootActivity" />
+        <activity android:name=".Cos_ShootActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".CosAddActivity" />
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LogoActivity"></activity>
@@ -26,11 +32,7 @@
         <activity android:name=".MembershipActivity" />
         <activity android:name=".cos_intro_activity"></activity>
         <activity android:name=".cos_login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

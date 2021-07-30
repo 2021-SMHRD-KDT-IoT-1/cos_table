@@ -67,6 +67,9 @@
     <string name="tv_detail"> 제품 이름 </string>
     <string name="tv_set">정량 설정</string>
 
+    <string name="tv_company">제조사</string>
+    <string name="tv_kinds">종류</string>
+
     <string name="btn_0_5">0.5 펌프</string>
     <string name="btn_1_0">1.0 펌프</string>
     <string name="btn_1_5">1.5 펌프</string>

@@ -57,12 +57,12 @@
         android:id="@+id/tv_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="119dp"
-        android:layout_marginRight="119dp"
+        android:layout_marginEnd="120dp"
         android:text="@string/tv_detail"
         app:layout_constraintBottom_toBottomOf="@+id/img_detail_cos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_detail_cos" />
+        app:layout_constraintTop_toTopOf="@+id/img_detail_cos"
+        app:layout_constraintVertical_bias="0.206" />
 
     <TextView
         android:id="@+id/tv_set"
@@ -196,5 +196,29 @@
             android:textColor="@color/white"
             android:gravity="center"/>
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/tv_company"
+        app:layout_constraintBottom_toTopOf="@+id/tv_kinds"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
+
+    <TextView
+        android:id="@+id/tv_kinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_kinds"
+        app:layout_constraintEnd_toEndOf="@+id/tv_company"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_company"
+        app:layout_constraintTop_toBottomOf="@+id/tv_company" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
