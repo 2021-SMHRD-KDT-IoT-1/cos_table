@@ -21,15 +21,19 @@
 
         </activity>
         <activity android:name=".LogoActivity" >
+
+        </activity>
+        <activity android:name=".SkintestActivity" />
+        <activity android:name=".MembershipActivity" />
+        <activity android:name=".cos_intro_activity" >
+
+        </activity>
+        <activity android:name=".cos_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SkintestActivity" />
-        <activity android:name=".MembershipActivity" />
-        <activity android:name=".cos_intro_activity" />
-        <activity android:name=".cos_login" />
     </application>
 </manifest>

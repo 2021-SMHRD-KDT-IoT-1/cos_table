@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos;
     ImageButton img_mycos1, img_mycos2, img_mycos3;
     Button btn_plus;
+    ImageButton img_mycos1,img_mycos2,img_mycos3;
     ListView ListV_cos;
 
     @Override
@@ -32,10 +33,14 @@ public class MainActivity extends AppCompatActivity {
         tv_usedcos=findViewById(R.id.tv_usedcos);
         btn_plus=findViewById(R.id.btn_plus);
 
+        img_mycos1=findViewById(R.id.img_mycos1);
+        img_mycos2=findViewById(R.id.img_mycos2);
+        img_mycos3=findViewById(R.id.img_mycos3);
+
         ListV_cos=findViewById(R.id.ListV_cos);
 
         //로그인 시 userid 출력
-        String id=getIntent().getStringExtra("id");
+        String id=getIntent().getStringExtra("login_id");
         edt_main_id.setText(id+"님 환영합니다!");
 
 
@@ -44,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 내 화장품1 클릭시 상세페이지 이동 -> 화장품 1에 대한 자료화면으로 넘어가야함
+        img_mycos1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Cos_DetailActivity.class);
                 startActivity(intent);
             }
         });
