@@ -45,7 +45,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //scan option
                 qrScan.setPrompt("Scanning...");
-                //qrScan.setOrientationLocked(false);
+                qrScan.setOrientationLocked(false);
                 qrScan.initiateScan();
             }
         });
