@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,37 +47,44 @@ public class cos_login extends AppCompatActivity {
 
                 String login_url="http://121.147.0.224:8081/AndServer/LoginService";
 
-                StringRequest request= new StringRequest(Request.Method.POST, login_url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
+                    StringRequest request= new StringRequest(Request.Method.POST, login_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Log.v("응답결과", response);
 
-                                if(response.equals("0")){
-                                    Toast.makeText(cos_login.this, "로그인 실패..", Toast.LENGTH_SHORT).show();
+                                    if(response.equals("0")){
+                                        Toast.makeText(cos_login.this,  "로그인 실패..", Toast.LENGTH_SHORT).show();
 
-                                }else{
-                                    Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
+                                        Log.v("오류", edt_login_id.getText().toString());
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                    }
                                 }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.v("오류","요청실패");
 
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params=new HashMap<>();
-                        params.put("login_id",edt_login_id.getText().toString());
-                        params.put("login_pw",edt_login_pw.getText().toString());
+                                }
+                            }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            //POST 방식일 때 getParams() 메소드를 이용해 데이터 전송
+                            Map<String, String> params=new HashMap<>();
+                            params.put("login_id",edt_login_id.getText().toString());
+                            params.put("login_pw",edt_login_pw.getText().toString());
 
-                        return params;
-                    }
-                };
+                            return params;
+                        }
+                    };
                 queue.add(request);
+
             }
         });
-
 
 
     }
