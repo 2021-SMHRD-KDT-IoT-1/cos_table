@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Cos_DetailActivity extends AppCompatActivity {
     TextView tv_detail,tv_set;
-    Button btn_0_5,btn_1_0,btn_1_5,btn_2_0,btn_2_5,btn_3_0, btn_complete;
+    Button btn_complete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,6 @@ public class Cos_DetailActivity extends AppCompatActivity {
         tv_detail=findViewById(R.id.tv_detail);
         tv_set=findViewById(R.id.tv_set);
 
-        btn_0_5=findViewById(R.id.btn_0_5);
-        btn_1_0=findViewById(R.id.btn_1_0);
-        btn_1_5=findViewById(R.id.btn_1_5);
-        btn_2_0=findViewById(R.id.btn_2_0);
-        btn_2_5=findViewById(R.id.btn_2_5);
-        btn_3_0=findViewById(R.id.btn_3_0);
         btn_complete = findViewById(R.id.btn_complete);
 
         
