@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edt_main_id;
     TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos;
+    ImageButton img_mycos1, img_mycos2, img_mycos3;
     Button btn_plus;
     ImageButton img_mycos1,img_mycos2,img_mycos3;
     ListView ListV_cos;

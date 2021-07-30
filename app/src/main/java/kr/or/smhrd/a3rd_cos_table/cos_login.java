@@ -53,9 +53,22 @@ public class cos_login extends AppCompatActivity {
                                 public void onResponse(String response) {
                                     Log.v("응답결과", response);
 
-                                    if(response.equals("0")){
-                                        Toast.makeText(cos_login.this,  "로그인 실패..", Toast.LENGTH_SHORT).show();
+                                if(response.equals("0")){
+                                    Toast.makeText(cos_login.this, "로그인 실패..", Toast.LENGTH_SHORT).show();
+                                    //실패시 다시 로그인 화면으로 이동
+                                    Intent intent = new Intent(cos_login.this, cos_login.class);
+                                    startActivity(intent);
 
+                                }else{
+                                    Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
+                                    //성공시 메인 페이지로 이동
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
                                     }else{
                                         Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
                                         Log.v("오류", edt_login_id.getText().toString());
@@ -82,9 +95,9 @@ public class cos_login extends AppCompatActivity {
                         }
                     };
                 queue.add(request);
-
             }
         });
+
 
 
     }
