@@ -42,8 +42,8 @@ public class cos_login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String id=edt_login_id.getText().toString();
-               // String pw=edt_login_pw.getText().toString();
+                String id=edt_login_id.getText().toString();
+                String pw=edt_login_pw.getText().toString();
 
                 String login_url="http://121.147.0.224:8081/AndServer/LoginService";
 
@@ -63,6 +63,7 @@ public class cos_login extends AppCompatActivity {
                                     Toast.makeText(cos_login.this, "로그인 성공!!", Toast.LENGTH_SHORT).show();
                                     //성공시 메인 페이지로 이동
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.putExtra("id", id);
                                     startActivity(intent);
                                 }
                             }

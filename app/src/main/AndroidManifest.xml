@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.or.smhrd.a3rd_cos_table">
-
     <!-- 인터넷 권한 설정, HTTP통신 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,27 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".Cos_DetailActivity"></activity>
+        <activity android:name=".Cos_IngredActivity"></activity>
+        <activity android:name=".Cos_DetailActivity" />
         <activity android:name=".Cos_ShootActivity" />
         <activity android:name=".CosAddActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".LogoActivity" >
-
-        </activity>
-        <activity android:name=".SkintestActivity" />
-        <activity android:name=".MembershipActivity" />
-        <activity android:name=".cos_intro_activity" >
-
-        </activity>
-        <activity android:name=".cos_login" >
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LogoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SkintestActivity" />
+        <activity android:name=".MembershipActivity" />
+        <activity android:name=".cos_intro_activity"></activity>
+        <activity android:name=".cos_login"></activity>
     </application>
+
 </manifest>
