@@ -10,6 +10,7 @@
     <string name="btn_normal">중성</string>
     <string name="btn_oily">지성</string>
     <string name="btn_combi">복합성</string>
+    <string name="tv_dose"> 정량이 궁금하다면 ? </string>
     <string name="tv_ck_mytype">내 피부타입이 궁금하다면 ? </string>
     <string name="tv_ck_sensitive">민감성체크</string>
     <string name="tv_Q1">각질과 뾰루지가 자주 발생하시나요?</string>
@@ -18,11 +19,6 @@
 
     <string name="tg_btn_dry">건성</string>
 
-    <!--skintest.xml-->
-    <string name="tv_test_skin">피부타입</string>
-    <string name="btn_test_no">NO</string>
-    <string name="btn_test_back">BACK</string>
-    <string name="btn_test_yes">YES</string>
 
 
     <!--fragment_jisung.xml 피부타입체크리스트-->
