@@ -5,6 +5,7 @@ DROP TABLE ingredient;
 DROP TABLE sold_table;
 DROP TABLE u_cosmetic;
 
+
 CREATE TABLE member (
 	id	varchar2(50)		NOT NULL,
 	pw	varchar2(50)		NOT NULL,
