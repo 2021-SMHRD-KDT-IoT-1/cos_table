@@ -5,6 +5,7 @@ DROP TABLE ingredient;
 DROP TABLE sold_table;
 DROP TABLE u_cosmetic;
 
+
 CREATE TABLE member (
 	id	varchar2(50)		NOT NULL,
 	pw	varchar2(50)		NOT NULL,
@@ -56,6 +57,12 @@ CREATE TABLE u_cosmetic (
 	amount		varchar2(50)		NOT NULL,
 	u_cos_dead	varchar2(50)		NOT NULL
 );
+
+
+
+--insert into testInterval values('test2','test2','test2',sysdate,'test2', sysdate+(interval '2' year));
+
+select * from u_cosmetic;
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
 	id
