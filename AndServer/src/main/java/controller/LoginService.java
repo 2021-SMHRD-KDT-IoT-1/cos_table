@@ -30,7 +30,7 @@ public class LoginService extends HttpServlet {
 			MemberDAO dao=new MemberDAO();
 			MemberDTO login_member = dao.member_login(id, pw);
 			
-			System.out.println(login_member.getSkintype());
+//			System.out.println(login_member.getSkintype());
 			
 			PrintWriter out=response.getWriter();
 

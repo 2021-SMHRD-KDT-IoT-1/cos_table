@@ -46,7 +46,7 @@ public class MemberDAO {
 
 	public int member_join(MemberDTO member) {
 		conn();
-		String sql="insert into and_member values(?,?,?)";
+		String sql="insert into member values(?,?,?)";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1,member.getId());
@@ -71,7 +71,6 @@ public class MemberDAO {
 		conn();
 		
 		String sql="select * from member where id=? and pw=?";
-		//저희 테이블 이름은 그냥 member!!
 		
 		try {
 			psmt=conn.prepareStatement(sql);
