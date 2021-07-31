@@ -36,6 +36,8 @@ public class MembershipActivity extends AppCompatActivity {
     RequestQueue queue;
 
     private String rd_result;
+    private int checkedId1;
+    private int checkedId2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,32 +76,31 @@ public class MembershipActivity extends AppCompatActivity {
         });
 //=========================================================================================================
         //라디오버튼 값 넘기기위한 이벤트
-        rd_btn_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rd_btn_dry){
-                    rd_result = rd_btn_dry.getText().toString();
-                }else if (checkedId == R.id.rd_btn_oily){
-                    rd_result = rd_btn_oily.getText().toString();
-                }else if (checkedId == R.id.rd_btn_normal){
-                    rd_result = rd_btn_normal.getText().toString();
-                }else {
-                    rd_result = rd_btn_multi.getText().toString();
+            rd_btn_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId1) {
+                    if (checkedId1 == R.id.rd_btn_dry) {
+                        rd_result = rd_btn_dry.getText().toString();
+                    } else if (checkedId1 == R.id.rd_btn_oily) {
+                        rd_result = rd_btn_oily.getText().toString();
+                    } else if (checkedId1 == R.id.rd_btn_normal) {
+                        rd_result = rd_btn_normal.getText().toString();
+                    } else {
+                        rd_result = rd_btn_multi.getText().toString();
+                    }
                 }
-            }
-        });
-//=========================================================================================================
-//        //라디오버튼 값 넘기기위한 이벤트
-        rd_sen_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rd_sen_Q1){
-                    rd_result = rd_sen_Q1.getText().toString();
-                }else {
-                    rd_result = rd_sen_Q2.getText().toString();
+            });
+
+            rd_sen_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId2) {
+                    if (checkedId2 == R.id.rd_sen_Q1) {
+                        rd_result = rd_sen_Q1.getText().toString();
+                    } else {
+                        rd_result = rd_sen_Q2.getText().toString();
+                    }
                 }
-            }
-        });
+            });
 //=========================================================================================================
         //회원가입 버튼 클릭 시 피부타입이 null값이라면 토스트 메시지 출력!
 //        btn_mem_join.setOnClickListener(new View.OnClickListener() {
