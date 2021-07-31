@@ -43,23 +43,22 @@ public class CosAddDAO {
 		}
 	}
 	
-	public int cos_add() {
+	public int cos_add(CosAddDTO cosadd) {
 		conn();
-		String sql="insert into u_cosmetic values (?,?,?,sysdate,?, sysdate+(interval '2' year) SYSDATE+(INTERVAL '1' YEAR))";
+		String sql="insert into u_cosmetic values (?,?,?,sysdate,?, sysdate+(interval '1' year))";
 		try {
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, "임시");
-			psmt.setString(2, "임시");
-			psmt.setString(3, "임시");
-			psmt.setString(4, "임시");
-			psmt.setString(5, "임시");
-			psmt.setString(6, "임시");
+			psmt.setString(1, cosadd.getU_cos_id());
+			psmt.setString(2, cosadd.getId());
+			psmt.setString(3, cosadd.getCos_id());
+			psmt.setString(4, cosadd.getAmount());
+			cnt=psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
 		
-		return 0;
+		return cnt;
 	}
 }
