@@ -46,7 +46,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
                 dlg.setPositiveButton("확인",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
                         //토스트 메시지
-                        Toast.makeText(Cos_DetailActivity.this,"확인을 눌르셨습니다.",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Cos_DetailActivity.this,"확인을 누르셨습니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 dlg.show();

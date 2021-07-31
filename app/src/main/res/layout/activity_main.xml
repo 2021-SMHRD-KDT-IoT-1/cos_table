@@ -15,6 +15,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/edt_main_id"
+        android:textColor="@color/black"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +28,6 @@
         android:layout_marginTop="8dp"
         android:text="@string/tv_mycos"
         android:textSize="20sp"
-        android:drawableRight="@android:drawable/btn_plus"
 
         app:layout_constraintEnd_toEndOf="@+id/edt_main_id"
         app:layout_constraintHorizontal_bias="0.0"
@@ -124,9 +125,13 @@
 
     <Button
         android:id="@+id/btn_plus"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="10pt"
+        android:background="@drawable/btn_circle"
         app:layout_constraintBottom_toBottomOf="@+id/tv_mycos"
         app:layout_constraintEnd_toEndOf="@+id/tv_mycos"
         app:layout_constraintTop_toTopOf="@+id/tv_mycos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

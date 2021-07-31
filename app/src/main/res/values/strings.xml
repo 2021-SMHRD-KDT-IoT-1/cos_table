@@ -19,11 +19,6 @@
 
     <string name="tg_btn_dry">건성</string>
 
-    <!--skintest.xml-->
-    <string name="tv_test_skin">피부타입</string>
-    <string name="btn_test_no">NO</string>
-    <string name="btn_test_back">BACK</string>
-    <string name="btn_test_yes">YES</string>
 
 
     <!--fragment_jisung.xml 피부타입체크리스트-->
