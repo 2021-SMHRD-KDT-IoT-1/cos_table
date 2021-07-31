@@ -45,7 +45,7 @@ public class CosAddDAO {
 	
 	public int cos_add(CosAddDTO cosadd) {
 		conn();
-		String sql="insert into u_cosmetic values (?,?,?,sysdate,?, sysdate+(interval '2' year))";
+		String sql="insert into u_cosmetic values (?,?,?,sysdate,?, sysdate+(interval '1' year))";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, cosadd.getU_cos_id());
