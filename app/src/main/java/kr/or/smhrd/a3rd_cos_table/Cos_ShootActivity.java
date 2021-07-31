@@ -58,7 +58,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //scan option
                 qrScan.setPrompt("Scanning...");
-                //qrScan.setOrientationLocked(false);
+                qrScan.setOrientationLocked(false);
                 qrScan.initiateScan();
                 Log.v("result scanning", "result scanning");
 //                Intent intent = new Intent(getApplicationContext(), Cos_DetailActivity.class);
