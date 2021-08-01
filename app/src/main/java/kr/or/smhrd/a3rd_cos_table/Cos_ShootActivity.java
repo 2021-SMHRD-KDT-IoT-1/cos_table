@@ -122,6 +122,10 @@ public class Cos_ShootActivity extends AppCompatActivity {
                     String cos_id=qrSplit[2];
                     String amount = qrSplit[3];
 //                    String u_cos_dead = qrSplit[4];
+                    Intent intent_amount = new Intent(this,CosAddPopup.class);
+                    intent.putExtra(amount,amount);
+                    Intent intent_u_cos_id=new Intent(this, CosAddPopup.class);
+                    intent.putExtra(u_cos_id,u_cos_id);
 
 
 

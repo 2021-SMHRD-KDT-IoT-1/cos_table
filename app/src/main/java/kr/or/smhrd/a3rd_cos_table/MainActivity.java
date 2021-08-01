@@ -56,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
         img_mycos2=findViewById(R.id.img_mycos2);
         img_mycos3=findViewById(R.id.img_mycos3);
 
-
-
         queue= Volley.newRequestQueue(getApplicationContext());
 
         //listview값에 화장품 기한, 사용기한 정보 db에서 받아오기
-        String listview_url="http://220.71.97.208:8099/AndServer/CosListService";
+       String listview_url="http://121.147.0.224:8081/AndroidServer/ListViewService";
         StringRequest request=new StringRequest(Request.Method.GET, listview_url,
                 new Response.Listener<String>() {
                     @Override
@@ -71,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                         //response 객체에는 JSONArray 형태 정보가 담겨있기 때문에
                         //JSONArray타입으로 객체 생성 필요
                         try {
-
                             JSONArray array=new JSONArray(response);
                             StringBuilder builder=new StringBuilder();
 
@@ -82,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
                                 builder.append("\n 사용기한 : ");
                                 builder.append(cos.getString("date"));
                                 builder.append("\n");
+
                             }
-//                            tv_list_cosname.setText(builder.toString());
-//                            tv_list_date.setText(builder.toString());
-
-
+                            //tv_list_cosname.setText(builder.toString());
+                            //tv_list_date.setText(builder.toString());
+                            //ListV_cos.tv_list_cosname.setText(builder.toString());
 
                         } catch (JSONException e) {
                             e.printStackTrace();
