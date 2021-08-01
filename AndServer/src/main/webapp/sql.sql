@@ -120,3 +120,4 @@ ALTER TABLE u_cosmetic ADD CONSTRAINT "FK_cosmetic_TO_u_cosmetic_1" FOREIGN KEY 
 REFERENCES cosmetic (
 	cos_id
 );
+
