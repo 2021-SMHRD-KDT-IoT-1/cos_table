@@ -21,6 +21,7 @@ public class CosAddDTO {
 		this.amount = amount;
 		this.u_cos_dead = u_cos_dead;
 	}
+	
 	public CosAddDTO(String u_cos_id, String id, String cos_id, String amount) {
 		super();
 		this.u_cos_id = u_cos_id;
@@ -29,9 +30,12 @@ public class CosAddDTO {
 		this.amount = amount;
 	}
 
-
-
-
+	public CosAddDTO(String u_cos_id, String u_cos_date) {
+		super();
+		this.u_cos_id = u_cos_id;
+		this.u_cos_date = u_cos_date;
+	}
+	
 	public String getU_cos_id() {
 		return u_cos_id;
 	}

@@ -23,13 +23,18 @@ public class CosAddService extends HttpServlet {
 		String id = request.getParameter("id");
 		String cos_id = request.getParameter("cos_id");
 		String amount = request.getParameter("amount");
+		
 		CosAddDTO cosadd=new CosAddDTO(u_cos_id, id, cos_id, amount);
+		
 		System.out.println("ucosid : " + u_cos_id);
 		System.out.println("id : " + id);
 		System.out.println("cosid : " + cos_id);
 		System.out.println("amount : " + amount);
+		
 		CosAddDAO dao = new CosAddDAO();
+		
 		int cnt = dao.cos_add(cosadd);
+		
 		PrintWriter out = response.getWriter();
 		
 		if(cnt>0) {

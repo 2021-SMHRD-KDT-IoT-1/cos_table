@@ -5,8 +5,8 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String skintype;
+	
 	public MemberDTO(String id, String pw, String skintype) {
-		super();
 		this.id = id;
 		this.pw = pw;
 		this.skintype = skintype;
@@ -14,7 +14,6 @@ public class MemberDTO {
 	
 	
 	public MemberDTO(String id, String pw) {
-		super();
 		this.id = id;
 		this.pw = pw;
 	}

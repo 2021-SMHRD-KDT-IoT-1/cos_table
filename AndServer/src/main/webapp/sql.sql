@@ -34,11 +34,11 @@ CREATE TABLE cosmetic (
 CREATE TABLE ingredient (
 	igt_id	varchar2(50)		NOT NULL,
 	cos_id	varchar2(50)		NOT NULL,
-	igt1	varchar2(50)		NOT NULL,
-	igt2	varchar2(50)		NOT NULL,
-	igt3	varchar2(50)		NOT NULL,
-	igt4	varchar2(50)		NOT NULL,
-	igt5	varchar2(50)		NOT NULL
+	igt1	varchar2(100)		NOT NULL,
+	igt2	varchar2(100)		NOT NULL,
+	igt3	varchar2(100)		NOT NULL,
+	igt4	varchar2(100)		NOT NULL,
+	igt5	varchar2(100)		NOT NULL
 );
 
 
@@ -57,7 +57,6 @@ CREATE TABLE u_cosmetic (
 	amount		varchar2(50)		NOT NULL,
 	u_cos_dead	varchar2(50)		NOT NULL
 );
-
 
 
 --insert into testInterval values('test2','test2','test2',sysdate,'test2', sysdate+(interval '2' year));
