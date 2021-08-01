@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
 
 public class CosAddActivity extends AppCompatActivity {
 
@@ -49,6 +48,7 @@ public class CosAddActivity extends AppCompatActivity {
             }
         });
 
+
         //================================================================================================
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,9 +68,9 @@ public class CosAddActivity extends AppCompatActivity {
                     }
                 });
             }
-
-
         });
+
+
 
 
     }
