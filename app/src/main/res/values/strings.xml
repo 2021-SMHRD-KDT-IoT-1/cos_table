@@ -88,4 +88,10 @@
     <string name="act_insert">수정</string>
     <string name="act_delete">삭제</string>
 
+    <!--cos_add_popup.xml-->
+    <string name="tv_add_amount">0</string>
+    <string name="btn_amount_plus">+</string>
+    <string name="btn_amount_minus">-</string>
+    <string name="btn_amount_exit">확인</string>
+
 </resources>

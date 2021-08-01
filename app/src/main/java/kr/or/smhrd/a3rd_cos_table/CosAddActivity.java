@@ -3,6 +3,7 @@ package kr.or.smhrd.a3rd_cos_table;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,13 +17,14 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
+//import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
 
 public class CosAddActivity extends AppCompatActivity {
 
     Button btn_add, btn_edt, btn_delete;
     ImageView img_1st_add, img_2nd_add, img_3rd_add, img_4th_add;
     TextView tv_add_info;
+    Dialog add_amountedt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,20 +55,8 @@ public class CosAddActivity extends AppCompatActivity {
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                final PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
-
-                getMenuInflater().inflate(R.menu.img1_add, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-
-                        if (item.getItemId()==R.id.action_menu1) {
-                            Toast.makeText(CosAddActivity.this, "메뉴1클릭",Toast.LENGTH_SHORT).show();
-                        }//이미지클릭리스너 만드는중이에요
-
-                        return false;
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(),CosAddPopup.class);
+                startActivity(intent);
             }
 
 
