@@ -2,8 +2,6 @@ package kr.or.smhrd.a3rd_cos_table;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,9 +12,6 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
 
 public class CosAddActivity extends AppCompatActivity {
 
@@ -49,6 +44,8 @@ public class CosAddActivity extends AppCompatActivity {
             }
         });
 
+
+
         //================================================================================================
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +57,19 @@ public class CosAddActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-                        if (item.getItemId()==R.id.action_menu1) {
-                            Toast.makeText(CosAddActivity.this, "메뉴1클릭",Toast.LENGTH_SHORT).show();
-                        }//이미지클릭리스너 만드는중이에요
+                        if (item.getItemId()==R.id.act_cos_ingred) {
+                            Toast.makeText(CosAddActivity.this, "화장품 상세 정보",Toast.LENGTH_SHORT).show();
+                        }else if (item.getItemId()==R.id.act_insert) {
+                            Toast.makeText(CosAddActivity.this, "수정",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(CosAddActivity.this, "삭제",Toast.LENGTH_SHORT).show();
+                        }
+                        //
 
                         return false;
                     }
                 });
+                popupMenu.show();
             }
 
 

@@ -78,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
                                 builder.append("\n");
 
                             }
-                            tv_list_cosname.setText(builder.toString());
-                            tv_list_date.setText(builder.toString());
+                            //tv_list_cosname.setText(builder.toString());
+                            //tv_list_date.setText(builder.toString());
+                            ListV_cos.tv_list_cosname.setText(builder.toString());
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -92,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        queue.add(request);*/
+        queue.add(request);
+        */
 
         //===사용했던 화장품 list=========================================================================
         ListV_cos=findViewById(R.id.ListV_cos);
