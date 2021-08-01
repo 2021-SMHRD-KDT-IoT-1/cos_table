@@ -36,12 +36,15 @@ public class CosAddDTO {
 		this.u_cos_date = u_cos_date;
 	}
 	
+//	public CosAddDTO(String u_cos_id, String amount) {
+//		super();
+//		this.u_cos_id = u_cos_id;
+//		this.amount = amount;
+//	}
+
 	public String getU_cos_id() {
 		return u_cos_id;
 	}
-
-
-
 
 	public void setU_cos_id(String u_cos_id) {
 		this.u_cos_id = u_cos_id;

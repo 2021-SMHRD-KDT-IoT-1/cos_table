@@ -61,4 +61,32 @@ public class CosAddDAO {
 		
 		return cnt;
 	}
+	
+	public int cos_edt(CosAddDTO cosadd) {
+		
+		conn();
+		try {
+			String sql = "update u_cosmetic set amount=? where u_cos_id=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, cosadd.getAmount());
+			psmt.setString(2, cosadd.getU_cos_id());
+			cnt=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
