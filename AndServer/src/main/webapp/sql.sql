@@ -63,6 +63,7 @@ CREATE TABLE u_cosmetic (
 --insert into testInterval values('test2','test2','test2',sysdate,'test2', sysdate+(interval '2' year));
 
 select * from u_cosmetic;
+update u_cosmetic set amount=3 where u_cos_id='test123';
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
 	id
