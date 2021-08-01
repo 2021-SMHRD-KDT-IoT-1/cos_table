@@ -131,7 +131,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
                     if (qrSplit!=null) {
 
-                        String cosAdd_url = "http://59.0.236.194:8099/AndServer/CosAddService";
+                        String cosAdd_url = "http://220.71.97.208:8099/AndServer/CosAddService";
 
                         StringRequest request = new StringRequest(Request.Method.POST, cosAdd_url,
                                 new Response.Listener<String>() {

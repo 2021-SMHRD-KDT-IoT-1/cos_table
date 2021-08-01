@@ -51,8 +51,6 @@ public class CosAddActivity extends AppCompatActivity {
             }
         });
 
-
-
         //================================================================================================
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
