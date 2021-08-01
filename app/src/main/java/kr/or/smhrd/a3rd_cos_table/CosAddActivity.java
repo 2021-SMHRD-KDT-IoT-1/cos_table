@@ -2,6 +2,9 @@ package kr.or.smhrd.a3rd_cos_table;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,12 +15,16 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+//import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
 
 public class CosAddActivity extends AppCompatActivity {
 
     Button btn_add, btn_edt, btn_delete;
     ImageView img_1st_add, img_2nd_add, img_3rd_add, img_4th_add;
     TextView tv_add_info;
+    Dialog add_amountedt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +70,6 @@ public class CosAddActivity extends AppCompatActivity {
                             Toast.makeText(CosAddActivity.this, "수정",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(CosAddActivity.this, "삭제",Toast.LENGTH_SHORT).show();
-
                         }
                         //
 

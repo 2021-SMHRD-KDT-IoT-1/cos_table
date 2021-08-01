@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".CosAddPopup" android:theme="@style/DialogTheme"></activity>
 
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
@@ -28,13 +28,9 @@
         <activity android:name=".Cos_IngredActivity"/>
         <activity android:name=".Cos_DetailActivity" />
         <activity android:name=".Cos_ShootActivity"/>
-        <activity android:name=".CosAddActivity" >
-
-
-        </activity>
-        <activity android:name=".MainActivity"/>
-
-        <activity android:name=".LogoActivity">
+        <activity android:name=".CosAddActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LogoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
