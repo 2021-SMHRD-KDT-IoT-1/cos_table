@@ -30,6 +30,7 @@
         <activity android:name=".Cos_ShootActivity"/>
         <activity android:name=".CosAddActivity" >
 
+
         </activity>
         <activity android:name=".MainActivity"/>
 

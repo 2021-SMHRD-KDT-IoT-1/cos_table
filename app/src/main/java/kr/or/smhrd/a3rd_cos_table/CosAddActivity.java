@@ -63,6 +63,7 @@ public class CosAddActivity extends AppCompatActivity {
                             Toast.makeText(CosAddActivity.this, "수정",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(CosAddActivity.this, "삭제",Toast.LENGTH_SHORT).show();
+
                         }
                         //
 
