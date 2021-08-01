@@ -2,22 +2,16 @@ package kr.or.smhrd.a3rd_cos_table;
 
 public class CoslistVO {
 
-    private int img;
+    //생성자, toString 메소드 구현
+
     private String name;
     private String date;
+    private String result;
 
-    public CoslistVO(int img, String name, String date) {
-        this.img = img;
+    public CoslistVO(String name, String date, String result) {
         this.name = name;
         this.date = date;
-    }
-
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
+        this.result = result;
     }
 
     public String getName() {
@@ -34,5 +28,22 @@ public class CoslistVO {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    @Override
+    public String toString() {
+        return "CoslistVO{" +
+                "name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", result='" + result + '\'' +
+                '}';
     }
 }

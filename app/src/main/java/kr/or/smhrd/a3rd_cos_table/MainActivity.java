@@ -11,6 +11,19 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText edt_main_id;
@@ -18,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
     ImageButton img_mycos1, img_mycos2, img_mycos3;
     Button btn_plus;
 
-    ListView ListV_cos;
+    RequestQueue queue;
 
-    @Override
+    //사용한 화장품 list
+    private ListView ListV_cos;
+    private CoslistAdapter adapter;
+    private ArrayList<CoslistVO> data;
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -37,7 +55,58 @@ public class MainActivity extends AppCompatActivity {
         img_mycos2=findViewById(R.id.img_mycos2);
         img_mycos3=findViewById(R.id.img_mycos3);
 
+        queue= Volley.newRequestQueue(getApplicationContext());
+
+        //listview값에 화장품 기한, 사용기한 정보 db에서 받아오기
+       /* String listview_url="http://121.147.0.224:8081/AndroidServer/ListViewService";
+        StringRequest request=new StringRequest(Request.Method.GET, listview_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //response 객체에는 JSONArray 형태 정보가 담겨있기 때문에
+                        //JSONArray타입으로 객체 생성 필요
+                        try {
+                            JSONArray array=new JSONArray(response);
+                            StringBuilder builder=new StringBuilder();
+
+                            for(int i=0;i<array.length();i++){
+                                JSONObject member=(JSONObject)array.get(i);
+                                builder.append("화장품이름 : ");
+                                builder.append(member.getString("cosname"));
+                                builder.append("\n 사용기한 : ");
+                                builder.append(member.getString("date"));
+                                builder.append("\n");
+
+                            }
+                            //tv_list_cosname.setText(builder.toString());
+                            //tv_list_date.setText(builder.toString());
+                            ListV_cos.tv_list_cosname.setText(builder.toString());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue.add(request);
+        */
+
+        //===사용했던 화장품 list=========================================================================
         ListV_cos=findViewById(R.id.ListV_cos);
+        data=new ArrayList<>();
+        for(int i=0;i<10;i++){
+            data.add(new CoslistVO("화장품 이름","사용기한","완료/중단 결과"));
+        }
+
+        adapter=new CoslistAdapter(getApplicationContext(),R.layout.list_cositem,data);
+
+        ListV_cos.setAdapter(adapter);
+        //================================================================================
 
         //로그인 시 userid 출력
         Intent intent = getIntent();
@@ -63,8 +132,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-    }
+  }
 }

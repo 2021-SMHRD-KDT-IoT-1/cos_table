@@ -22,9 +22,7 @@
 
 
     <!--fragment_jisung.xml 피부타입체크리스트-->
-
-
-    <string name="btn_sendMain">처음화면</string>
+ <string name="btn_sendMain">처음화면</string>
 
 
     <!-- cos_intro_activity.xml -->
@@ -83,7 +81,11 @@
     <!--list_cositem.xml-->
     <string name="tv_list_cosname">화장품 이름</string>
     <string name="tv_list_date">사용기한</string>
-    <string name="Switch">완료/중단</string>
+    <string name="tv_result">완료 중단 </string>
 
+    <!--img1_add.xml-->
+    <string name="act_cos_ingred">화장품 상세 정보보기 </string>
+    <string name="act_insert">수정</string>
+    <string name="act_delete">삭제</string>
 
 </resources>
