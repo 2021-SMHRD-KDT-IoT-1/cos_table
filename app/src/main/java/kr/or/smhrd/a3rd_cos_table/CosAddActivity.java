@@ -41,6 +41,8 @@ public class CosAddActivity extends AppCompatActivity {
         img_3rd_add=findViewById(R.id.img_3rd_add);
         img_4th_add=findViewById(R.id.img_4th_add);
 
+
+
         // 등록 버튼 클릭 시 Cos_Shoot페이지로 이동
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,29 +58,6 @@ public class CosAddActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
                 startActivity(intent);
-
-                final PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
-
-                getMenuInflater().inflate(R.menu.img1_add, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-
-                        if (item.getItemId()==R.id.act_cos_ingred) {
-                            Toast.makeText(CosAddActivity.this, "화장품 상세 정보",Toast.LENGTH_SHORT).show();
-                        }else if (item.getItemId()==R.id.act_insert) {
-                            Toast.makeText(CosAddActivity.this, "수정",Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(CosAddActivity.this, "삭제",Toast.LENGTH_SHORT).show();
-
-
-                        }
-                        //
-
-                        return false;
-                    }
-                });
-                popupMenu.show();
             }
 
 
