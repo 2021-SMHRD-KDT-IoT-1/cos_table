@@ -74,12 +74,41 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_launcher_background" />
 
-        <ImageView
-            android:id="@+id/img_4th_add"
-            android:layout_width="wrap_content"
-            android:layout_height="181dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_background" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_add_img1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="101dp"
+        android:text="@string/tv_add_img1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add"
+        app:layout_constraintStart_toStartOf="@+id/btn_add"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_add_img2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_add_img2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_img1"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_img1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_add_img3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_add_img3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_img2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_delete"
+        app:layout_constraintStart_toStartOf="@+id/btn_delete"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_img2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
