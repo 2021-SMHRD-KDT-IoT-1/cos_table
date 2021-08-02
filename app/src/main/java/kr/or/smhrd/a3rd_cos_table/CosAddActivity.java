@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -40,8 +41,6 @@ public class CosAddActivity extends AppCompatActivity {
         img_3rd_add=findViewById(R.id.img_3rd_add);
         img_4th_add=findViewById(R.id.img_4th_add);
 
-
-
         // 등록 버튼 클릭 시 Cos_Shoot페이지로 이동
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +54,9 @@ public class CosAddActivity extends AppCompatActivity {
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+                Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
+                startActivity(intent);
+
                 final PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
 
                 getMenuInflater().inflate(R.menu.img1_add, popupMenu.getMenu());
@@ -68,6 +70,8 @@ public class CosAddActivity extends AppCompatActivity {
                             Toast.makeText(CosAddActivity.this, "수정",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(CosAddActivity.this, "삭제",Toast.LENGTH_SHORT).show();
+
+
                         }
                         //
 
