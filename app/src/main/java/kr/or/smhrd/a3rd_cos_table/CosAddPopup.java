@@ -82,7 +82,7 @@ public class CosAddPopup extends AppCompatActivity {
 
                 try {
                     if (tv_add_amount != null) {
-                        String cosAdd_url = "http://59.0.236.194:8099/AndServer/CosEdtService";
+                        String cosAdd_url = "http://121.147.0.224:8081/AndServer/CosEdtService";
                         StringRequest request = new StringRequest(Request.Method.POST, cosAdd_url,
                                 new Response.Listener<String>() {
                                     @Override
