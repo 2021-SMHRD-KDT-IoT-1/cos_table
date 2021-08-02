@@ -58,6 +58,11 @@ public class CosAddPopup extends AppCompatActivity {
             public void onClick(View v) {
                 //1. 텍스트뷰의 정보 가져오기
                 String num = tv_add_amount.getText().toString();
+
+                Intent intent_amount= new Intent(getApplicationContext(),CosAddActivity.class);
+
+                //intent에 정보를 저장
+                intent_amount.putExtra("amount",num.toString());
                 //2. 정수형 타입으로 변환 --> 감소
                 int n = Integer.parseInt(num);
 

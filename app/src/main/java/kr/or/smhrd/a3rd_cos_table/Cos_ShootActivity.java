@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cos_ShootActivity extends AppCompatActivity {
-    TextView tv_cosshoot,tv_pdqr, tv_detail,tv_company,tv_kinds;
+    TextView tv_cosshoot,tv_pdqr, tv_detail,tv_company,tv_kinds,tv_add_img1,tv_add_img2,tv_add_img3;
     Button btn_cancle,btn_shoot;
     ImageView img_ex2;
     IntentIntegrator qrScan;
@@ -48,6 +48,12 @@ public class Cos_ShootActivity extends AppCompatActivity {
         tv_detail=findViewById(R.id.tv_detail);
         tv_company=findViewById(R.id.tv_company);
         tv_kinds=findViewById(R.id.tv_kinds);
+
+        /* AddActivity 텍스트뷰*/
+        tv_add_img1=findViewById(R.id.tv_add_img1);
+        tv_add_img2=findViewById(R.id.tv_add_img2);
+        tv_add_img3=findViewById(R.id.tv_add_img3);
+
         //qr스캔 정의
         qrScan = new IntentIntegrator(this);
         queue = Volley.newRequestQueue(getApplicationContext());
@@ -122,11 +128,11 @@ public class Cos_ShootActivity extends AppCompatActivity {
                     String cos_id=qrSplit[2];
                     String amount = qrSplit[3];
 //                    String u_cos_dead = qrSplit[4];
-                    Intent intent_amount = new Intent(this,CosAddPopup.class);
-                    intent.putExtra(amount,amount);
-                    Intent intent_u_cos_id=new Intent(this, CosAddPopup.class);
-                    intent.putExtra(u_cos_id,u_cos_id);
+//                    String testUcosid="test123";
+                    Intent intent_u_cos_id= new Intent(getApplicationContext(),CosAddActivity.class);
 
+                    //intent에 정보를 저장
+                    intent.putExtra("u_cos_id",u_cos_id.toString());
 
 
                     if (qrSplit!=null) {

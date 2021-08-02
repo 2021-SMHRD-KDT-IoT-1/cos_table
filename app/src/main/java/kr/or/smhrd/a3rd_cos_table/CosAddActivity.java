@@ -23,8 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class CosAddActivity extends AppCompatActivity {
 
     Button btn_add, btn_edt, btn_delete;
-    ImageView img_1st_add, img_2nd_add, img_3rd_add, img_4th_add;
-    TextView tv_add_info;
+    ImageView img_1st_add, img_2nd_add, img_3rd_add;
+    TextView tv_add_info,tv_add_img1,tv_add_img2,tv_add_img3;
     Dialog add_amountedt;
 
     @Override
@@ -39,7 +39,10 @@ public class CosAddActivity extends AppCompatActivity {
         img_1st_add=findViewById(R.id.img_1st_add);
         img_2nd_add=findViewById(R.id.img_2nd_add);
         img_3rd_add=findViewById(R.id.img_3rd_add);
-        img_4th_add=findViewById(R.id.img_4th_add);
+
+        tv_add_img1=findViewById(R.id.tv_add_img1);
+        tv_add_img2=findViewById(R.id.tv_add_img2);
+        tv_add_img3=findViewById(R.id.tv_add_img3);
 
 
 
@@ -57,11 +60,36 @@ public class CosAddActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
+                Intent intent_amount = getIntent();
+                String uCos_text= intent.getStringExtra("amount");
+
+
+                tv_add_img1.setText(uCos_text);
+
                 startActivity(intent);
             }
 
 
         });
+
+        img_2nd_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
+
+                startActivity(intent);
+            }
+        });
+
+        img_3rd_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
     }
