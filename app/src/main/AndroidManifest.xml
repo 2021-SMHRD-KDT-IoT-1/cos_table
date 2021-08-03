@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.or.smhrd.a3rd_cos_table">
+
     <!-- 인터넷 권한 설정, HTTP통신 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라 권한 설정 -->
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--카메라 권한 설정-->
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -14,31 +17,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Cos_Desk_Activity"></activity>
+        <activity android:name=".Cos_Desk_Activity"/>
         <activity
             android:name=".CosAddPopup"
             android:theme="@style/DialogTheme" />
+        <activity android:name=".CosDeletePopup"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:ignore="WrongManifestParent"
             tools:replace="screenOrientation" />
+
         <activity android:name=".Cos_IngredActivity" />
         <activity android:name=".Cos_DetailActivity" />
-        <activity android:name=".Cos_ShootActivity" />
-        <activity android:name=".CosAddActivity" />
+        <activity android:name=".Cos_ShootActivity"/>
+        <activity android:name=".CosAddActivity"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".LogoActivity">
+        <activity android:name=".LogoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SkintestActivity" />
         <activity android:name=".MembershipActivity" />
         <activity android:name=".cos_intro_activity" />
-        <activity android:name=".cos_login" />
+        <activity android:name=".cos_login"/>
     </application>
 
 </manifest>
