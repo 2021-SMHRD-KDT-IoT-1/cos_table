@@ -20,9 +20,8 @@
     <string name="tg_btn_dry">건성</string>
 
 
-
     <!--fragment_jisung.xml 피부타입체크리스트-->
- <string name="btn_sendMain">처음화면</string>
+    <string name="btn_sendMain">처음화면</string>
 
 
     <!-- cos_intro_activity.xml -->
@@ -93,5 +92,8 @@
     <string name="btn_amount_plus">+</string>
     <string name="btn_amount_minus">-</string>
     <string name="btn_amount_exit">확인</string>
+
+    <!-- cos_desk.xml -->
+    <string name="btn_cos_desk">입력완료</string>
 
 </resources>

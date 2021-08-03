@@ -1,15 +1,10 @@
 package kr.or.smhrd.a3rd_cos_table;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -52,27 +47,30 @@ public class CoslistAdapter extends BaseAdapter {
             // -findViewById()는 xml에 배치된 view의 id를 찾는 메소드로
             // listView의 성능을 저하시킬 수 있는 요인
             // - ViewHolder 객체 생성시 findViewById()는 한번만 실행
-//            holder=new ViewHolder(convertView);
+            holder=new ViewHolder(convertView);
+
+
         }
 
 //            //List_cositem.xml 안에 있는 View 중에서 id가 img_list_cos인 ImageView정보를 접근
-            TextView tv_list_cosname = convertView.findViewById(R.id.tv_list_cosname);
-            TextView tv_list_date = convertView.findViewById(R.id.tv_list_date);
-            TextView tv_result = convertView.findViewById(R.id.tv_result);
+//        TextView tv_list_cosname = convertView.findViewById(R.id.tv_list_cosname);
+//        TextView tv_list_date = convertView.findViewById(R.id.tv_list_date);
+//        TextView tv_result = convertView.findViewById(R.id.tv_state);
 
-            CoslistVO vo=data.get(position);
+        CoslistVO vo=data.get(position);
 
-//            holder.tv_list_cosname.setText(vo.getName());
-//            holder.tv_list_date.setText(vo.getDate());
-//            holder.tv_result.setText(vo.getResult());
-        tv_list_cosname.setText(vo.getName());
-        tv_list_date.setText(vo.getDate());
-        tv_result.setText(vo.getResult());
+        holder.tv_list_cosname.setText(vo.getName());
+        holder.tv_list_date.setText(vo.getDate());
+        holder.tv_result.setText(vo.getResult());
+
+//        tv_list_cosname.setText(vo.getName());
+//        tv_list_date.setText(vo.getDate());
+//        tv_result.setText(vo.getResult());
 
 
 
-            return convertView;
-        }
+        return convertView;
+    }
 
 
 }

@@ -36,8 +36,6 @@ public class MembershipActivity extends AppCompatActivity {
     RequestQueue queue;
 
     private String rd_result;
-    private int checkedId1;
-    private int checkedId2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +134,7 @@ public class MembershipActivity extends AppCompatActivity {
                                     Log.v("응답결과", response);
 
                                     if (response.equals("1")) {
-                                        Intent intent = new Intent(getApplicationContext(), cos_login.class);
+                                        Intent intent = new Intent(getApplicationContext(), Cos_Desk_Activity.class);
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(MembershipActivity.this, "회원가입 실패입니다.", Toast.LENGTH_SHORT).show();

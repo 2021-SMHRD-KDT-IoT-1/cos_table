@@ -55,23 +55,9 @@ public class CosAddActivity extends AppCompatActivity {
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                final PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
-
-                getMenuInflater().inflate(R.menu.img1_add, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-
-                        if (item.getItemId()==R.id.action_menu1) {
-                            Toast.makeText(CosAddActivity.this, "메뉴1클릭",Toast.LENGTH_SHORT).show();
-                        }//이미지클릭리스너 만드는중이에요
-
-                        return false;
-                    }
-                });
+                Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
+                startActivity(intent);
             }
-
-
         });
 
 

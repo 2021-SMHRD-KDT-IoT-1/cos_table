@@ -134,4 +134,14 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_mycos"
         app:layout_constraintTop_toTopOf="@+id/tv_mycos" />
 
+    <TextView
+        android:id="@+id/tv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListV_cos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

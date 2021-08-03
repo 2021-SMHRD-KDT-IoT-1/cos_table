@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     EditText edt_main_id;
-    TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos;
+    TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos, tv_list;
     ImageButton img_mycos1, img_mycos2, img_mycos3;
     Button btn_plus;
 
@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private ListView ListV_cos;
     private CoslistAdapter adapter;
     private ArrayList<CoslistVO> data;
+
+    private String[] cosNameArray = {"스킨", "토너", "크림"};
+    private String[] cosDateArray = {"22/08/13", "21/06/20", "22/10/25"};
+    private String[] cosStateArray = {"사용완료", "사용중단", "사용중"};
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         tv_usedate2=findViewById(R.id.tv_usedate2);
         tv_usedate3=findViewById(R.id.tv_usedate3);
         tv_usedcos=findViewById(R.id.tv_usedcos);
+
+        tv_list = findViewById(R.id.tv_list);
+
+
         btn_plus=findViewById(R.id.btn_plus);
 
         img_mycos1=findViewById(R.id.img_mycos1);
@@ -58,13 +66,17 @@ public class MainActivity extends AppCompatActivity {
 
         queue= Volley.newRequestQueue(getApplicationContext());
 
-        //listview값에 화장품 기한, 사용기한 정보 db에서 받아오기
-       String listview_url="http://121.147.0.224:8081/AndroidServer/ListViewService";
-        StringRequest request=new StringRequest(Request.Method.GET, listview_url,
+
+
+         //listview값에 화장품 기한, 사용기한 정보 db에서 받아오기
+        String listview_url="http://220.71.97.208:8099/AndServer/CosListService";
+
+        StringRequest request = new StringRequest(Request.Method.GET, listview_url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.v("응답결과", response);
+
+                        Log.v("응답결과입니다", response);
 
                         //response 객체에는 JSONArray 형태 정보가 담겨있기 때문에
                         //JSONArray타입으로 객체 생성 필요
@@ -74,16 +86,21 @@ public class MainActivity extends AppCompatActivity {
 
                             for(int i=0;i<array.length();i++){
                                 JSONObject cos=(JSONObject)array.get(i);
+
                                 builder.append("화장품이름 : ");
-                                builder.append(cos.getString("cosname"));
+                                builder.append(cos.getString("data.get(1).toString()"));
                                 builder.append("\n 사용기한 : ");
-                                builder.append(cos.getString("date"));
+                                builder.append(cos.getString("u_cos_dead"));
+                                builder.append("\n 상태 : ");
+                                builder.append(cos.getString("state"));
                                 builder.append("\n");
 
                             }
-                            //tv_list_cosname.setText(builder.toString());
-                            //tv_list_date.setText(builder.toString());
-                            //ListV_cos.tv_list_cosname.setText(builder.toString());
+                            tv_list.setText(builder.toString());
+
+//                            ListV_cos.tv_list_cosname.setText(builder.toString());
+//                            tv_list_date.setText(builder.toString());
+//                            ListV_cos.setText(builder.toString());
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -100,9 +117,12 @@ public class MainActivity extends AppCompatActivity {
 
         //===사용했던 화장품 list=========================================================================
         ListV_cos=findViewById(R.id.ListV_cos);
+
         data=new ArrayList<>();
-        for(int i=0;i<10;i++){
-//            data.add(new CoslistVO("cosname","date","완료/중단 결과"));
+
+
+        for(int i=0;i<cosNameArray.length;i++){
+            data.add(new CoslistVO(cosNameArray[i],cosDateArray[i],cosStateArray[i]));
         }
 
         adapter=new CoslistAdapter(getApplicationContext(),
