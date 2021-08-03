@@ -1,14 +1,15 @@
 DROP TABLE member cascade constraints;
-DROP TABLE cosmetic;
+DROP TABLE cosmetic cascade constraints;
 DROP TABLE ingredient;
-DROP TABLE sold_table;
+DROP TABLE sold_table cascade constraints;
 DROP TABLE u_cosmetic;
 
 
 CREATE TABLE member (
-   id   varchar2(50)      NOT NULL,
-   pw   varchar2(50)      NOT NULL,
-   skintype   varchar2(50)      NOT NULL
+   id       varchar2(50)      NOT NULL,
+   table_id   varchar2(50)     NULL,
+   pw      varchar2(50)      NOT NULL,
+   skintype varchar2(50)      NOT NULL
 );
 
 
@@ -35,7 +36,6 @@ CREATE TABLE ingredient (
 
 CREATE TABLE sold_table (
    table_id   varchar2(50)      NOT NULL,
-   id   varchar2(50)      NOT NULL,
    solddate   varchar2(50)      NOT NULL
 );
 
@@ -65,8 +65,7 @@ ALTER TABLE ingredient ADD CONSTRAINT "PK_INGREDIENT" PRIMARY KEY (
 );
 
 ALTER TABLE sold_table ADD CONSTRAINT "PK_SOLD_TABLE" PRIMARY KEY (
-   table_id,
-   id
+   table_id
 );
 
 ALTER TABLE u_cosmetic ADD CONSTRAINT "PK_U_COSMETIC" PRIMARY KEY (
@@ -75,18 +74,18 @@ ALTER TABLE u_cosmetic ADD CONSTRAINT "PK_U_COSMETIC" PRIMARY KEY (
    cos_id
 );
 
+ALTER TABLE member ADD CONSTRAINT "FK_sold_table_TO_member_1" FOREIGN KEY (
+   table_id
+)
+REFERENCES sold_table (
+   table_id
+);
+
 ALTER TABLE ingredient ADD CONSTRAINT "FK_cosmetic_TO_ingredient_1" FOREIGN KEY (
    cos_id
 )
 REFERENCES cosmetic (
    cos_id
-);
-
-ALTER TABLE sold_table ADD CONSTRAINT "FK_member_TO_sold_table_1" FOREIGN KEY (
-   id
-)
-REFERENCES member (
-   id
 );
 
 ALTER TABLE u_cosmetic ADD CONSTRAINT "FK_member_TO_u_cosmetic_1" FOREIGN KEY (
