@@ -22,10 +22,11 @@ public class JoinService extends HttpServlet {
 		String id = request.getParameter("join_id");
 		String pw = request.getParameter("join_pw");
 		String skintype = request.getParameter("join_skintype");
+		String table_id = request.getParameter("table_id");
 		
-		System.out.println(id + " / " + pw + " / " + skintype);
+		System.out.println(id + " / " + pw + " / " + skintype + " / " + table_id);
 		
-		MemberDTO member = new MemberDTO(id, pw, skintype);
+		MemberDTO member = new MemberDTO(id, table_id, pw, skintype);
 		MemberDAO dao = new MemberDAO();
 		
 		int cnt = dao.member_join(member);
