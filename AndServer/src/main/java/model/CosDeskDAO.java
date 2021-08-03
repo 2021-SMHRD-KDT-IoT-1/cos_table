@@ -6,11 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CosListDAO {
+public class CosDeskDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
+	CosDeskDTO dto;
 
 	public void conn() {
 		try {
@@ -42,4 +43,23 @@ public class CosListDAO {
 		}
 	}
 	
+	public int cos_desk_add(CosDeskDTO dto) {
+		conn();
+		String sql = "update member set table_id = ? where table_id is null";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getTable_id());
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+	}
+
 }

@@ -12,7 +12,6 @@ CREATE TABLE member (
    skintype varchar2(50)      NOT NULL
 );
 
-
 CREATE TABLE cosmetic (
    cos_id      varchar2(50)      NOT NULL,
    cos_name   varchar2(50)      NOT NULL,
@@ -49,6 +48,8 @@ CREATE TABLE u_cosmetic (
    u_cos_dead   varchar2(50)      NOT NULL,
    state      varchar2(50)      DEFAULT '사용중'
 );
+
+insert into U_COSMETIC values ('u_cos_01', 'a', 'cos_01', sysdate, '1', sysdate+(interval '1' year), '사용중');
 
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
