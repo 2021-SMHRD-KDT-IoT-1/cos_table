@@ -177,6 +177,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
                             }
                         };
                         queue.add(request);
+
                         //등록이 되지 않으면 토스트창에 표시
                     }else{
                         Toast.makeText(Cos_ShootActivity.this, "QR코드를 다시 찍어주세요.", Toast.LENGTH_SHORT).show();

@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,104 +42,71 @@ public class MainActivity extends AppCompatActivity {
     private CoslistAdapter adapter;
     private ArrayList<CoslistVO> data;
 
-    private String[] cosNameArray = {"스킨", "토너", "크림"};
-    private String[] cosDateArray = {"22/08/13", "21/06/20", "22/10/25"};
-    private String[] cosStateArray = {"사용완료", "사용중단", "사용중"};
-
      @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+         edt_main_id = findViewById(R.id.edt_main_id);
+         tv_mycos = findViewById(R.id.tv_mycos);
+         tv_usedate1 = findViewById(R.id.tv_usedate1);
+         tv_usedate2 = findViewById(R.id.tv_usedate2);
+         tv_usedate3 = findViewById(R.id.tv_usedate3);
+         tv_usedcos = findViewById(R.id.tv_usedcos);
 
-        edt_main_id=findViewById(R.id.edt_main_id);
-        tv_mycos=findViewById(R.id.tv_mycos);
-        tv_usedate1=findViewById(R.id.tv_usedate1);
-        tv_usedate2=findViewById(R.id.tv_usedate2);
-        tv_usedate3=findViewById(R.id.tv_usedate3);
-        tv_usedcos=findViewById(R.id.tv_usedcos);
+         btn_plus = findViewById(R.id.btn_plus);
 
-        tv_list = findViewById(R.id.tv_list);
+         img_mycos1 = findViewById(R.id.img_mycos1);
+         img_mycos2 = findViewById(R.id.img_mycos2);
+         img_mycos3 = findViewById(R.id.img_mycos3);
 
+         queue = Volley.newRequestQueue(getApplicationContext());
 
-        btn_plus=findViewById(R.id.btn_plus);
-
-        img_mycos1=findViewById(R.id.img_mycos1);
-        img_mycos2=findViewById(R.id.img_mycos2);
-        img_mycos3=findViewById(R.id.img_mycos3);
-
-        queue= Volley.newRequestQueue(getApplicationContext());
-
-
-
-         //listview값에 화장품 기한, 사용기한 정보 db에서 받아오기
-        String listview_url="http://220.71.97.208:8099/AndServer/CosListService";
-
-        StringRequest request = new StringRequest(Request.Method.GET, listview_url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.v("응답결과입니다", response);
-
-                        //response 객체에는 JSONArray 형태 정보가 담겨있기 때문에
-                        //JSONArray타입으로 객체 생성 필요
-                        try {
-                            JSONArray array=new JSONArray(response);
-                            StringBuilder builder=new StringBuilder();
-
-                            for(int i=0;i<array.length();i++){
-                                JSONObject cos=(JSONObject)array.get(i);
-
-                                builder.append("화장품이름 : ");
-                                builder.append(cos.getString("data.get(1).toString()"));
-                                builder.append("\n 사용기한 : ");
-                                builder.append(cos.getString("u_cos_dead"));
-                                builder.append("\n 상태 : ");
-                                builder.append(cos.getString("state"));
-                                builder.append("\n");
-
-                            }
-                            tv_list.setText(builder.toString());
-
-//                            ListV_cos.tv_list_cosname.setText(builder.toString());
-//                            tv_list_date.setText(builder.toString());
-//                            ListV_cos.setText(builder.toString());
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        queue.add(request);
-
-        //===사용했던 화장품 list=========================================================================
-        ListV_cos=findViewById(R.id.ListV_cos);
-
-        data=new ArrayList<>();
-
-
-        for(int i=0;i<cosNameArray.length;i++){
-            data.add(new CoslistVO(cosNameArray[i],cosDateArray[i],cosStateArray[i]));
-        }
-
-        adapter=new CoslistAdapter(getApplicationContext(),
-                R.layout.list_cositem,
-                data);
-
-        ListV_cos.setAdapter(adapter);
-        //================================================================================
-
-        //로그인 시 userid 출력
-        Intent intent = getIntent();
-        String id = intent.getExtras().getString("id");
+         //로그인 시 userid 출력
+         Intent intent = getIntent();
+         String id = intent.getExtras().getString("id");
 //        String id=getIntent().getStringExtra("login_id");
-        edt_main_id.setText(id+"님 환영합니다!");
+         edt_main_id.setText(id+"님 환영합니다!");
+
+         String listview_url = "http://220.71.97.208:8099/AndServer/CosListService";
+         StringRequest request = new StringRequest(Request.Method.POST, listview_url,
+                 new Response.Listener<String>() {
+                     @Override
+                     public void onResponse(String response) {
+                         Log.v("응답결과", response);
+                         try {
+                             JSONArray array = new JSONArray(response);
+                             for(int i = 0; i <array.length(); i++){
+                                 JSONObject jsonObject = array.getJSONObject(i);
+                                 String u_cos_id = jsonObject.getString("u_cos_id");
+                                 String cos_id = jsonObject.getString("cos_id");
+                                 String u_cos_dead = jsonObject.getString("u_cos_dead");
+
+                                 Log.v("응답결과", u_cos_id + "/" + cos_id + "/" + u_cos_dead);
+                             }
+                         } catch (JSONException e) {
+                             e.printStackTrace();
+                         }
+
+
+                     }
+                 },
+                 new Response.ErrorListener() {
+                     @Override
+                     public void onErrorResponse(VolleyError error) {
+                         Log.v("오류", "요청실패");
+                     }
+                 }) {
+             @Override
+             protected Map<String, String> getParams() throws AuthFailureError {
+                 Map<String, String> params = new HashMap<>();
+
+                 params.put("id",id);
+
+                 return params;
+             }
+         };
+         queue.add(request);
+
 
 
         //내 화장품 옆에 + 클릭시 화장품 등록 페이지로 이동
@@ -156,5 +126,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+     }
   }
-}

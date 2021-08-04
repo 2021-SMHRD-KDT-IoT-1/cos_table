@@ -124,7 +124,7 @@ public class MembershipActivity extends AppCompatActivity {
                 //입력 비밀번호가 같은지 체크
                 if (pw.equals(pwck)) {
 
-                    String join_url = "http://121.147.0.224:8081/AndServer/JoinService";
+                    String join_url = "http://220.71.97.208:8099/AndServer/JoinService";
 
                     StringRequest request = new StringRequest(Request.Method.POST, join_url,
                             new Response.Listener<String>() {
