@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -44,7 +45,18 @@ public class CosAddActivity extends AppCompatActivity {
         tv_add_img2=findViewById(R.id.tv_add_img2);
         tv_add_img3=findViewById(R.id.tv_add_img3);
 
+        Intent intent = getIntent();
+        String amount = intent.getStringExtra("amount");
+        if(amount != null) {
+            if (tv_add_img1.equals("1")) {
+                tv_add_img1.setText(amount);
+            }else if(tv_add_img2.equals("2")) {
+                tv_add_img2.setText(amount);
+            }else if(tv_add_img3.equals("3")) {
+                tv_add_img3.setText(amount);
+            }
 
+        }
 
         // 등록 버튼 클릭 시 Cos_Shoot페이지로 이동
         btn_add.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +64,9 @@ public class CosAddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CosAddActivity.this, Cos_ShootActivity.class);
                 startActivity(intent);
+
+
+
             }
         });
 
@@ -59,14 +74,13 @@ public class CosAddActivity extends AppCompatActivity {
         img_1st_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
-                Intent intent_amount = getIntent();
-                String uCos_text= intent.getStringExtra("amount");
-
-
-                tv_add_img1.setText(uCos_text);
-
+                Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);  //팝업 여는 intent
                 startActivity(intent);
+
+                /*intent = getIntent();
+                String uCos_text= intent.getStringExtra("amount");
+                tv_add_img1.setText(uCos_text);*/
+
             }
 
 
