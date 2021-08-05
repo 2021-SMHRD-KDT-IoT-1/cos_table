@@ -139,19 +139,19 @@ public class Cos_ShootActivity extends AppCompatActivity {
                     //나중에 화장품 상세보기에 xxxx.setText(obj.getString("xxx")); 하면 돼요
 
 //                    String.valueOf(qrScan); //qrScan을 String에 담아줌
-                    String[] qrSplit=new String[4]; //qrScan을 -를 기준으로 잘라줄 변수
-                    for (int i=0; i<qrSplit.length;i++) {
-                        qrSplit[i]= scanResult.split("-")[i]; //-를 기준으로 잘라서 보관
-                        Log.d("test","test="+i+qrSplit[i]);
+//                    String[] qrSplit=new String[4]; //qrScan을 -를 기준으로 잘라줄 변수
+//                    for (int i=0; i<qrSplit.length;i++) {
+//                        qrSplit[i]= scanResult.split("-")[i]; //-를 기준으로 잘라서 보관
+//                        Log.d("test","test="+i+qrSplit[i]);
+//
+//                    }
 
-                    }
 
-
-                    String u_cos_id =qrSplit[0];
-                    String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
-//                    String cos_id=qrSplit[1];
-                    String cos_id=qrSplit[2];
-                    String amount = qrSplit[3];
+//                    String u_cos_id =qrSplit[0];
+//                    String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
+////                    String cos_id=qrSplit[1];
+//                    String cos_id=qrSplit[2];
+//                    String amount = qrSplit[3];
 //                    String u_cos_dead = qrSplit[4];
 //                    String testUcosid="test123";
                     Intent intent_u_cos_id= new Intent(getApplicationContext(),CosAddActivity.class);

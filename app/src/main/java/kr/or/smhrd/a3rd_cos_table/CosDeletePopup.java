@@ -79,12 +79,12 @@ public class CosDeletePopup extends AppCompatActivity {
                                 }else{
                                     Toast.makeText(CosDeletePopup.this, "삭제 성공!!", Toast.LENGTH_SHORT).show();
                                     //성공시 CosAddActivity로 이동
-                                    Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
-                                    intent.putExtra("imgCheck","gggg");
+                                    Intent intent_delete = new Intent(getApplicationContext(), CosAddActivity.class);
+                                    intent_delete.putExtra("imgCheck","gggg");
                                     //intent.putExtra("u_cos_id",u_cos_id);
                                     //intent.putExtra("state",state);
 
-                                    startActivity(intent);
+                                    startActivity(intent_delete);
                                 }
                             }
                         }, new Response.ErrorListener() {

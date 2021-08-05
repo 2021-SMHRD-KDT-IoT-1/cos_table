@@ -26,7 +26,7 @@ import com.android.volley.toolbox.Volley;
 
 public class CosAddActivity extends AppCompatActivity {
 
-    Button btn_add, btn_edt, btn_delete;
+    Button btn_add, btn_edt;
     ImageView img_1st_add, img_2nd_add, img_3rd_add;
     TextView tv_add_info,tv_add_img1,tv_add_img2,tv_add_img3;
     Dialog add_amountedt;
@@ -46,11 +46,10 @@ public class CosAddActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(getApplicationContext());
 
-        Intent intent = getIntent();
-        String imgCheck = intent.getStringExtra("imgCheck");
+        Intent intent_delete = getIntent();
+        String imgCheck = intent_delete.getStringExtra("imgCheck");
         if(imgCheck != null){
             img_1st_add.setImageResource(R.drawable.plus);
-
         }
 
         //이미지뷰에 사진 출력
