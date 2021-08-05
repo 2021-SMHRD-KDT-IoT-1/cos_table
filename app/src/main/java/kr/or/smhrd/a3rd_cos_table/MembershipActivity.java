@@ -93,9 +93,9 @@ public class MembershipActivity extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId2) {
                     if (checkedId2 == R.id.rd_sen_Q1) {
-                        rd_result = rd_sen_Q1.getText().toString();
+                        rd_result = "민감성";
                     } else {
-                        rd_result = rd_sen_Q2.getText().toString();
+                        rd_result = "민감성";
                     }
                 }
             });
