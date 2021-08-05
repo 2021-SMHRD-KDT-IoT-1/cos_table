@@ -6,13 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CosAddDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	MemberDTO dto;
+	CosAddDTO cosdto;
 
 	public void conn() {
 		try {
@@ -76,18 +77,41 @@ public class CosAddDAO {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
 		return 0;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public ArrayList<CosAddDTO> cos_list(CosAddDTO cosadd) {
+		ArrayList<CosAddDTO> list = new ArrayList<CosAddDTO>();
+		
+		conn();
+		
+		try {
+			String sql = "select u_cos_id, u_cos_dead, state from u_cosmetic where u_cos_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cosadd.getU_cos_id());
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				String u_cos_id = rs.getString(1);
+				String u_cos_dead = rs.getString(2);
+				String state = rs.getString(3);
+				
+				System.out.println("값 확인이여;"+ u_cos_id.toString() + 
+						u_cos_dead.toString() + state.toString());
+				
+				cosdto = new CosAddDTO(u_cos_id, u_cos_dead, state);
+				
+				list.add(cosadd);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 	
 }

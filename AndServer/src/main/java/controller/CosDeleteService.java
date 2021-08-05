@@ -9,31 +9,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberDAO;
-import model.MemberDTO;
+import model.CosAddDAO;
+import model.CosAddDTO;
+import model.CosDeleteDAO;
+import model.CosDeleteDTO;
 
 
-@WebServlet("/JoinService")
-public class JoinService extends HttpServlet {
+@WebServlet("/CosDeleteService")
+public class CosDeleteService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String u_cos_id=request.getParameter("u_cos_id");
+		String state = request.getParameter("state");
+	
+		System.out.println("ucosid : " + u_cos_id);
+		System.out.println("state : " + state);
 
-		String id = request.getParameter("join_id");
-		String pw = request.getParameter("join_pw");
-		String skintype = request.getParameter("join_skintype");
-		String table_id = request.getParameter("table_id");
+		CosDeleteDTO cosdelete=new CosDeleteDTO(u_cos_id, state);
+		CosDeleteDAO dao = new CosDeleteDAO();
 		
-		System.out.println(id + " / " + pw + " / " + skintype + " / " + table_id);
-		
-		MemberDTO member = new MemberDTO(id, table_id, pw, skintype);
-		MemberDAO dao = new MemberDAO();
-		
-		int cnt = dao.member_join(member);
+		int cnt = dao.cos_delete(cosdelete);
 		
 		PrintWriter out = response.getWriter();
 		
-		if(cnt > 0) {
+		if(cnt>0) {
 			out.print(1);
 		}else {
 			out.print(0);

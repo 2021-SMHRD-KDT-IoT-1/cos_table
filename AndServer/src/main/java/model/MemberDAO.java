@@ -46,20 +46,20 @@ public class MemberDAO {
 
 	public int member_join(MemberDTO member) {
 		conn();
-		String sql="insert into member values(?,?,?)";
+		String sql="insert into member values(?,?,?,?)";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1,member.getId());
-			psmt.setString(2,member.getPw());
-			psmt.setString(3,member.getSkintype());
+			psmt.setString(2,member.getTable_id());
+			psmt.setString(3,member.getPw());
+			psmt.setString(4,member.getSkintype());
 			
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
-		}finally {//오류가 캐치문에서 잡혔더라도 무조건적으로 실행 될 수 있는 구문 
-			//오류가 나던 나지않던 sql은 종료되어야함
+		}finally {
 			
 			close();
 		}
