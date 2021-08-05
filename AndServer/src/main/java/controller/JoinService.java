@@ -31,6 +31,7 @@ public class JoinService extends HttpServlet {
 		
 		int cnt = dao.member_join(member);
 		
+		
 		PrintWriter out = response.getWriter();
 		
 		if(cnt > 0) {

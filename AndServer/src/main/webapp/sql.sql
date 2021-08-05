@@ -49,8 +49,6 @@ CREATE TABLE u_cosmetic (
    state      varchar2(50)      DEFAULT '사용중'
 );
 
-insert into U_COSMETIC values ('u_cos_01', 'a', 'cos_01', sysdate, '1', sysdate+(interval '1' year), '사용중');
-
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
    id
