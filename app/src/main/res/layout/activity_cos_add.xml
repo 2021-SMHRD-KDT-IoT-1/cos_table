@@ -23,14 +23,14 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_edt"
         app:layout_constraintBottom_toBottomOf="@+id/btn_add"
-        app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cosdelete"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_add"
         app:layout_constraintTop_toTopOf="@+id/btn_add"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btn_delete"
+        android:id="@+id/btn_cosdelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_delete"
@@ -106,8 +106,8 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_add_img3"
         app:layout_constraintBottom_toBottomOf="@+id/tv_add_img2"
-        app:layout_constraintEnd_toEndOf="@+id/btn_delete"
-        app:layout_constraintStart_toStartOf="@+id/btn_delete"
+        app:layout_constraintEnd_toEndOf="@+id/btn_cosdelete"
+        app:layout_constraintStart_toStartOf="@+id/btn_cosdelete"
         app:layout_constraintTop_toTopOf="@+id/tv_add_img2"
         app:layout_constraintVertical_bias="1.0" />
 

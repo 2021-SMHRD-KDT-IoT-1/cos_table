@@ -3,10 +3,12 @@ package kr.or.smhrd.a3rd_cos_table;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +26,7 @@ import java.util.Map;
 public class CosAddPopup extends AppCompatActivity {
 
     TextView tv_add_amount;
-    Button btn_amount_plus, btn_amount_minus, btn_amount_exit;
+    Button btn_amount_plus, btn_amount_minus, btn_amount_exit,btn_cosdelete;
     RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class CosAddPopup extends AppCompatActivity {
         btn_amount_plus=findViewById(R.id.btn_amount_plus);
         btn_amount_minus=findViewById(R.id.btn_amount_minus);
         btn_amount_exit=findViewById(R.id.btn_amount_exit);
+
+        btn_cosdelete=findViewById(R.id.btn_cosdelete);
+
         queue = Volley.newRequestQueue(getApplicationContext());
 
         btn_amount_plus.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +53,6 @@ public class CosAddPopup extends AppCompatActivity {
                 //3. 증가된 값 -->  텍스트뷰에 초기화
                 // 정수형 --> 문자열 변환
                 tv_add_amount.setText(String.valueOf(n));
-
 
             }
         });
@@ -112,6 +116,12 @@ public class CosAddPopup extends AppCompatActivity {
                                 Intent u_cos_id = getIntent();
 
                                 u_cos_id.getStringExtra("u_cos_id");
+
+
+//                                Intent intent_ucid = new Intent(getApplicationContext(), CosDeletePopup.class);
+//                                intent_ucid.putExtra(u_cos_id);
+//                                startActivity(intent_ucid);
+
                                 String a = "test123";
                                 params.put("amount", amount);
                                 params.put("u_cos_id", a);
@@ -135,6 +145,14 @@ public class CosAddPopup extends AppCompatActivity {
             }
         });
 
+        btn_cosdelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deleteintent=new Intent(getApplicationContext(),CosDeletePopup.class);
+                //deleteintent.putExtra("u_cos_id", u_cos_id);
+                startActivity(deleteintent);
+            }
+        });
 
         }
 

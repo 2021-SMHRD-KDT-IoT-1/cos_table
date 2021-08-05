@@ -96,6 +96,7 @@
     <string name="btn_amount_plus">+</string>
     <string name="btn_amount_minus">-</string>
     <string name="btn_amount_exit">확인</string>
+    <string name="btn_cosdelete">화장품 삭제</string>
 
     <!--cos_delete.xml-->
     <string name="tv_dmessage">정말로 삭제하시겠습니까? </string>
@@ -103,4 +104,8 @@
     <string name="btn_dcomplete">완료</string>
     <string name="btn_dstop">중단</string>
 
+    <!--deletemenu.xml-->
+    <string name="mitem1">화장품1</string>
+    <string name="mitem2">화장품2</string>
+    <string name="mitem3">화장품3</string>
 </resources>
