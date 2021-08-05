@@ -10,12 +10,12 @@
         android:id="@+id/edt_mem_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/tv_style"
         android:ems="10"
         android:hint="@string/edt_login_id"
         android:inputType="textPersonName"
-        android:background="@drawable/tv_style"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_mem_pw"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,12 +27,12 @@
         android:id="@+id/edt_mem_pwck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/tv_style"
         android:ems="10"
         android:hint="@string/edt_mem_pwck"
         android:inputType="textPassword"
-        android:background="@drawable/tv_style"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_pw"
@@ -43,12 +43,12 @@
         android:id="@+id/edt_mem_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/tv_style"
         android:ems="10"
         android:hint="@string/edt_login_pw"
         android:inputType="textPassword"
-        android:background="@drawable/tv_style"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_mem_pwck"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_id"
@@ -115,13 +115,12 @@
         app:layout_constraintGuide_percent="0.35" />
 
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="1.0" />
 
     <RadioGroup
         android:id="@+id/rd_btn_group"
@@ -193,8 +192,8 @@
             android:id="@+id/rd_sen_Q1"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:button="@android:color/transparent"
             android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
             android:gravity="center"
             android:text="@string/tv_Q1"
             android:textColor="@color/white" />
@@ -204,11 +203,11 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:button="@android:color/transparent"
             android:background="@drawable/radio_result"
+            android:button="@android:color/transparent"
             android:gravity="center"
             android:text="@string/tv_Q2"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
