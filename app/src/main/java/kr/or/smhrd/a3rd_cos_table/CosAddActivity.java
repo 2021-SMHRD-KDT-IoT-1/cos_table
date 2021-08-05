@@ -9,9 +9,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -25,7 +26,7 @@ import com.android.volley.toolbox.Volley;
 
 public class CosAddActivity extends AppCompatActivity {
 
-    Button btn_add, btn_edt;
+    Button btn_add, btn_edt, btn_delete;
     ImageView img_1st_add, img_2nd_add, img_3rd_add;
     TextView tv_add_info,tv_add_img1,tv_add_img2,tv_add_img3;
     Dialog add_amountedt;
@@ -64,6 +65,19 @@ public class CosAddActivity extends AppCompatActivity {
         tv_add_img2=findViewById(R.id.tv_add_img2);
         tv_add_img3=findViewById(R.id.tv_add_img3);
 
+        Intent intent = getIntent();
+        String amount = intent.getStringExtra("amount");
+        if(amount != null) {
+            if (tv_add_img1.equals("1")) {
+                tv_add_img1.setText(amount);
+            }else if(tv_add_img2.equals("2")) {
+                tv_add_img2.setText(amount);
+            }else if(tv_add_img3.equals("3")) {
+                tv_add_img3.setText(amount);
+            }
+
+        }
+
         // 등록 버튼 클릭 시 Cos_Shoot페이지로 이동
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,8 +96,8 @@ public class CosAddActivity extends AppCompatActivity {
                 String uCos_text= intent.getStringExtra("amount");
                 tv_add_img1.setText(uCos_text);
                 startActivity(intent);
-
             }
+
 
         });
 
@@ -91,6 +105,7 @@ public class CosAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
+
                 startActivity(intent);
             }
         });
@@ -100,9 +115,11 @@ public class CosAddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
                 startActivity(intent);
-
             }
         });
+
+
+
 
     }
 }

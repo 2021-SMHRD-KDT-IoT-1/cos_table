@@ -36,8 +36,6 @@ public class MembershipActivity extends AppCompatActivity {
     RequestQueue queue;
 
     private String rd_result;
-    private int checkedId1;
-    private int checkedId2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +93,9 @@ public class MembershipActivity extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId2) {
                     if (checkedId2 == R.id.rd_sen_Q1) {
-                        rd_result = rd_sen_Q1.getText().toString();
+                        rd_result = "민감성";
                     } else {
-                        rd_result = rd_sen_Q2.getText().toString();
+                        rd_result = "민감성";
                     }
                 }
             });
@@ -126,7 +124,7 @@ public class MembershipActivity extends AppCompatActivity {
                 //입력 비밀번호가 같은지 체크
                 if (pw.equals(pwck)) {
 
-                    String join_url = "http://121.147.0.224:8081/AndServer/JoinService";
+                    String join_url = "http://220.71.97.208:8099/AndServer/JoinService";
 
                     StringRequest request = new StringRequest(Request.Method.POST, join_url,
                             new Response.Listener<String>() {
@@ -136,7 +134,7 @@ public class MembershipActivity extends AppCompatActivity {
                                     Log.v("응답결과", response);
 
                                     if (response.equals("1")) {
-                                        Intent intent = new Intent(getApplicationContext(), cos_login.class);
+                                        Intent intent = new Intent(getApplicationContext(), Cos_Desk_Activity.class);
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(MembershipActivity.this, "회원가입 실패입니다.", Toast.LENGTH_SHORT).show();

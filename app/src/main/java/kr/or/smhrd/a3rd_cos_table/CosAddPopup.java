@@ -2,6 +2,7 @@ package kr.or.smhrd.a3rd_cos_table;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class CosAddPopup extends AppCompatActivity {
     TextView tv_add_amount;
     Button btn_amount_plus, btn_amount_minus, btn_amount_exit,btn_cosdelete;
     RequestQueue queue;
+    public static Context con_amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,8 @@ public class CosAddPopup extends AppCompatActivity {
         btn_cosdelete=findViewById(R.id.btn_cosdelete);
 
         queue = Volley.newRequestQueue(getApplicationContext());
+
+        con_amount=this;
 
         btn_amount_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +67,7 @@ public class CosAddPopup extends AppCompatActivity {
                 //1. 텍스트뷰의 정보 가져오기
                 String num = tv_add_amount.getText().toString();
 
-                Intent intent_amount= new Intent(getApplicationContext(),CosAddActivity.class);
 
-                //intent에 정보를 저장
-                intent_amount.putExtra("amount",num.toString());
                 //2. 정수형 타입으로 변환 --> 감소
                 int n = Integer.parseInt(num);
 
@@ -84,19 +85,30 @@ public class CosAddPopup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 try {
                     if (tv_add_amount != null) {
-                        String cosAdd_url = "http://121.147.0.224:8081/AndServer/CosEdtService";
+                        String cosAdd_url = "http://59.0.236.194:8099/AndServer/CosEdtService";
                         StringRequest request = new StringRequest(Request.Method.POST, cosAdd_url,
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
                                         Log.v("응답결과", response);
                                         if (response.equals("1")) {
+
                                             Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
+                                            String num = tv_add_amount.getText().toString();
+                                            //intent에 정보를 저장
+                                            intent.putExtra("amount", num);
+                                            Toast.makeText(getApplicationContext(),num,Toast.LENGTH_SHORT).show();
+
                                             startActivity(intent);
                                         } else {
                                             Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
+                                            String num = tv_add_amount.getText().toString();
+                                            //intent에 정보를 저장
+                                            intent.putExtra("amount", num);
+                                            Log.d("test",intent.toString());
                                             startActivity(intent);
                                         }
                                     }

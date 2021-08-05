@@ -17,10 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3rd_cos_table"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CosDeletePopup"></activity>
+        <activity android:name=".Cos_Desk_Activity"/>
         <activity
             android:name=".CosAddPopup"
             android:theme="@style/DialogTheme" />
+        <activity android:name=".CosDeletePopup"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"

@@ -33,6 +33,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
     ImageView img_ex2;
     IntentIntegrator qrScan;
     RequestQueue queue;
+    String cos_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class Cos_ShootActivity extends AppCompatActivity {
         img_ex2=findViewById(R.id.img_ex2);
 
         tv_detail=findViewById(R.id.tv_detail);
-        tv_company=findViewById(R.id.tv_company);
-        tv_kinds=findViewById(R.id.tv_kinds);
+        tv_company=findViewById(R.id.tv_brand);
+        tv_kinds=findViewById(R.id.tv_type);
 
         /* AddActivity 텍스트뷰*/
         tv_add_img1=findViewById(R.id.tv_add_img1);
@@ -99,9 +100,33 @@ public class Cos_ShootActivity extends AppCompatActivity {
                 //qrcode 결과가 있으면
                 Toast.makeText(Cos_ShootActivity.this, "스캔완료!", Toast.LENGTH_SHORT).show();
                 String scanResult = result.getContents();
+
+
+                Log.v("chchchch", "들어오니"+scanResult);
+
+                String[] qrSplit=new String[4]; //qrScan을 -를 기준으로 잘라줄 변수
+                for (int i=0; i<qrSplit.length;i++) {
+                    qrSplit[i]= scanResult.split("-")[i]; //-를 기준으로 잘라서 보관
+                   Log.d("test","test="+i+qrSplit[i]);
+
+                }
+
+
+                String u_cos_id =qrSplit[0];
+                String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
+
+//                    String cos_id=qrSplit[1];
+                this.cos_id=qrSplit[2];
+                String amount = qrSplit[3];
+                Log.v("chchchch", "들어오니"+cos_id);
+
+
                 Log.v("result",result.getContents());
                 Intent intent = new Intent(getApplicationContext(), Cos_DetailActivity.class);//Cos_DetailActvity로 보내줌
-//                startActivity(intent);
+                intent.putExtra("cos_id",cos_id);
+                startActivity(intent);
+
+
                 Log.v("result","result3");
                 try {
                     //data를 json으로 변환
@@ -137,7 +162,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
                     if (qrSplit!=null) {
 
-                        String cosAdd_url = "http://121.147.0.224:8081/AndServer/CosAddService";
+                        String cosAdd_url = "http://220.71.97.208:8099/AndServer/CosAddService";
 
                         StringRequest request = new StringRequest(Request.Method.POST, cosAdd_url,
                                 new Response.Listener<String>() {
@@ -151,6 +176,8 @@ public class Cos_ShootActivity extends AppCompatActivity {
                                             startActivity(intent);
                                         } else {
                                             Toast.makeText(Cos_ShootActivity.this, "화장품 등록 실패입니다.", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), Cos_DetailActivity.class);
+                                            //startActivity(intent);
                                         }
 
                                     }

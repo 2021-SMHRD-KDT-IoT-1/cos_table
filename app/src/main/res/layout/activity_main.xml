@@ -42,8 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/img_mycos2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tv_mycos"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mycos"
-        app:srcCompat="@drawable/kakaologo" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mycos" />
 
     <ImageButton
         android:id="@+id/img_mycos2"
@@ -53,8 +52,7 @@
         app:layout_constraintEnd_toStartOf="@+id/img_mycos3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_mycos1"
-        app:layout_constraintTop_toTopOf="@+id/img_mycos1"
-        app:srcCompat="@drawable/kakaologo" />
+        app:layout_constraintTop_toTopOf="@+id/img_mycos1" />
 
     <ImageButton
         android:id="@+id/img_mycos3"
@@ -64,8 +62,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_mycos"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/img_mycos2"
-        app:layout_constraintTop_toTopOf="@+id/img_mycos2"
-        app:srcCompat="@drawable/kakaologo" />
+        app:layout_constraintTop_toTopOf="@+id/img_mycos2" />
 
     <TextView
         android:id="@+id/tv_usedate1"
@@ -106,8 +103,9 @@
 
     <ListView
         android:id="@+id/ListV_cos"
-        android:layout_width="369dp"
-        android:layout_height="144dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_mycos3"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="@+id/img_mycos1"

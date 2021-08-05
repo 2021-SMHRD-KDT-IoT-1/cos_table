@@ -104,8 +104,7 @@
     <string name="btn_dcomplete">완료</string>
     <string name="btn_dstop">중단</string>
 
-    <!--deletemenu.xml-->
-    <string name="mitem1">화장품1</string>
-    <string name="mitem2">화장품2</string>
-    <string name="mitem3">화장품3</string>
+    <!-- cos_desk.xml -->
+    <string name="btn_cos_desk">입력완료</string>
+
 </resources>
