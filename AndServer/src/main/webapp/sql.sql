@@ -12,6 +12,8 @@ CREATE TABLE member (
    skintype varchar2(50)      NOT NULL
 );
 
+select*from member;
+
 CREATE TABLE cosmetic (
    cos_id      varchar2(50)      NOT NULL,
    cos_name   varchar2(50)      NOT NULL,
@@ -20,7 +22,7 @@ CREATE TABLE cosmetic (
    cos_type      varchar2(50)      NOT NULL,
    cos_allergy   varchar2(50)      NULL
 );
-
+select*from cosmetic;
 
 CREATE TABLE ingredient (
    igt_id   varchar2(50)      NOT NULL,
@@ -32,7 +34,7 @@ CREATE TABLE ingredient (
    igt5   varchar2(100)      NOT NULL
 );
 
-
+select * from ingredient;
 CREATE TABLE sold_table (
    table_id   varchar2(50)      NOT NULL,
    solddate   varchar2(50)      NOT NULL
@@ -49,7 +51,9 @@ CREATE TABLE u_cosmetic (
    state      varchar2(50)      DEFAULT '사용중'
 );
 
-insert into U_COSMETIC values ('u_cos_01', 'a', 'cos_01', sysdate, '1', sysdate+(interval '1' year), '사용중');
+--select*from member;
+--select * from u_cosmetic;
+--select*from cosmetic;
 
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
