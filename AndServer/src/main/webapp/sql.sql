@@ -4,6 +4,14 @@ DROP TABLE ingredient;
 DROP TABLE sold_table;
 DROP TABLE u_cosmetic;
 
+select * from MEMBER;
+select * from COSMETIC;
+select * from u_cosmetic;
+
+insert into COSMETIC values('cos_dokdo', '독도토너', '어딘가', '150000', '지성', '가나다')
+insert into U_COSMETIC values ('1', 'z', 'cos_dokdo', '20210804', '2', '죽음', '사용중')
+
+
 
 CREATE TABLE member (
    id   varchar2(50)      NOT NULL,
@@ -49,7 +57,7 @@ CREATE TABLE u_cosmetic (
    u_cos_dead   varchar2(50)      NOT NULL,
    state      varchar2(50)      DEFAULT '사용중'
 );
-
+select * from u_cosmetic;
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
    id
