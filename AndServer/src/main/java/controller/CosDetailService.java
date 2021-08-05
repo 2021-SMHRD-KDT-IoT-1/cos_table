@@ -12,42 +12,49 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import model.CosListDAO;
-import model.CosListDTO;
 
+import model.CosAddDTO;
+import model.CosDetailDAO;
+import model.CosDetailDTO;
 
 
 @WebServlet("/CosDetailService")
 public class CosDetailService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("application/json; charset=EUC-KR");
-		
-		PrintWriter out = response.getWriter();
-		
-		String cos_id = request.getParameter("cos_id");
-		
-		//아이디 정상적으로 받아오는지 확인
-		System.out.println(cos_id+"들어옴");
-		
-		CosListDAO cosdao = new CosListDAO();
-		
-		ArrayList<CosListDTO> list = cosdao.cos_detail(cos_id);
-		
-		System.out.println(list.size());
-		
-		Gson gson = new Gson();
-		
-		
-		String jsonArray = gson.toJson(list);
-		
-		System.out.println(jsonArray);
-		
-		out.print(jsonArray);
-	
+		// 애플리케이션으로 전송 시 인코딩
+				response.setContentType("application/json; charset=EUC-KR");
+				
+				PrintWriter out = response.getWriter();
+				
+				CosDetailDAO cosdao = new CosDetailDAO();
+				CosDetailDTO cosdto = new CosDetailDTO();
+				
+				cosdto.setCos_id("cos_01");
+				ArrayList<CosDetailDTO> cos = cosdao.cosDetail(cosdto);
+				
+//				for(int i=0; i<cos.size(); i++) {
+//					System.out.println(cos.get(i).getCos_name());
+//					System.out.println(cos.get(i).getCos_brand());
+//					System.out.println(cos.get(i).getCos_type());
+//				}
+				
+				Gson gson = new Gson();
+				
+				// Java 객체 --> JSON 문자열 변환
+				String jsonArray = gson.toJson(cos);
+				
+//				System.out.println(jsonArray);
+				
+				//////////////////////////////////////////////////////////////////////////
+				
+				CosDetailDTO cosDetail = new CosDetailDTO("1025 독도 토너", "라운드랩", "스킨토너");
+				
+				String jsonObj = gson.toJson(cosDetail);
+				System.out.println("들어옴!!");
+				out.print(jsonObj);
 	}
 
 }
