@@ -46,7 +46,7 @@ public class Cos_IngredActivity extends AppCompatActivity {
         String cos_id = intent.getExtras().getString("cos_id");
 
 
-        String detail_url = "http://220.71.97.208:8099/AndServer/CosDetailService";
+        String detail_url = "http://121.147.0.224:8081/AndServer/CosDetailService";
 
         StringRequest request = new StringRequest(Request.Method.POST, detail_url,
                 new Response.Listener<String>() {

@@ -61,7 +61,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
 
 
 
-       String listview_url = "http://59.0.236.194:8099/AndServer/CosDetailService";
+       String listview_url = "http://121.147.0.224:8081/AndServer/CosDetailService";
         StringRequest request = new StringRequest(Request.Method.POST, listview_url,
                 new Response.Listener<String>() {
                     @Override
