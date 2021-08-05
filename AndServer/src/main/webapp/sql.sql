@@ -51,10 +51,6 @@ CREATE TABLE u_cosmetic (
    state      varchar2(50)      DEFAULT '»ç¿ëÁß'
 );
 
---select*from member;
---select * from u_cosmetic;
---select*from cosmetic;
-
 
 ALTER TABLE member ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
    id
