@@ -66,6 +66,7 @@ public class CosAddActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String amount = intent.getStringExtra("amount");
+        String u_cos_id = intent.getStringExtra("u_cos_id");
         if(amount != null) {
             if (tv_add_img1.equals("1")) {
                 tv_add_img1.setText(amount);
@@ -91,7 +92,7 @@ public class CosAddActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
-                Intent intent_amount = getIntent();
+                intent.putExtra("u_cos_id", u_cos_id);
                 String uCos_text= intent.getStringExtra("amount");
                 tv_add_img1.setText(uCos_text);
                 startActivity(intent);

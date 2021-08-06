@@ -45,6 +45,8 @@ public class CosAddPopup extends AppCompatActivity {
         queue = Volley.newRequestQueue(getApplicationContext());
 
         con_amount=this;
+        Intent intent = new Intent();
+        String u_cos_id= intent.getStringExtra("u_cos_id");
 
         btn_amount_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,9 +99,11 @@ public class CosAddPopup extends AppCompatActivity {
                                         if (response.equals("1")) {
 
                                             Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
+
                                             String num = tv_add_amount.getText().toString();
                                             //intent에 정보를 저장
                                             intent.putExtra("amount", num);
+
                                             Toast.makeText(getApplicationContext(),num,Toast.LENGTH_SHORT).show();
 
                                             startActivity(intent);
@@ -127,7 +131,7 @@ public class CosAddPopup extends AppCompatActivity {
 
                                 Intent u_cos_id = getIntent();
 
-                                u_cos_id.getStringExtra("u_cos_id");
+                                String ucosid=u_cos_id.getStringExtra("u_cos_id");
 
 
 //                                Intent intent_ucid = new Intent(getApplicationContext(), CosDeletePopup.class);
@@ -161,6 +165,7 @@ public class CosAddPopup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent deleteintent=new Intent(getApplicationContext(),CosDeletePopup.class);
+                deleteintent.putExtra("u_cos_id",u_cos_id);
                 //deleteintent.putExtra("u_cos_id", u_cos_id);
                 startActivity(deleteintent);
             }

@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
      // 디비 연동 하는 코드를 메소드로 생성 후 필요할 떄 마다 불러서 사용
     
      public void cos_info(String id) {
-         String LV_url = "http://220.71.97.208:8099/AndServer/CosListService";
+         String LV_url = "http://59.0.236.194:8099/AndServer/CosListService";
          StringRequest request = new StringRequest(Request.Method.POST, LV_url,
                  new Response.Listener<String>() {
                      @Override
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
      }
 
      public void cos_uselist(String id) {
-         String LV2_url = "http://220.71.97.208:8099/AndServer/CosUseListService";
+         String LV2_url = "http://59.0.236.194:8099/AndServer/CosUseListService";
          StringRequest request = new StringRequest(Request.Method.POST, LV2_url,
                  new Response.Listener<String>() {
                      @Override

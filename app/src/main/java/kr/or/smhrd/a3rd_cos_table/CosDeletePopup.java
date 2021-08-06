@@ -27,23 +27,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CosDeletePopup extends AppCompatActivity {
-    TextView tv_dmessage;
+    TextView tv_dmessage,tv_ucosid;
     Button btn_dcancle,btn_dcomplete,btn_dstop;
 
     RequestQueue queue;
-
+    String state = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cos_delete_popup);
 
         tv_dmessage=findViewById(R.id.tv_dmessage);
-
+        tv_ucosid=findViewById(R.id.tv_ucosid);
         btn_dcancle=findViewById(R.id.btn_dcancle);
         btn_dcomplete=findViewById(R.id.btn_dcomplete);
         btn_dstop=findViewById(R.id.btn_dstop);
 
         queue = Volley.newRequestQueue(getApplicationContext());
+        Intent intent = new Intent();
+        String u_cos_id = intent.getStringExtra("u_cos_id");
+        tv_ucosid.setText(u_cos_id);
+
+
 
         //취소 버튼
         btn_dcancle.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +65,12 @@ public class CosDeletePopup extends AppCompatActivity {
             public void onClick(View v) {
                 //String u_cos_id=getText().toString();
                 //String state=getText().toString();
+                state="사용완료";
 
-                String delete_url="http://121.147.0.224:8081/AndroidServer/CosDeleteService";
+                String delete_url="http://59.0.236.194:8099/AndroidServer/CosDeleteService";
 
                 //db에 state 전송
-                StringRequest request=new StringRequest(Request.Method.GET, delete_url,
+                StringRequest request=new StringRequest(Request.Method.POST, delete_url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -97,8 +103,8 @@ public class CosDeletePopup extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
 
                         Map<String, String> params=new HashMap<>();
-                        //params.put("u_cos_id",u_cos_id);
-                        //params.put("state",state);
+                        params.put("u_cos_id",u_cos_id);
+                        params.put("state",state);
 
                         return params;
                     }
@@ -112,8 +118,54 @@ public class CosDeletePopup extends AppCompatActivity {
         btn_dstop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                state="사용중단";
 
+                String delete_url="http://59.0.236.194:8099/AndroidServer/CosDeleteService";
+
+                //db에 state 전송
+                StringRequest request=new StringRequest(Request.Method.POST, delete_url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.v("응답결과",response);
+
+                                if(response.equals("0")){
+                                    Toast.makeText(CosDeletePopup.this, "삭제 실패..", Toast.LENGTH_SHORT).show();
+                                    //실패시 다시 CosAddPopup 화면으로 이동
+                                    Intent intent = new Intent(CosDeletePopup.this, CosAddPopup.class);
+                                    startActivity(intent);
+
+                                }else{
+                                    Toast.makeText(CosDeletePopup.this, "삭제 성공!!", Toast.LENGTH_SHORT).show();
+                                    //성공시 CosAddActivity로 이동
+                                    Intent intent_delete = new Intent(getApplicationContext(), CosAddActivity.class);
+                                    intent_delete.putExtra("imgCheck","gggg");
+                                    //intent.putExtra("u_cos_id",u_cos_id);
+                                    //intent.putExtra("state",state);
+
+                                    startActivity(intent_delete);
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.v("오류 결과","요청실패...");
+                    }
+                }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                        Map<String, String> params=new HashMap<>();
+                        params.put("u_cos_id",u_cos_id);
+                        params.put("state",state);
+
+                        return params;
+                    }
+                };
+
+                queue.add(request);
             }
+
         });
 
     }

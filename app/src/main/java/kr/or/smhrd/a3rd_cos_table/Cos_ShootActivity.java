@@ -114,8 +114,6 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
                 String u_cos_id =qrSplit[0];
                 String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
-
-//                    String cos_id=qrSplit[1];
                 this.cos_id=qrSplit[2];
                 String amount = qrSplit[3];
                 Log.v("chchchch", "들어오니"+cos_id);
@@ -124,6 +122,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
                 Log.v("result",result.getContents());
                 Intent intent = new Intent(getApplicationContext(), Cos_DetailActivity.class);//Cos_DetailActvity로 보내줌
                 intent.putExtra("cos_id",cos_id);
+                intent.putExtra("u_cos_id",u_cos_id);
                 startActivity(intent);
 
 
@@ -162,7 +161,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
                     if (qrSplit!=null) {
 
-                        String cosAdd_url = "http://220.71.97.208:8099/AndServer/CosAddService";
+                        String cosAdd_url = "http://59.0.236.194:8099/AndServer/CosAddService";
 
                         StringRequest request = new StringRequest(Request.Method.POST, cosAdd_url,
                                 new Response.Listener<String>() {
