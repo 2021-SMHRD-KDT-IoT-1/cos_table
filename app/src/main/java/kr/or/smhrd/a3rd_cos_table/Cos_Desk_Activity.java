@@ -46,7 +46,7 @@ public class Cos_Desk_Activity extends AppCompatActivity {
                 String table_id = edt_cos_table_id.getText().toString();
                 Log.v("화장대아이디", table_id);
 
-                String table_url = "http://220.71.97.208:8099/AndServer/CosAddDeskService";
+                String table_url = "http://121.147.0.224:8081/AndServer/CosAddDeskService";
                 StringRequest request = new StringRequest(Request.Method.POST, table_url,
                         new Response.Listener<String>() {
                             @Override

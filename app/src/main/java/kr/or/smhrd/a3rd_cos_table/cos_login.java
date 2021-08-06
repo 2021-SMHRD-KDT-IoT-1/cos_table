@@ -44,7 +44,7 @@ public class cos_login extends AppCompatActivity {
             public void onClick(View v) {
                 String id=edt_login_id.getText().toString();
 
-                String login_url="http://220.71.97.208:8099/AndServer/LoginService";
+                String login_url="http://121.147.0.224:8081/AndServer/LoginService";
 
                     StringRequest request= new StringRequest(Request.Method.POST, login_url,
                             new Response.Listener<String>() {
