@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import model.CosListDAO;
-import model.CosListDTO;
+import model.CosIngredientDAO;
+import model.CosIngredientDTO;
 
-@WebServlet("/CosUseListService")
-public class CosUseListService extends HttpServlet {
+
+@WebServlet("/CosDetailListService")
+public class CosDetailListService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -26,24 +26,23 @@ public class CosUseListService extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		String id = request.getParameter("id");
+		String cos_id = request.getParameter("cos_id");
 		
 		//아이디 정상적으로 받아오는지 확인
-		System.out.println(id+"들어옴 useList");
+		System.out.println(cos_id+"들어옴 cos_detail_list");
 		
-		CosListDAO cosdao = new CosListDAO();
+		CosIngredientDAO cosdao = new CosIngredientDAO();
 		
-		ArrayList<CosListDTO> list = cosdao.cos_list(id);
-		
-		System.out.println(list.size());
+		CosIngredientDTO coslist = cosdao.cos_detail(cos_id);
 		
 		Gson gson = new Gson();
 		
-		String jsonArray = gson.toJson(list);
+		String jsonArray = gson.toJson(coslist);
 		
-		System.out.println(jsonArray);
+		System.out.println("jsonArray //" + jsonArray);
 		
 		out.print(jsonArray);
+	
 	}
 
 }

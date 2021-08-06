@@ -2,9 +2,13 @@ package model;
 
 public class CosListDTO {
 
+	String u_cos_id;
+	String cos_id;
 	String cos_name;
 	String cos_brand;
+	String cos_price;
 	String cos_type;
+	String cos_allergy;
 	String u_cos_date;
 	String state;
 	String igt1;
@@ -16,7 +20,6 @@ public class CosListDTO {
 	
 	public CosListDTO(String cos_name, String cos_brand, String cos_type, String igt1, String igt2, String igt3,
 			String igt4, String igt5) {
-		super();
 		this.cos_name = cos_name;
 		this.cos_brand = cos_brand;
 		this.cos_type = cos_type;
@@ -26,14 +29,64 @@ public class CosListDTO {
 		this.igt4 = igt4;
 		this.igt5 = igt5;
 	}
+	
+	
 
 	public CosListDTO(String cos_name, String u_cos_date, String state) {
-		super();
 		this.cos_name = cos_name;
 		this.u_cos_date = u_cos_date;
 		this.state = state;
 	}
 	
+	
+	public CosListDTO(String u_cos_id, String state) {
+		this.u_cos_id = u_cos_id;
+		this.state = state;
+	}
+
+
+
+	public String getU_cos_id() {
+		return u_cos_id;
+	}
+
+
+	public void setU_cos_id(String u_cos_id) {
+		this.u_cos_id = u_cos_id;
+	}
+
+
+
+	public String getCos_id() {
+		return cos_id;
+	}
+
+
+	public void setCos_id(String cos_id) {
+		this.cos_id = cos_id;
+	}
+
+
+	public String getCos_price() {
+		return cos_price;
+	}
+
+
+	public void setCos_price(String cos_price) {
+		this.cos_price = cos_price;
+	}
+
+
+	public String getCos_allergy() {
+		return cos_allergy;
+	}
+
+
+	public void setCos_allergy(String cos_allergy) {
+		this.cos_allergy = cos_allergy;
+	}
+
+
 	public String getCos_name() {
 		return cos_name;
 	}

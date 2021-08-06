@@ -77,42 +77,41 @@ public class CosListDAO {
 		return list;
 	}
 	
-	public ArrayList<CosListDTO> cos_detail(String cos_id) {
-		ArrayList<CosListDTO> list = new ArrayList<CosListDTO>();
-		
-		conn();
-		
-		try {
-			String sql = "select c.cos_name, c.cos_brand, c.cos_type, i.igt1, i.igt2, i.igt3, i.igt4, i.igt5 from cosmetic c, ingredient i where c.cos_id = ? and c.cos_id = i.cos_id";
-			
-			psmt = conn.prepareStatement(sql);
-			
-			psmt.setString(1, cos_id);
-			
-			rs = psmt.executeQuery();
-			
-			while (rs.next()) {
-				String cos_name = rs.getString(1);
-				String cos_brand = rs.getString(2);
-				String cos_type = rs.getString(3);
-				String igt1 = rs.getString(4);
-				String igt2 = rs.getString(5);
-				String igt3 = rs.getString(6);
-				String igt4 = rs.getString(7);
-				String igt5 = rs.getString(8);
+	
+	
+	
+	// 여정누나 삭제 기능에 필요한 u_cos_id, state 불러오기
+		public ArrayList<CosListDTO> delete_info(String id) {
+			ArrayList<CosListDTO> delete_info = new ArrayList<CosListDTO>();
+	
+			conn();
+	
+			try {
+				String sql = "select u_cos_id, state from u_cosmetic where id = ? and state = '사용중'";
 				
-				cosdto = new CosListDTO(cos_name, cos_brand, cos_type, igt1, igt2, igt3, igt4, igt5);
+				psmt = conn.prepareStatement(sql);	
 				
-				list.add(cosdto);
+				psmt.setString(1, id);
 				
+				rs = psmt.executeQuery();
+	
+				if (rs.next()) {				
+					String u_cos_id = rs.getString(1);
+					String state = rs.getString(2);
+	
+					cosdto = new CosListDTO(u_cos_id, state);
+	
+					delete_info.add(cosdto);
+	
+				}
+	
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
+			return delete_info;
 		}
-		return list;
-	}
 	
 }

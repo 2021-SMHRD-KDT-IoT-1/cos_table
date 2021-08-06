@@ -15,13 +15,15 @@ import com.google.gson.Gson;
 import model.CosListDAO;
 import model.CosListDTO;
 
-@WebServlet("/CosUseListService")
-public class CosUseListService extends HttpServlet {
+
+
+@WebServlet("/CosDeleteInfoService")
+public class CosDeleteInfoService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		response.setContentType("application/json; charset=EUC-KR");
 		
 		PrintWriter out = response.getWriter();
@@ -29,11 +31,11 @@ public class CosUseListService extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		//아이디 정상적으로 받아오는지 확인
-		System.out.println(id+"들어옴 useList");
+		System.out.println(id+"들어옴 DeleteInfoList");
 		
 		CosListDAO cosdao = new CosListDAO();
 		
-		ArrayList<CosListDTO> list = cosdao.cos_list(id);
+		ArrayList<CosListDTO> list = cosdao.delete_info(id);
 		
 		System.out.println(list.size());
 		
@@ -44,6 +46,7 @@ public class CosUseListService extends HttpServlet {
 		System.out.println(jsonArray);
 		
 		out.print(jsonArray);
+	
 	}
 
 }

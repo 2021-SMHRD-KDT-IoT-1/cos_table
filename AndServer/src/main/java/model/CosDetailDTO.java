@@ -5,6 +5,7 @@ public class CosDetailDTO {
 	private String cos_brand;
 	private String cos_type;
 	private String cos_id;
+	
 	public CosDetailDTO(String cos_name, String cos_brand, String cos_type, String cos_id) {
 		super();
 		this.cos_name = cos_name;
@@ -12,6 +13,7 @@ public class CosDetailDTO {
 		this.cos_type = cos_type;
 		this.cos_id = cos_id;
 	}
+	
 	public CosDetailDTO(String cos_name, String cos_brand, String cos_type) {
 		super();
 		this.cos_name = cos_name;

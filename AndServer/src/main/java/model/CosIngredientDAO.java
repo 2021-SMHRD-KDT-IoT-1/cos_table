@@ -5,16 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+public class CosIngredientDAO {
 
-public class CosDetailDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	CosDetailDTO dto = null;
-	ArrayList<CosDetailDTO> li = null;
+	CosIngredientDTO cosdto;
 
 	public void conn() {
 		try {
@@ -32,9 +30,9 @@ public class CosDetailDAO {
 
 	public void close() {
 		try {
-			if(rs != null) {
+			if (rs != null) {
 				rs.close();
-			}	
+			}
 			if (psmt != null) {
 				psmt.close();
 			}
@@ -46,36 +44,43 @@ public class CosDetailDAO {
 		}
 	}
 	
-	public ArrayList<CosDetailDTO> cosDetail(CosDetailDTO dto) {
-		ArrayList<CosDetailDTO> li = new ArrayList<CosDetailDTO>();
+	public CosIngredientDTO cos_detail(String cos_id) {
 		
 		conn();
-		
-		String sql = "select * from cosmetic where cos_id=?";
+			
 		try {
-			psmt=conn.prepareStatement(sql);
 			
-			psmt.setString(1, dto.getCos_id());
+			String sql = "select c.cos_name, c.cos_brand, c.cos_type, i.igt1, i.igt2, i.igt3, i.igt4, i.igt5 from cosmetic c, ingredient i where c.cos_id = i.cos_id and c.cos_id = ?";
 			
+			psmt = conn.prepareStatement(sql);
 			
-			rs=psmt.executeQuery();
+			psmt.setString(1, cos_id);
 			
-			while (rs.next()) {
-				String cos_name=rs.getString(1);
-				String cos_brand=rs.getString(2);
-				String cos_type=rs.getString(3);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				String cos_name = rs.getString(1);
+				String cos_brand = rs.getString(2);
+				String cos_type = rs.getString(3);
+				String igt1 = rs.getString(4);
+				String igt2 = rs.getString(5);
+				String igt3 = rs.getString(6);
+				String igt4 = rs.getString(7);
+				String igt5 = rs.getString(8);
 				
-				dto= new CosDetailDTO(cos_name, cos_brand, cos_type);
-				li.add(dto);
+				cosdto = new CosIngredientDTO(cos_name, cos_brand, cos_type, igt1, igt2, igt3, igt4, igt5);
+				
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		
+		return cosdto;
 		
-		return li;
+		
 	}
+	
 }
