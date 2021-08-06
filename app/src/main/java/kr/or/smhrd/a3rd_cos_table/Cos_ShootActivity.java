@@ -33,7 +33,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
     ImageView img_ex2;
     IntentIntegrator qrScan;
     RequestQueue queue;
-    String cos_id;
+    String cos_id, u_cos_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
                 }
 
 
-                String u_cos_id =qrSplit[0];
+                this.u_cos_id =qrSplit[0];
                 String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
 
 //                    String cos_id=qrSplit[1];
@@ -126,6 +126,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
                 intent.putExtra("cos_id",cos_id);
                 intent.putExtra("u_cos_id",u_cos_id);
                 startActivity(intent);
+
 
 
                 Log.v("result","result3");
