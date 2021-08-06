@@ -71,63 +71,14 @@ public class MainActivity extends AppCompatActivity {
          String id = intent.getExtras().getString("id");
 //        String id=getIntent().getStringExtra("login_id");
          edt_main_id.setText(id+"님 환영합니다!");
-
+        //---------------------------------------------------------------------------------------------------------
          // 사용 화장품 리스트 메소드 호출
          cos_uselist(id);
 
+        //---------------------------------------------------------------------------------------------------------
+        // 삭제하기위한 화장품 정보 메소드 호출
 
-//         StringRequest request = new StringRequest(Request.Method.POST, listview_url,
-//                 new Response.Listener<String>() {
-//                     @Override
-//                     public void onResponse(String response) {
-//                         Log.v("response응답결과", response);
-//
-//                         try {
-//                             JSONArray array = new JSONArray(response);
-//                             //리스트뷰에 데이터 넣는 어뎁터
-//                             ListV_cos = findViewById(R.id.ListV_cos);
-//                             data = new ArrayList<>();
-//                             for(int i = 0; i <array.length(); i++){
-//                                 JSONObject jsonObject = array.getJSONObject(i);
-//                                 String cos_name = jsonObject.getString("cos_name");
-//                                 String cos_id = jsonObject.getString("cos_id");
-//                                 String u_cos_dead = jsonObject.getString("u_cos_dead");
-//
-//                                 // 사용화장품의 사용기한 출력
-//                                 tv_usedate1.setText(u_cos_dead);
-//
-//                                 data.add(new CoslistVO(cos_name, u_cos_dead, cos_id));
-//
-//                                 Log.v("응답결과", cos_id + "//" + u_cos_dead + "//" + cos_name);
-//                             }
-//                             adapter = new CoslistAdapter(getApplicationContext(),
-//                                     R.layout.list_cositem,
-//                                     data);
-//                             ListV_cos.setAdapter(adapter);
-//                         } catch (JSONException e) {
-//                             e.printStackTrace();
-//                         }
-//                     }
-//                 },
-//                 new Response.ErrorListener() {
-//                     @Override
-//                     public void onErrorResponse(VolleyError error) {
-//                         Log.v("오류", "요청실패");
-//                     }
-//                 }) {
-//             @Override
-//             protected Map<String, String> getParams() throws AuthFailureError {
-//                 Map<String, String> params = new HashMap<>();
-//
-//                 params.put("id",id);
-//
-//                 return params;
-//             }
-//         };
-//         queue.add(request);
-
-
-
+        //---------------------------------------------------------------------------------------------------------
         //내 화장품 옆에 + 클릭시 화장품 등록 페이지로 이동
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,16 +87,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //---------------------------------------------------------------------------------------------------------
         // 내 화장품1 클릭시 상세페이지(cos_Ingred) 이동 -> 화장품 1에 대한 자료화면으로 넘어가야함
         img_mycos1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cos_info(id);
+//                cos_delete_info(id);
             }
         });
      }
 
+        //---------------------------------------------------------------------------------------------------------
 
      // 디비 연동 하는 코드를 메소드로 생성 후 필요할 떄 마다 불러서 사용
     
@@ -194,6 +147,55 @@ public class MainActivity extends AppCompatActivity {
          };
          queue.add(request);
      }
+    //---------------------------------------------------------------------------------------------------------
+
+    public void cos_delete_info(String id) {
+        String LV_url = "http://220.71.97.208:8099/AndServer/CosDeleteInfoService";
+        StringRequest request = new StringRequest(Request.Method.POST, LV_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.v("deleteinfo응답결과", response);
+
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for(int i = 0; i <array.length(); i++){
+                                JSONObject jsonObject = array.getJSONObject(i);
+                                String u_cos_id = jsonObject.getString("u_cos_id");
+                                String state = jsonObject.getString("state");
+
+                                Intent intent = new Intent(getApplicationContext(), CosDeletePopup.class);
+                                intent.putExtra("u_cos_id", u_cos_id);
+                                intent.putExtra("state", state);
+                                startActivity(intent);
+
+                                Log.v("응답결과", u_cos_id + "//" + state);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.v("오류", "요청실패");
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("id",id);
+
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+    //---------------------------------------------------------------------------------------------------------
 
      public void cos_uselist(String id) {
          String LV2_url = "http://220.71.97.208:8099/AndServer/CosUseListService";

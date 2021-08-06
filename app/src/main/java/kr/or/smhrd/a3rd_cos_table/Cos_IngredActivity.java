@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -26,6 +27,7 @@ import java.util.Map;
 public class Cos_IngredActivity extends AppCompatActivity {
 
     TextView tv_detail_name, tv_detail_brand, tv_detail_type, tv_Cos_Ingred;
+    ImageView img_ingCos;
 
     RequestQueue queue;
 
@@ -38,6 +40,7 @@ public class Cos_IngredActivity extends AppCompatActivity {
         tv_detail_name = findViewById(R.id.tv_detail_name);
         tv_detail_brand = findViewById(R.id.tv_detail_brand);
         tv_detail_type = findViewById(R.id.tv_detail_type);
+        img_ingCos = findViewById(R.id.img_ingCos);
 
 
         queue = Volley.newRequestQueue(getApplicationContext());
@@ -45,8 +48,15 @@ public class Cos_IngredActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String cos_id = intent.getExtras().getString("cos_id");
 
+//        if(cos_id.equals("cos_01")){
+//            img_ingCos.setImageResource(R.drawable.cos_01);
+//        }else if (cos_id.equals("cos_02")){
+//            img_ingCos.setImageResource(R.drawable.cos_02);
+//        }else if (cos_id.equals("cos_03")){
+//            img_ingCos.setImageResource(R.drawable.cos_03);
+//        }
 
-        String detail_url = "http://220.71.97.208:8099/AndServer/CosDetailService";
+        String detail_url = "http://220.71.97.208:8099/AndServer/CosDetailListService";
 
         StringRequest request = new StringRequest(Request.Method.POST, detail_url,
                 new Response.Listener<String>() {
@@ -68,8 +78,10 @@ public class Cos_IngredActivity extends AppCompatActivity {
                                 String igt4 = jsonObject.getString("igt4");
                                 String igt5 = jsonObject.getString("igt5");
 
+
                                 Log.v("igt응답결과", cos_name + "//" + cos_brand + "//" + cos_type + "//" + igt1 + "//" + igt2 + "//" + igt3 + "//" + igt4 + "//" + igt5);
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -91,6 +103,5 @@ public class Cos_IngredActivity extends AppCompatActivity {
             }
         };
         queue.add(request);
-
     }
 }
