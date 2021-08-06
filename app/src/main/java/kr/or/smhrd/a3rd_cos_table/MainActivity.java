@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
      }
 
      public void cos_uselist(String id) {
-         String LV2_url = "http://220.71.97.208:8099/AndServer/CosUseListService";
+         String LV2_url = "http://121.147.0.224:8081/AndServer/CosUseListService";
          StringRequest request = new StringRequest(Request.Method.POST, LV2_url,
                  new Response.Listener<String>() {
                      @Override
@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
                                  String cos_name = jsonObject.getString("cos_name");
                                  String u_cos_date = jsonObject.getString("u_cos_date");
                                  String state = jsonObject.getString("state");
-
 
                                  data.add(new CoslistVO(cos_name, u_cos_date, state));
 

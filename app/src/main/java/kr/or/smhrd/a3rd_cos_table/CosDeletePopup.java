@@ -31,6 +31,8 @@ public class CosDeletePopup extends AppCompatActivity {
     Button btn_dcancle,btn_dcomplete,btn_dstop;
 
     RequestQueue queue;
+    String ucosid=null;
+    String state=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +58,16 @@ public class CosDeletePopup extends AppCompatActivity {
 
         //완료 버튼 클릭 : 기존에 등록된 화장품 이미지와 정보 삭제&초기등록버튼으로 변경 / DB->state : complete로 update
         btn_dcomplete.setOnClickListener(new View.OnClickListener() {
+           // state="사용완료";
             @Override
             public void onClick(View v) {
-                //String u_cos_id=getText().toString();
+                //String u_cos_id=.getText().toString();
                 //String state=getText().toString();
 
                 String delete_url="http://121.147.0.224:8081/AndroidServer/CosDeleteService";
 
                 //db에 state 전송
-                StringRequest request=new StringRequest(Request.Method.GET, delete_url,
+                StringRequest request=new StringRequest(Request.Method.POST, delete_url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -81,8 +84,8 @@ public class CosDeletePopup extends AppCompatActivity {
                                     //성공시 CosAddActivity로 이동
                                     Intent intent_delete = new Intent(getApplicationContext(), CosAddActivity.class);
                                     intent_delete.putExtra("imgCheck","gggg");
-                                    //intent.putExtra("u_cos_id",u_cos_id);
-                                    //intent.putExtra("state",state);
+                                    //intent_delete.putExtra("u_cos_id",u_cos_id);
+                                    //intent_delete.putExtra("state",state);
 
                                     startActivity(intent_delete);
                                 }
@@ -110,6 +113,7 @@ public class CosDeletePopup extends AppCompatActivity {
 
         //중단 버튼 클릭 : 기존에 등록된 화장품 삭제&초기등록버튼으로 변경 / DB->state : stop로 update
         btn_dstop.setOnClickListener(new View.OnClickListener() {
+            //state="사용중단";
             @Override
             public void onClick(View v) {
 
