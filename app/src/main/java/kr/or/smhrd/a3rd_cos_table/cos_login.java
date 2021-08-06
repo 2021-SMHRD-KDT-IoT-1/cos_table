@@ -86,7 +86,5 @@ public class cos_login extends AppCompatActivity {
             }
         });
 
-
-
     }
 }

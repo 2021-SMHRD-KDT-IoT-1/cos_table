@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="88dp" />
+        app:layout_constraintGuide_end="0dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline9">
 
         <RadioButton
-            android:id="@+id/rd_1"
+            android:id="@+id/radioButton"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_result"
@@ -93,7 +93,7 @@
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rd_2"
+            android:id="@+id/radioButton3"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -105,7 +105,7 @@
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rd_3"
+            android:id="@+id/radioButton2"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_result"
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
         <RadioButton
-            android:id="@+id/rd_4"
+            android:id="@+id/radioButton6"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_result"
@@ -136,7 +136,7 @@
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rd_5"
+            android:id="@+id/radioButton5"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -148,7 +148,7 @@
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rd_6"
+            android:id="@+id/radioButton4"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_result"

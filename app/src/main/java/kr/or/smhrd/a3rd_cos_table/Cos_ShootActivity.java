@@ -114,6 +114,8 @@ public class Cos_ShootActivity extends AppCompatActivity {
 
                 String u_cos_id =qrSplit[0];
                 String id = qrSplit[1]; //이 둘은 다른 액티비티에서 가져와야 하는지 확인해야함
+
+//                    String cos_id=qrSplit[1];
                 this.cos_id=qrSplit[2];
                 String amount = qrSplit[3];
                 Log.v("chchchch", "들어오니"+cos_id);

@@ -60,7 +60,17 @@ public class Cos_DetailActivity extends AppCompatActivity {
         String cos_id = intent.getStringExtra("cos_id");
         String u_cos_id=intent.getStringExtra("u_cos_id");
 
+
+//        Log.d("decos",cos_id);
         queue = Volley.newRequestQueue(getApplicationContext());
+
+        //cos_id 가져오기기
+
+
+
+
+
+
 
        String listview_url = "http://59.0.236.194:8099/AndServer/CosDetailService";
         StringRequest request = new StringRequest(Request.Method.POST, listview_url,
@@ -149,7 +159,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
             }
         });
 
-        
+
         // 등록완료 버튼 클릭 시 정보와 함께 다시 cos_add 페이지로 이동
         btn_complete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,15 +249,13 @@ public class Cos_DetailActivity extends AppCompatActivity {
 //                버튼 클릭시 동작
                 dlg.setPositiveButton("확인",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
-
+                        //토스트 메시지
+//                        Toast.makeText(Cos_DetailActivity.this,"확인을 누르셨습니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 dlg.show();
             }
         });
-
-
-
 
     }
 }
