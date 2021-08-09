@@ -4,16 +4,12 @@ DROP TABLE ingredient;
 DROP TABLE sold_table cascade constraints;
 DROP TABLE u_cosmetic;
 
-select* from sold_table;
-insert into sold_table values('tb_01','2021-08-05');
 CREATE TABLE member (
    id       varchar2(50)      NOT NULL,
    table_id   varchar2(50)     NULL,
    pw      varchar2(50)      NOT NULL,
    skintype varchar2(50)      NOT NULL
 );
-
-select*from member;
 
 CREATE TABLE cosmetic (
    cos_id      varchar2(50)      NOT NULL,
@@ -23,7 +19,6 @@ CREATE TABLE cosmetic (
    cos_type      varchar2(50)      NOT NULL,
    cos_allergy   varchar2(50)      NULL
 );
-select*from cosmetic;
 
 CREATE TABLE ingredient (
    igt_id   varchar2(50)      NOT NULL,
@@ -35,7 +30,6 @@ CREATE TABLE ingredient (
    igt5   varchar2(100)      NOT NULL
 );
 
-select * from ingredient;
 CREATE TABLE sold_table (
    table_id   varchar2(50)      NOT NULL,
    solddate   varchar2(50)      NOT NULL
