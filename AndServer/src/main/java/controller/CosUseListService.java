@@ -33,7 +33,7 @@ public class CosUseListService extends HttpServlet {
 		
 		CosListDAO cosdao = new CosListDAO();
 		
-		ArrayList<CosListDTO> list = cosdao.cos_list(id);
+		ArrayList<CosListDTO> list = cosdao.cos_history(id);
 		
 		System.out.println(list.size());
 		

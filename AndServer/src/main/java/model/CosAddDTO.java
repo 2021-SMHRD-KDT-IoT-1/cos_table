@@ -9,7 +9,6 @@ public class CosAddDTO {
 	private String amount;
 	private String u_cos_dead;
 	private String state;
-	private String cos_name;
 	
 	public CosAddDTO() {
 		
@@ -34,11 +33,11 @@ public class CosAddDTO {
 		this.amount = amount;
 	}
 
-	public CosAddDTO(String cos_id, String u_cos_dead, String cos_name) {
+	public CosAddDTO(String id, String cos_id, String amount) {
 		super();
+		this.id = id;
 		this.cos_id = cos_id;
-		this.u_cos_dead = u_cos_dead;
-		this.cos_name = cos_name;
+		this.amount = amount;
 	}
 	
 	public CosAddDTO(String u_cos_id, String amount) {

@@ -12,38 +12,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import model.CosListDAO;
-import model.CosListDTO;
+import model.CosIngredientDAO;
+import model.CosIngredientDTO;
 
-
-
-@WebServlet("/CosDeleteInfoService")
-public class CosDeleteInfoService extends HttpServlet {
+@WebServlet("/CosAddInfoService")
+public class CosAddInfoService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
-	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		response.setContentType("application/json; charset=EUC-KR");
 		
 		PrintWriter out = response.getWriter();
 		
 		String id = request.getParameter("id");
 		
-		//아이디 정상적으로 받아오는지 확인
-		System.out.println(id+"들어옴 DeleteInfoList");
+		System.out.println("CosAddInfoService의 ID : "+id);
 		
-		CosListDAO cosdao = new CosListDAO();
+		CosIngredientDAO cosdao = new CosIngredientDAO();
 		
-		ArrayList<CosListDTO> list = cosdao.delete_info(id);
-		
-		System.out.println(list.size());
+		ArrayList<CosIngredientDTO> cosdto = cosdao.cos_QR(id);
 		
 		Gson gson = new Gson();
 		
-		String jsonArray = gson.toJson(list);
-		
-		System.out.println(jsonArray);
+		String jsonArray = gson.toJson(cosdto);
 		
 		out.print(jsonArray);
 	

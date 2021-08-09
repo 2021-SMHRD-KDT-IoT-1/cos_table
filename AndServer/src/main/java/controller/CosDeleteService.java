@@ -22,15 +22,23 @@ public class CosDeleteService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String u_cos_id=request.getParameter("u_cos_id");
-		String state = request.getParameter("state");
-	
+		String state=request.getParameter("state");
+		
+		int cnt = 0;
+		
 		System.out.println("ucosid : " + u_cos_id);
-		System.out.println("state : " + state);
 
-		CosDeleteDTO cosdelete=new CosDeleteDTO(u_cos_id, state);
 		CosDeleteDAO dao = new CosDeleteDAO();
 		
-		int cnt = dao.cos_delete(cosdelete);
+		if(state.equals("완료")) {
+			
+			cnt = dao.cos_complete(u_cos_id);			
+		
+		}else if(state.equals("중단")) {
+			
+			cnt = dao.cos_stop(u_cos_id);			
+			
+		}
 		
 		PrintWriter out = response.getWriter();
 		

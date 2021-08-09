@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CosIngredientDAO {
 
@@ -13,7 +14,8 @@ public class CosIngredientDAO {
 	int cnt = 0;
 	ResultSet rs = null;
 	CosIngredientDTO cosdto;
-
+	ArrayList<CosIngredientDTO> addInfo_list;
+	
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -47,6 +49,8 @@ public class CosIngredientDAO {
 	public CosIngredientDTO cos_detail(String cos_id) {
 		
 		conn();
+		
+		System.out.println("아이디 : "+cos_id);
 			
 		try {
 			
@@ -78,9 +82,44 @@ public class CosIngredientDAO {
 			close();
 		}
 		
-		return cosdto;
-		
+		return cosdto;	
 		
 	}
+	
+	
+	//cos_add에 필요한 값 출력 메소드
+	public ArrayList<CosIngredientDTO> cos_QR (String id) {
+		
+		addInfo_list = new ArrayList<CosIngredientDTO>();
+		
+		conn();
+		String sql = "select cos_id, u_cos_id, amount from u_cosmetic where id = ? and state = '사용중'";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				String cos_id = rs.getString(1);
+				String u_cos_id = rs.getString(2);
+				String amount = rs.getString(3);
+				
+				cosdto = new CosIngredientDTO(cos_id, u_cos_id, amount);
+				
+				addInfo_list.add(cosdto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		
+		return addInfo_list;
+	} 
+	
 	
 }

@@ -109,3 +109,11 @@ ALTER TABLE u_cosmetic ADD CONSTRAINT "FK_cosmetic_TO_u_cosmetic_1" FOREIGN KEY 
 REFERENCES cosmetic (
    cos_id
 );
+
+//시퀀스 생성
+CREATE SEQUENCE U_COS_SEQ
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 1000 --최대값 1000
+NOCYCLE --순한하지않음

@@ -45,12 +45,12 @@ public class CosDeleteDAO { //deletedao ->u_cos_id,state 완료/중단 ...
 		}
 	}
 
-	public int cos_delete(CosDeleteDTO cosdelete) {
+	public int cos_complete(String u_cos_id) {
 			conn();
-			String sql="DELETE FROM u_cosmetic WHERE u_cos_id=?";
+			String sql="update u_cosmetic set state = '완료' WHERE u_cos_id=?";
 			try {
 				psmt=conn.prepareStatement(sql);
-				psmt.setString(1, cosdelete.getU_cos_id());
+				psmt.setString(1, u_cos_id);
 				
 				cnt=psmt.executeUpdate();
 			} catch (SQLException e) {
@@ -61,6 +61,22 @@ public class CosDeleteDAO { //deletedao ->u_cos_id,state 완료/중단 ...
 			
 			return cnt;
 		}
+	
+	public int cos_stop(String u_cos_id) {
+		conn();
+		String sql = "update u_cosmetic set state = '중단' where u_cos_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, u_cos_id);
+			
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
 	
 	
 	public int update(CosDeleteDTO cosdelete) {

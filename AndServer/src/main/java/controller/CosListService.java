@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 
 import model.CosAddDAO;
 import model.CosAddDTO;
+import model.CosListDAO;
+import model.CosListDTO;
 
 @WebServlet("/CosListService")
 public class CosListService extends HttpServlet {
@@ -29,24 +31,21 @@ public class CosListService extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		//아이디 정상적으로 받아오는지 확인
-		System.out.println(id+"들어옴");
+		System.out.println("coslistservice : "+id+" 들어옴");
 		
-		CosAddDAO cosdao = new CosAddDAO();
+		CosListDAO dao = new CosListDAO();
 		
-		ArrayList<CosAddDTO> list = cosdao.cos_list(id);
+		ArrayList<CosListDTO> arr_list = dao.cos_list(id);
 		
-		System.out.println(list.size());
+		// 사용중인 화장품 갯수 확인
+		System.out.println("사용중인 화장품 갯수 : "+arr_list.size());
 		
 		Gson gson = new Gson();
 		
+		String jsonArray = gson.toJson(arr_list);
 		
-		String jsonArray = gson.toJson(list);
+		System.out.println("사용중인 화장품 리스트 : "+jsonArray);
 		
-		System.out.println(jsonArray);
-		
-		out.print(jsonArray);
-		
-				
+		out.print(jsonArray);			
 	}
-
 }

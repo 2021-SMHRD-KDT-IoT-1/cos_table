@@ -19,14 +19,12 @@ public class CosAddService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String u_cos_id=request.getParameter("u_cos_id");
 		String id = request.getParameter("id");
 		String cos_id = request.getParameter("cos_id");
 		String amount = request.getParameter("amount");
 		
-		CosAddDTO cosadd=new CosAddDTO(u_cos_id, id, cos_id, amount);
+		CosAddDTO cosadd=new CosAddDTO(id, cos_id, amount);
 		
-		System.out.println("ucosid : " + u_cos_id);
 		System.out.println("id : " + id);
 		System.out.println("cosid : " + cos_id);
 		System.out.println("amount : " + amount);

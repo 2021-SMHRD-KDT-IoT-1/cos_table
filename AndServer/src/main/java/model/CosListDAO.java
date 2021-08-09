@@ -13,7 +13,8 @@ public class CosListDAO {
 	int cnt = 0;
 	ResultSet rs = null;
 	CosListDTO cosdto;
-
+	ArrayList<CosListDTO> arr_list;
+	
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -43,8 +44,47 @@ public class CosListDAO {
 			e.printStackTrace();
 		}
 	}
+	//----------------------------------------------------------------------
+	// 사용중 화장품 리스트 출력 메소드
 
 	public ArrayList<CosListDTO> cos_list(String id) {
+		
+		arr_list = new ArrayList<CosListDTO>();
+		
+		conn();
+		
+		try {
+			String sql = "select u.u_cos_id, u.cos_id, u.u_cos_dead, c.cos_name from u_cosmetic u, cosmetic c where u.cos_id = c.cos_id and u.id = ? and u.state = '사용중'";
+			
+			psmt = conn.prepareStatement(sql);	
+			
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				String u_cos_id = rs.getString(1);
+				String cos_id = rs.getString(2);
+				String u_cos_dead = rs.getString(3);
+				String cos_name = rs.getString(4);
+				
+				cosdto = new CosListDTO(u_cos_id, cos_id, u_cos_dead, cos_name);
+				
+				arr_list.add(cosdto);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return arr_list;
+	}
+
+	//----------------------------------------------------------------------
+	// 사용했던 화장춤 리스트 출력
+	public ArrayList<CosListDTO> cos_history(String id) {
 		ArrayList<CosListDTO> list = new ArrayList<CosListDTO>();
 
 		conn();
@@ -76,42 +116,5 @@ public class CosListDAO {
 		}
 		return list;
 	}
-	
-	
-	
-	
-	// 여정누나 삭제 기능에 필요한 u_cos_id, state 불러오기
-		public ArrayList<CosListDTO> delete_info(String id) {
-			ArrayList<CosListDTO> delete_info = new ArrayList<CosListDTO>();
-	
-			conn();
-	
-			try {
-				String sql = "select u_cos_id, state from u_cosmetic where id = ? and state = '사용중'";
-				
-				psmt = conn.prepareStatement(sql);	
-				
-				psmt.setString(1, id);
-				
-				rs = psmt.executeQuery();
-	
-				if (rs.next()) {				
-					String u_cos_id = rs.getString(1);
-					String state = rs.getString(2);
-	
-					cosdto = new CosListDTO(u_cos_id, state);
-	
-					delete_info.add(cosdto);
-	
-				}
-	
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			
-			return delete_info;
-		}
 	
 }

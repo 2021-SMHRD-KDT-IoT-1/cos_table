@@ -17,12 +17,20 @@ public class CosEdtService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String u_cos_id = request.getParameter("u_cos_id");
-		String amount=request.getParameter("amount");
-		CosAddDTO cosadd=new CosAddDTO(u_cos_id, amount);
-		CosAddDAO dao = new CosAddDAO();
-		int cnt = dao.cos_edt(cosadd);
+		
 		PrintWriter out = response.getWriter();
+		
+		String u_cos_id = request.getParameter("u_cos_id");
+		
+		String amount = request.getParameter("amount");
+		
+		System.out.println(u_cos_id +", "+amount);
+		
+		CosAddDAO dao = new CosAddDAO();
+		
+		CosAddDTO cosadd = new CosAddDTO(u_cos_id, amount);
+		
+		int cnt = dao.cos_edt(cosadd);
 		
 		if(cnt>0) {
 			out.print(1);

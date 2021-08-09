@@ -2,9 +2,12 @@ package model;
 
 public class CosIngredientDTO {
 
+	String u_cos_id;
+	String amount;
 	String cos_id;
 	String cos_name;
 	String cos_brand;
+	String cos_type;
 	String cos_price;
 	String igt1;
 	String igt2;
@@ -12,17 +15,40 @@ public class CosIngredientDTO {
 	String igt4;
 	String igt5;
 	
-	public CosIngredientDTO(String cos_name, String cos_brand, String cos_price, String igt1, String igt2, String igt3,
+	public CosIngredientDTO(String cos_name, String cos_brand, String cos_type, String igt1, String igt2, String igt3,
 			String igt4, String igt5) {
 		this.cos_name = cos_name;
 		this.cos_brand = cos_brand;
-		this.cos_price = cos_price;
+		this.cos_type = cos_type;
 		this.igt1 = igt1;
 		this.igt2 = igt2;
 		this.igt3 = igt3;
 		this.igt4 = igt4;
 		this.igt5 = igt5;
 	}
+	public CosIngredientDTO(String cos_id,String u_cos_id, String amount) {
+		super();
+		this.cos_id = cos_id;
+		this.u_cos_id = u_cos_id;
+		this.amount = amount;
+	}
+
+	public String getU_cos_id() {
+		return u_cos_id;
+	}
+
+	public void setU_cos_id(String u_cos_id) {
+		this.u_cos_id = u_cos_id;
+	}
+
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+
 	
 	public String getCos_id() {
 		return cos_id;
@@ -42,12 +68,15 @@ public class CosIngredientDTO {
 	public void setCos_brand(String cos_brand) {
 		this.cos_brand = cos_brand;
 	}
-	public String getCos_price() {
-		return cos_price;
+	
+	public String getCos_type() {
+		return cos_type;
 	}
-	public void setCos_price(String cos_price) {
-		this.cos_price = cos_price;
+
+	public void setCos_type(String cos_type) {
+		this.cos_type = cos_type;
 	}
+
 	public String getIgt1() {
 		return igt1;
 	}
