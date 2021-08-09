@@ -1,35 +1,36 @@
 package kr.or.smhrd.a3rd_cos_table;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-//import kr.or.smhrd.a3rd_cos_table.cos_img.img_1st;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CosAddActivity extends AppCompatActivity {
 
-    Button btn_add, btn_edt;
-    ImageView img_1st_add, img_2nd_add, img_3rd_add;
-    TextView tv_add_info,tv_add_img1,tv_add_img2,tv_add_img3;
-    Dialog add_amountedt;
+    Button btn_add;
+    ImageView[] arr_img = new ImageView[3];
+    TextView[] arr_amount = new TextView[3];
     RequestQueue queue;
 
     @Override
@@ -38,84 +39,93 @@ public class CosAddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cos_add);
 
         btn_add = findViewById(R.id.btn_add);
-        btn_edt = findViewById(R.id.btn_edt);
 
-        img_1st_add=(ImageView)findViewById(R.id.img_1st_add);
-        img_2nd_add=(ImageView)findViewById(R.id.img_2nd_add);
-        img_3rd_add=(ImageView)findViewById(R.id.img_3rd_add);
 
         queue = Volley.newRequestQueue(getApplicationContext());
 
-        Intent intent_delete = getIntent();
-        String imgCheck = intent_delete.getStringExtra("imgCheck");
-        if(imgCheck != null){
-            img_1st_add.setImageResource(R.drawable.plus);
-        }
-
-        //이미지뷰에 사진 출력
-        // resource 폴더에 저장된 파일을 bitmap으로 만들어 리턴해주는 함수
-        Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.imgsample1);
-        img_1st_add.setImageBitmap(bitmap);
-        // drawable/ 폴더의 image_sample 이미지를 load하여 출력하는 방식
-        img_2nd_add.setImageResource(R.drawable.imgsample1);
-        img_3rd_add.setImageResource(R.drawable.imgsample1);
-
-        tv_add_img1=findViewById(R.id.tv_add_img1);
-        tv_add_img2=findViewById(R.id.tv_add_img2);
-        tv_add_img3=findViewById(R.id.tv_add_img3);
-
         Intent intent = getIntent();
-        String amount = intent.getStringExtra("amount");
-        if(amount != null) {
-            if (tv_add_img1.equals("1")) {
-                tv_add_img1.setText(amount);
-            }else if(tv_add_img2.equals("2")) {
-                tv_add_img2.setText(amount);
-            }else if(tv_add_img3.equals("3")) {
-                tv_add_img3.setText(amount);
-            }
-
-        }
+        String id = intent.getStringExtra("id");
 
         // 등록 버튼 클릭 시 Cos_Shoot페이지로 이동
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CosAddActivity.this, Cos_ShootActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         });
+        String qrinfo_url = "http://220.71.97.208:8099/AndServer/CosAddInfoService";
+        StringRequest request = new StringRequest(Request.Method.POST, qrinfo_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.v("qrinfo 응답결과 :",response);
+
+                        try {
+                            JSONArray infolist = new JSONArray(response);
+                            for (int i = 0; i < infolist.length(); i++) {
+                                JSONObject jsonObject = infolist.getJSONObject(i);
+
+                                //db에서 받아온 값 변수에 저장
+                                String cos_id = jsonObject.getString("cos_id");
+                                String u_cos_id = jsonObject.getString("u_cos_id");
+                                String amount = jsonObject.getString("amount");
+
+                                //초기화
+                                int arr_img_view = getResources().getIdentifier("img_add_"+(i+1), "id", getPackageName());
+                                int arr_tv_amount = getResources().getIdentifier("tv_add_img"+(i+1), "id", getPackageName());
+
+                                arr_img[i] = findViewById(arr_img_view);
+                                arr_amount[i] = findViewById(arr_tv_amount);
+
+                                //----------------------------------------------------------------------------------------------------------
+                                //db에서 받아온 값으로 아이디 찾기
+                                int cos_num = getResources().getIdentifier("kr.or.smhrd.a3rd_cos_table:drawable/"+cos_id, null, null);
+
+                                arr_img[i].setImageResource(cos_num);
+                                arr_amount[i].setText(amount);
+
+                                arr_img[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(getApplicationContext(), CosAddPopup.class);
+                                        intent.putExtra("cos_id", cos_id);
+                                        intent.putExtra("u_cos_id", u_cos_id);
+                                        intent.putExtra("amount", amount);
+                                        intent.putExtra("id", id);
+                                        startActivity(intent);
+                                    }
+                                });
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.v("qrinfo 오류", "qrinfo 오류입니다.");
+
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("id", id);
+
+                return params;
+            }
+        };
+        queue.add(request);
+
 
         //================================================================================================
-        img_1st_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                Intent intent = new Intent(CosAddActivity.this, CosAddPopup.class);
-                Intent intent_amount = getIntent();
-                String uCos_text= intent.getStringExtra("amount");
-                tv_add_img1.setText(uCos_text);
-                startActivity(intent);
-            }
-
-
-        });
-
-        img_2nd_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
-
-                startActivity(intent);
-            }
-        });
-
-        img_3rd_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CosAddActivity.this,CosAddPopup.class);
-                startActivity(intent);
-            }
-        });
 
 
 

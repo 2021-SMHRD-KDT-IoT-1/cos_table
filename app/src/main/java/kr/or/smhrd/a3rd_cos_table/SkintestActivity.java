@@ -33,11 +33,6 @@ public class SkintestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skintest);
 
-//        tv_test_skin=findViewById(R.id.tv_test_skin);
-//        btn_test_no=findViewById(R.id.btn_test_no);
-//        btn_test_back=findViewById(R.id.btn_test_back);
-//        btn_test_yes=findViewById(R.id.btn_test_yes);
-
 //        frame = findViewById(R.id.frame); //이거 초기화
 
         navigation = findViewById(R.id.navigation);

@@ -100,18 +100,6 @@ public class MembershipActivity extends AppCompatActivity {
                 }
             });
 //=========================================================================================================
-        //회원가입 버튼 클릭 시 피부타입이 null값이라면 토스트 메시지 출력!
-//        btn_mem_join.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(rd_result != null){
-//                    Toast.makeText(MembershipActivity.this, rd_result, Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(MembershipActivity.this, "피부타입을 선택해주세요!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//=========================================================================================================
         //회원가입 정보 DB연동
         btn_mem_join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +112,7 @@ public class MembershipActivity extends AppCompatActivity {
                 //입력 비밀번호가 같은지 체크
                 if (pw.equals(pwck)) {
 
-                    String join_url = "http://121.147.0.224:8081/AndServer/JoinService";
+                    String join_url = "http://220.71.97.208:8099/AndServer/JoinService";
 
                     StringRequest request = new StringRequest(Request.Method.POST, join_url,
                             new Response.Listener<String>() {

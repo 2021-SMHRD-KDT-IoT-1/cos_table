@@ -51,22 +51,11 @@ public class CoslistAdapter extends BaseAdapter {
 
 
         }
-
-//            //List_cositem.xml 안에 있는 View 중에서 id가 img_list_cos인 ImageView정보를 접근
-//        TextView tv_list_cosname = convertView.findViewById(R.id.tv_list_cosname);
-//        TextView tv_list_date = convertView.findViewById(R.id.tv_list_date);
-//        TextView tv_result = convertView.findViewById(R.id.tv_state);
-
         CoslistVO vo = data.get(position);
 
         viewholder.tv_list_cosname.setText(vo.getName());
         viewholder.tv_list_date.setText(vo.getDate());
         viewholder.tv_result.setText(vo.getResult());
-
-//        tv_list_cosname.setText(vo.getName());
-//        tv_list_date.setText(vo.getDate());
-//        tv_result.setText(vo.getResult());
-
 
 
         return convertView;

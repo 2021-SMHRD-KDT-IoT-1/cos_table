@@ -1,10 +1,12 @@
 package kr.or.smhrd.a3rd_cos_table;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,8 +34,13 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     EditText edt_main_id;
-    TextView tv_mycos,tv_usedate1,tv_usedate2,tv_usedate3,tv_usedcos;
-    ImageButton img_mycos1, img_mycos2, img_mycos3;
+
+    TextView tv_mycos,tv_usedcos;
+
+    TextView[] arr_tv = new TextView[3];
+    ImageButton[] arr_imgbtn = new ImageButton[3];
+
+
     Button btn_plus;
 
     RequestQueue queue;
@@ -48,130 +55,73 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_main);
-         edt_main_id = findViewById(R.id.edt_main_id);
-         tv_mycos = findViewById(R.id.tv_mycos);
-         tv_usedate1 = findViewById(R.id.tv_usedate1);
-         tv_usedate2 = findViewById(R.id.tv_usedate2);
-         tv_usedate3 = findViewById(R.id.tv_usedate3);
-         tv_usedcos = findViewById(R.id.tv_usedcos);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edt_main_id = findViewById(R.id.edt_main_id);
+        tv_mycos = findViewById(R.id.tv_mycos);
+        tv_usedcos = findViewById(R.id.tv_usedcos);
+
+        btn_plus = findViewById(R.id.btn_plus);
 
 
-         btn_plus = findViewById(R.id.btn_plus);
+        queue = Volley.newRequestQueue(getApplicationContext());
 
-         img_mycos1 = findViewById(R.id.img_mycos1);
-         img_mycos2 = findViewById(R.id.img_mycos2);
-         img_mycos3 = findViewById(R.id.img_mycos3);
-
-         queue = Volley.newRequestQueue(getApplicationContext());
-
-         //로그인 시 userid 출력
-         Intent intent = getIntent();
-         String id = intent.getExtras().getString("id");
+        //로그인 시 userid 출력
+        Intent intent = getIntent();
+        String id = intent.getExtras().getString("id");
 //        String id=getIntent().getStringExtra("login_id");
-         edt_main_id.setText(id+"님 환영합니다!");
+        edt_main_id.setText(id + "님 환영합니다!");
         //---------------------------------------------------------------------------------------------------------
-         // 사용 화장품 리스트 메소드 호출
-         cos_uselist(id);
-
-        //---------------------------------------------------------------------------------------------------------
-        // 삭제하기위한 화장품 정보 메소드 호출
-
-        //---------------------------------------------------------------------------------------------------------
-        //내 화장품 옆에 + 클릭시 화장품 등록 페이지로 이동
-        btn_plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
-                startActivity(intent);
-            }
-        });
-        //---------------------------------------------------------------------------------------------------------
-        // 내 화장품1 클릭시 상세페이지(cos_Ingred) 이동 -> 화장품 1에 대한 자료화면으로 넘어가야함
-        img_mycos1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cos_info(id);
-//                cos_delete_info(id);
-            }
-        });
-     }
-
-        //---------------------------------------------------------------------------------------------------------
-
-     // 디비 연동 하는 코드를 메소드로 생성 후 필요할 떄 마다 불러서 사용
-    
-     public void cos_info(String id) {
-         String LV_url = "http://121.147.0.224:8081/AndServer/CosListService";
-         StringRequest request = new StringRequest(Request.Method.POST, LV_url,
-                 new Response.Listener<String>() {
-                     @Override
-                     public void onResponse(String response) {
-                         Log.v("info응답결과", response);
-
-                         try {
-                             JSONArray array = new JSONArray(response);
-
-                             for(int i = 0; i <array.length(); i++){
-                                 JSONObject jsonObject = array.getJSONObject(i);
-                                 String cos_name = jsonObject.getString("cos_name");
-                                 String cos_id = jsonObject.getString("cos_id");
-                                 String u_cos_dead = jsonObject.getString("u_cos_dead");
-
-                                 Intent intent = new Intent(getApplicationContext(), Cos_IngredActivity.class);
-                                 intent.putExtra("cos_id", cos_id);
-                                 startActivity(intent);
-
-                                 Log.v("응답결과", cos_name + "//" + cos_id + "//" + u_cos_dead);
-                             }
-                         } catch (JSONException e) {
-                             e.printStackTrace();
-                         }
-                     }
-                 },
-                 new Response.ErrorListener() {
-                     @Override
-                     public void onErrorResponse(VolleyError error) {
-                         Log.v("오류", "요청실패");
-                     }
-                 }) {
-             @Override
-             protected Map<String, String> getParams() throws AuthFailureError {
-                 Map<String, String> params = new HashMap<>();
-
-                 params.put("id",id);
-
-                 return params;
-             }
-         };
-         queue.add(request);
-     }
-    //---------------------------------------------------------------------------------------------------------
-
-    public void cos_delete_info(String id) {
-        String LV_url = "http://220.71.97.208:8099/AndServer/CosDeleteInfoService";
-        StringRequest request = new StringRequest(Request.Method.POST, LV_url,
+        // 사용중인 화장품 리스트 메소드 호출
+//        JSONArray list_array = cos_list(id);
+        String LV2_url = "http://220.71.97.208:8099/AndServer/CosListService";
+        StringRequest request = new StringRequest(Request.Method.POST, LV2_url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.v("deleteinfo응답결과", response);
+                        Log.v("사용중 응답: ", response);
 
                         try {
-                            JSONArray array = new JSONArray(response);
+                            JSONArray list = new JSONArray(response);
+                            for (int i = 0; i < list.length(); i++) {
+                                JSONObject jsonObject = list.getJSONObject(i);
 
-                            for(int i = 0; i <array.length(); i++){
-                                JSONObject jsonObject = array.getJSONObject(i);
+                                //db에서 받아온 값 변수에 저장
+                                String cos_id = jsonObject.getString("cos_id");
+                                String cos_name = jsonObject.getString("cos_name");
                                 String u_cos_id = jsonObject.getString("u_cos_id");
-                                String state = jsonObject.getString("state");
+                                String u_cos_dead = jsonObject.getString("u_cos_dead");
 
-                                Intent intent = new Intent(getApplicationContext(), CosDeletePopup.class);
-                                intent.putExtra("u_cos_id", u_cos_id);
-                                intent.putExtra("state", state);
-                                startActivity(intent);
+                                //---------------------------------------------------------------------------------------------------------
+                                //초기화
+                                int imgbtn = getResources().getIdentifier("img_mycos" + (i + 1), "id", getPackageName());
+                                int tv_arr = getResources().getIdentifier("tv_usedate" + (i + 1), "id", getPackageName());
+                                arr_imgbtn[i] = findViewById(imgbtn);
+                                arr_tv[i] = findViewById(tv_arr);
 
-                                Log.v("응답결과", u_cos_id + "//" + state);
+                                //----------------------------------------------------------------------------------------------------------
+                                //db에서 받아온 값으로 아이디 찾기
+                                //사용중인 화장품 이미지, 사용기한 출력
+                                int cos_num = getResources().getIdentifier("kr.or.smhrd.a3rd_cos_table:drawable/" + cos_id, null, null);
+
+                                arr_imgbtn[i].setImageResource(cos_num);
+                                arr_tv[i].setText(u_cos_dead);
+                                //---------------------------------------------------------------------------------------------------------
+
+                                //이미지 버튼에 클릭 이벤트 생성
+
+                                arr_imgbtn[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(getApplicationContext(), Cos_IngredActivity.class);
+                                        intent.putExtra("cos_id", cos_id);
+                                        startActivity(intent);
+                                    }
+                                });
+                                //---------------------------------------------------------------------------------------------------------
+
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -180,22 +130,34 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.v("오류", "요청실패");
+                        Log.v("사용중 오류 : ", "요청실패");
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
-                params.put("id",id);
+                params.put("id", id);
 
                 return params;
             }
         };
         queue.add(request);
+        //---------------------------------------------------------------------------------------------------------
+        // 사용했던 화장품 리스트 메소드 호출
+        cos_uselist(id);
+        //---------------------------------------------------------------------------------------------------------
+        //내 화장품 옆에 + 클릭시 화장품 등록 페이지로 이동
+        btn_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CosAddActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+        //---------------------------------------------------------------------------------------------------------
     }
-
-    //---------------------------------------------------------------------------------------------------------
 
      public void cos_uselist(String id) {
          String LV2_url = "http://220.71.97.208:8099/AndServer/CosUseListService";
@@ -203,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                  new Response.Listener<String>() {
                      @Override
                      public void onResponse(String response) {
-                         Log.v("list응답결과", response);
+                         Log.v("사용했던 화장품 응답결과 : ", response);
 
                          try {
                              JSONArray array = new JSONArray(response);
@@ -219,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
                                  data.add(new CoslistVO(cos_name, u_cos_date, state));
 
-                                 Log.v("응답결과", cos_name + "//" + u_cos_date + "//" + state);
+                                 Log.v("사용했던 화장품 응답결과 : ", cos_name + "//" + u_cos_date + "//" + state);
                              }
                              adapter = new CoslistAdapter(getApplicationContext(),
                                      R.layout.list_cositem,
@@ -233,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                  new Response.ErrorListener() {
                      @Override
                      public void onErrorResponse(VolleyError error) {
-                         Log.v("오류", "요청실패");
+                         Log.v("사용했던 화장품 오류 : ", "요청실패");
                      }
                  }) {
              @Override
