@@ -4,15 +4,8 @@ DROP TABLE ingredient;
 DROP TABLE sold_table cascade constraints;
 DROP TABLE u_cosmetic;
 
-select * from MEMBER;
-select * from COSMETIC;
-select * from u_cosmetic;
-
-insert into COSMETIC values('cos_dokdo', '독도토너', '어딘가', '150000', '지성', '가나다')
-insert into U_COSMETIC values ('1', 'z', 'cos_dokdo', '20210804', '2', '죽음', '사용중')
-
-
-
+select* from sold_table;
+insert into sold_table values('tb_01','2021-08-05');
 CREATE TABLE member (
    id       varchar2(50)      NOT NULL,
    table_id   varchar2(50)     NULL,
