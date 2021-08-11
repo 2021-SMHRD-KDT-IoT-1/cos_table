@@ -29,18 +29,16 @@
             tools:ignore="WrongManifestParent"
             tools:replace="screenOrientation" />
         <activity android:name=".Cos_IngredActivity" />
-        <activity android:name=".Cos_DetailActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".Cos_DetailActivity" />
         <activity android:name=".Cos_ShootActivity" />
         <activity android:name=".CosAddActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LogoActivity"/>
+        <activity android:name=".LogoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SkintestActivity" />
         <activity android:name=".MembershipActivity" />
         <activity android:name=".cos_intro_activity">

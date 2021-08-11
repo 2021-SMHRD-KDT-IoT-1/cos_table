@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:text="@string/tv_detail"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_detail_cos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img_detail_cos"
@@ -34,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_set"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_0_5"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/amount2"
@@ -105,7 +108,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_1_0"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/amount3"
@@ -115,7 +119,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_1_5"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -130,7 +135,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_2_0"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/amount5"
@@ -142,7 +148,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_2_5"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/amount6"
@@ -152,7 +159,8 @@
                 android:button="@android:color/transparent"
                 android:gravity="center"
                 android:text="@string/btn_3_0"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </RadioGroup>
@@ -164,6 +172,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginBottom="18dp"
         android:text="@string/tv_company"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_type"
         app:layout_constraintEnd_toEndOf="@+id/tv_name"
         app:layout_constraintHorizontal_bias="0.0"
@@ -176,6 +185,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/tv_kinds"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_brand"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_brand"
@@ -187,6 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="@string/tv_dose"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />

@@ -84,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제품명"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_detail_brand"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제조사"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_detail_type"
         app:layout_constraintStart_toStartOf="@+id/tv_detail_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_name" />
@@ -102,6 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제형"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/tv_detail_brand"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_brand" />

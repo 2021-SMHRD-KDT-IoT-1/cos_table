@@ -60,11 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginEnd="312dp"
-        android:layout_marginRight="312dp"
         android:text="@string/tv_skintype"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -87,12 +85,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="304dp"
-        android:layout_marginRight="304dp"
         android:text="@string/tv_ck_sensitive"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
@@ -102,6 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_mem_join"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +139,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="건성"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_oily"
@@ -153,7 +151,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="지성"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_normal"
@@ -164,7 +163,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="중성"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_multi"
@@ -175,7 +175,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="복합성"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </RadioGroup>
 
@@ -196,7 +197,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="@string/tv_Q1"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rd_sen_Q2"
@@ -207,7 +209,8 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="@string/tv_Q2"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
