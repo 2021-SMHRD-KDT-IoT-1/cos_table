@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getExtras().getString("id");
 //        String id=getIntent().getStringExtra("login_id");
-        edt_main_id.setText(id + "님 환영합니다!");
+        edt_main_id.setText(id + "님의 화장대");
         //---------------------------------------------------------------------------------------------------------
         // 사용중인 화장품 리스트 메소드 호출
 //        JSONArray list_array = cos_list(id);
