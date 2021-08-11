@@ -55,7 +55,7 @@ public class Cos_IngredActivity extends AppCompatActivity {
 
         img_ingCos.setImageResource(cos_num);
 
-        String detail_url = "http://59.0.236.194:8099/AndServer/CosDetailService";
+        String detail_url = "http://220.71.97.208:8099/AndServer/CosDetailListService";
 
         StringRequest request = new StringRequest(Request.Method.POST, detail_url,
                 new Response.Listener<String>() {

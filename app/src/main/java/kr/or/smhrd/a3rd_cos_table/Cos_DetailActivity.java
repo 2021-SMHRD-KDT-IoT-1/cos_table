@@ -80,6 +80,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
         String cos_brand = qrSplit[2];
         String cos_type = qrSplit[3];
 
+
         int cos_num = getResources().getIdentifier("kr.or.smhrd.a3rd_cos_table:drawable/" + cos_id, null, null);
 
         img_detail_cos.setImageResource(cos_num);
