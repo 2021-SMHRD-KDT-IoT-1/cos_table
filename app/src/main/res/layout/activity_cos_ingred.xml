@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/img_ingCos"
-        android:layout_width="121dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
 
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toStartOf="@+id/tv_detail_brand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
@@ -23,10 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/tv_ing1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_ing2"
-        app:layout_constraintStart_toStartOf="@+id/img_ingCos"
-        app:layout_constraintTop_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ing_info"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -35,8 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/tv_ing2"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_ing3"
+        app:layout_constraintEnd_toEndOf="@+id/tv_ing1"
         app:layout_constraintStart_toStartOf="@+id/tv_ing1"
         app:layout_constraintTop_toBottomOf="@+id/tv_ing1" />
 
@@ -46,8 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/tv_ing3"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_ing4"
+        app:layout_constraintEnd_toEndOf="@+id/tv_ing2"
         app:layout_constraintStart_toStartOf="@+id/tv_ing2"
         app:layout_constraintTop_toBottomOf="@+id/tv_ing2" />
 
@@ -57,8 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/tv_ing4"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_ing5"
+        app:layout_constraintEnd_toEndOf="@+id/tv_ing3"
         app:layout_constraintStart_toStartOf="@+id/tv_ing3"
         app:layout_constraintTop_toBottomOf="@+id/tv_ing3" />
 
@@ -67,8 +71,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_ing5"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_ing4"
         app:layout_constraintStart_toStartOf="@+id/tv_ing4"
         app:layout_constraintTop_toBottomOf="@+id/tv_ing4" />
 
@@ -84,17 +89,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제품명"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_detail_brand"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/img_ingCos" />
 
     <TextView
         android:id="@+id/tv_detail_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제조사"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_detail_type"
         app:layout_constraintStart_toStartOf="@+id/tv_detail_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_name" />
@@ -104,8 +109,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제형"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_ingCos"
         app:layout_constraintStart_toStartOf="@+id/tv_detail_brand"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_brand" />
 
@@ -114,14 +119,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/tv_ing_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="주요성분"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

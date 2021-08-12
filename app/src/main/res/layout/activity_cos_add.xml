@@ -31,24 +31,24 @@
 
         <ImageView
             android:id="@+id/img_add_1"
-            android:layout_width="wrap_content"
-            android:layout_height="181dp"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/add_img"
             tools:srcCompat="@drawable/add_img" />
 
         <ImageView
             android:id="@+id/img_add_2"
-            android:layout_width="wrap_content"
-            android:layout_height="181dp"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/add_img"
             tools:srcCompat="@drawable/add_img" />
 
         <ImageView
             android:id="@+id/img_add_3"
-            android:layout_width="wrap_content"
-            android:layout_height="181dp"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/add_img"
             tools:srcCompat="@drawable/add_img" />
@@ -59,9 +59,11 @@
         android:id="@+id/tv_add_img1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/tv_add_img1"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/tv_add_img2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -72,8 +74,9 @@
         android:text="@string/tv_add_img2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_add_img1"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/tv_add_img3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_img1"
         app:layout_constraintTop_toTopOf="@+id/tv_add_img1"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -88,5 +91,18 @@
         app:layout_constraintStart_toEndOf="@+id/tv_add_img2"
         app:layout_constraintTop_toTopOf="@+id/tv_add_img2"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cos_add"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

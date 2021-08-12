@@ -11,18 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Cos_ShootActivity extends AppCompatActivity {
     TextView tv_cosshoot, tv_pdqr;
@@ -45,8 +37,7 @@ public class Cos_ShootActivity extends AppCompatActivity {
         btn_cancle = findViewById(R.id.btn_cancle);
         btn_shoot = findViewById(R.id.btn_shoot);
 
-        img_ex1 = findViewById(R.id.img_ex1);
-        img_ex2 = findViewById(R.id.img_ex2);
+        img_ex2 = findViewById(R.id.img_ex);
 
         //qr스캔 정의
         qrScan = new IntentIntegrator(this);

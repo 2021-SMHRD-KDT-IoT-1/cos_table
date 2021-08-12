@@ -7,7 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--색 선언-->
+    <color name="Lavender">#A58CB3</color>
+    <color name="Periwinkle">#838BC2</color>
+    <color name="PurpleHaze">#EAE7FA</color>
+    <color name="Rosewater">#D9A1A0</color>
+    <color name="Lilac">#EDD1FA</color>
+    <color name="Purple">#C8B4D0</color>
 
     <!--팝업배경-->
     <color name="dialogColor">#A6333333</color>
+
 </resources>

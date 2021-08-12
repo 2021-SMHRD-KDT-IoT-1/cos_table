@@ -9,16 +9,15 @@
     <EditText
         android:id="@+id/edt_mem_id"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/tv_style"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edge_rose"
         android:ems="10"
         android:hint="@string/edt_login_id"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_mem_pw"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -26,15 +25,13 @@
     <EditText
         android:id="@+id/edt_mem_pwck"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/tv_style"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edge_rose"
         android:ems="10"
         android:hint="@string/edt_mem_pwck"
         android:inputType="textPassword"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_pw"
         app:layout_constraintStart_toStartOf="@+id/edt_mem_pw"
         app:layout_constraintTop_toBottomOf="@+id/edt_mem_pw" />
@@ -42,15 +39,13 @@
     <EditText
         android:id="@+id/edt_mem_pw"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/tv_style"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edge_rose"
         android:ems="10"
         android:hint="@string/edt_login_pw"
         android:inputType="textPassword"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_mem_pwck"
         app:layout_constraintEnd_toEndOf="@+id/edt_mem_id"
         app:layout_constraintStart_toStartOf="@+id/edt_mem_id"
         app:layout_constraintTop_toBottomOf="@+id/edt_mem_id" />
@@ -62,8 +57,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="312dp"
         android:text="@string/tv_skintype"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -71,25 +67,24 @@
         android:id="@+id/tv_ck_mytype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/tv_ck_mytype"
 
-        android:textColor="#59A105"
+        android:textColor="@color/Rosewater"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rd_btn_group" />
 
     <TextView
         android:id="@+id/tv_ck_sensitive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="304dp"
         android:text="@string/tv_ck_sensitive"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
@@ -98,18 +93,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_mem_join"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rd_sen_group" />
+        app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.37" />
+        app:layout_constraintGuide_percent="0.3" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -123,12 +118,11 @@
         android:id="@+id/rd_btn_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_skintype">
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
 
         <RadioButton
             android:id="@+id/rd_btn_dry"
@@ -140,7 +134,7 @@
             android:gravity="center"
             android:text="건성"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_oily"
@@ -152,7 +146,7 @@
             android:gravity="center"
             android:text="지성"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_normal"
@@ -164,7 +158,7 @@
             android:gravity="center"
             android:text="중성"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rd_btn_multi"
@@ -176,7 +170,7 @@
             android:gravity="center"
             android:text="복합성"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
     </RadioGroup>
 
@@ -184,25 +178,25 @@
         android:id="@+id/rd_sen_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3">
 
         <RadioButton
             android:id="@+id/rd_sen_Q1"
-            android:layout_width="370dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_result"
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="@string/tv_Q1"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rd_sen_Q2"
-            android:layout_width="370dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/radio_result"
@@ -210,7 +204,35 @@
             android:gravity="center"
             android:text="@string/tv_Q2"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
     </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="guideline13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="370dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9021559" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

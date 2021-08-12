@@ -23,9 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +30,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
     TextView tv_name,tv_set, tv_dose, tv_brand, tv_type;
     ImageView img_detail_cos;
     Button btn_complete;
-    RadioGroup amountGroup;
+    RadioGroup amountGroup1, amountGroup2;
     RadioButton amount1, amount2, amount3, amount4, amount5, amount6;
     RequestQueue queue;
 
@@ -54,7 +51,8 @@ public class Cos_DetailActivity extends AppCompatActivity {
 
         btn_complete = findViewById(R.id.btn_complete);
 
-        amountGroup = findViewById(R.id.amountGroup);
+        amountGroup1 = findViewById(R.id.amountGroup1);
+        amountGroup2 = findViewById(R.id.amountGroup2);
         amount1 = findViewById(R.id.amount1);
         amount2 = findViewById(R.id.amount2);
         amount3 = findViewById(R.id.amount3);
@@ -72,13 +70,19 @@ public class Cos_DetailActivity extends AppCompatActivity {
 
         for (int i=0; i<qrSplit.length;i++) {
             qrSplit[i]= scanResult.split("-")[i]; //-를 기준으로 잘라서 보관
-            Log.d("test","test="+i+qrSplit[i]);
+            Log.d("QRtest","test="+i+qrSplit[i]);
         }
 
         String cos_id = qrSplit[0];
         String cos_name = qrSplit[1];
         String cos_brand = qrSplit[2];
         String cos_type = qrSplit[3];
+
+        Log.v("id : ", id);
+        Log.v("scanResult : ", scanResult);
+        Log.v("cos_id : ", cos_id);
+        Log.v("cos_name : ", cos_name);
+        Log.v("cos_type : ", cos_type);
 
 
         int cos_num = getResources().getIdentifier("kr.or.smhrd.a3rd_cos_table:drawable/" + cos_id, null, null);
@@ -88,31 +92,46 @@ public class Cos_DetailActivity extends AppCompatActivity {
         tv_brand.setText(cos_brand);
         tv_type.setText(cos_type);
 
-        amountGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        amountGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(checkedId==R.id.amount1){
+                    amountGroup2.setOnCheckedChangeListener(null);
                     amount = "0.5";
                 }else if(checkedId==R.id.amount2){
+                    amountGroup2.setOnCheckedChangeListener(null);
                     amount = "1.0";
                 }else if(checkedId==R.id.amount3){
+                    amountGroup2.setOnCheckedChangeListener(null);
                     amount = "1.5";
-                }else if(checkedId==R.id.amount4){
+                }
+            }
+        });
+
+        amountGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if(checkedId==R.id.amount4){
+                    amountGroup1.setOnCheckedChangeListener(null);
                     amount = "2.0";
                 }else if(checkedId==R.id.amount5){
+                    amountGroup1.setOnCheckedChangeListener(null);
                     amount = "2.5";
                 }else if(checkedId==R.id.amount6){
+                    amountGroup1.setOnCheckedChangeListener(null);
                     amount = "3.0";
                 }
             }
         });
-        
+
+
         // 등록완료 버튼 클릭 시 정보와 함께 다시 cos_add 페이지로 이동
         btn_complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://220.71.97.208:8099/AndServer/CosAddService";
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                String url = "http://59.0.236.194:8099/AndServer/CosAddService";
+                StringRequest request = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -143,6 +162,7 @@ public class Cos_DetailActivity extends AppCompatActivity {
                         return params;
                     }
                 };
+                queue.add(request);
             }
         });
 

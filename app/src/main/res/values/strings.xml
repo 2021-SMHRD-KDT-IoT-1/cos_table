@@ -41,7 +41,7 @@
     <string name="tv_usedate1">사용기한</string>
     <string name="tv_usedate2">사용기한</string>
     <string name="tv_usedate3">사용기한</string>
-    <string name="tv_usedcos">내 화장품 역사 </string>
+    <string name="tv_usedcos">내가 썼던 화장품</string>
 
     <!--activity_coss_add.xml-->
     <string name="btn_add">등록</string>
@@ -50,17 +50,21 @@
     <string name="tv_add_img3">3</string>
 
     <!--cos_shoot.xml-->
-    <string name="tv_cosshoot">올바른 촬영 예시</string>
+    <string name="tv_cosshoot">⚠촬영 시 주의사항⚠</string>
     <string name="tv_pdqr">
-        제품 뒷면에 있는 큐알 코드를
-        카메라에 바르게 찍어주세요!!
+        전용 화장품 큐알코드만 사용해주세요!
+    </string>
+    <string name="tv_pdqr2">
+        카메라가 큐알코드의 정면을 바라보게 해주세요!
     </string>
     <string name="btn_cancle">취소</string>
     <string name="btn_shoot">촬영</string>
 
+    <string name="cos_add">내 화장품 관리</string>
+
     <!--cos_detail-->
     <string name="tv_detail"> 제품 이름 </string>
-    <string name="tv_set">정량 설정</string>
+    <string name="tv_set">1회 사용량 설정</string>
 
     <string name="tv_company">제조사</string>
     <string name="tv_kinds">종류</string>
